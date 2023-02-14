@@ -17,7 +17,7 @@ on:
         type: string
 
 env:
-  apiops_release_version: ${{ env.APIOPS_VERSION }}
+  apiops_release_version: ${{ vars.APIOPS_VERSION }}
   
 jobs:
   build:
