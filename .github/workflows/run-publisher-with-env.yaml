@@ -17,8 +17,8 @@ on:
         type: string
 
 env:
-  apiops_release_version: v4.0.3
-
+  apiops_release_version: ${{ env.APIOPS_VERSION }}
+  
 jobs:
   build:
     runs-on: ubuntu-latest
