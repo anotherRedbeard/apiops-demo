@@ -1,5 +1,0 @@
-<fragment>
-	<set-header name="x-request-context-data" exists-action="override">
-		<value>@(context.Deployment.Region)</value>
-	</set-header>
-</fragment>

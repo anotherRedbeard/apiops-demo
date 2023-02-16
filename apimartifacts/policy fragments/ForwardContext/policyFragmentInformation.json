@@ -1,5 +1,0 @@
-{
-  "properties": {
-    "description": "Sets a custom header to forward context information to backend service"
-  }
-}
