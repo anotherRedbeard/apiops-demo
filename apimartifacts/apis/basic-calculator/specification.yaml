@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Basic Calculator
+  title: Basic Calculator Api
   description: Arithmetics is just a call away! test this was a change in the repo change test asdf
   version: '1.0'
 servers:

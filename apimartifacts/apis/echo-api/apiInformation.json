@@ -3,7 +3,7 @@
     "apiRevision": "1",
     "apiRevisionDescription": "Adding a new revision",
     "authenticationSettings": {},
-    "displayName": "Echo API",
+    "displayName": "The Echo API",
     "isCurrent": true,
     "path": "echo",
     "protocols": [
