@@ -4,7 +4,6 @@ info:
   description: Arithmetics is just a call away! test this was a change in the repo change test asdf
   version: '1.0'
 servers:
-  - url: http://red-apim-dev.azure-api.net/calc
   - url: https://red-apim-dev.azure-api.net/calc
 paths:
   /add:
