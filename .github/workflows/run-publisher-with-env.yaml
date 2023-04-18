@@ -67,6 +67,8 @@ jobs:
           $VerbosePreference = "Continue"
           $InformationPreference = "Continue"
 
+          Write-Information "Logging.LogLevel.Default: $env:Logging.LogLevel.Default"
+
           Write-Information "Downloading publisher..."
           $publisherFileName = "${{ runner.os }}" -like "*win*" ? "publisher.win-x64.exe" : "publisher.linux-x64.exe"
           $uri = "https://github.com/Azure/apiops/releases/download/${{ env.apiops_release_version }}/$publisherFileName"
