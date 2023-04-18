@@ -4,7 +4,6 @@ info:
   description: Colors API - description from specification.yaml
   termsOfService: https://github.com/markharrison/ColorsAPI/blob/master/LICENSE
   contact:
-    name: Mark Harrison
     url: https://github.com/markharrison/ColorsAPI
     email: mark.colorsapi@harrison.ws
   license:
