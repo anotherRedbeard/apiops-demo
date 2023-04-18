@@ -60,14 +60,14 @@ jobs:
           API_MANAGEMENT_SERVICE_NAME: ${{ secrets.API_MANAGEMENT_SERVICE_NAME }}
           API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH: ${{ GITHUB.WORKSPACE }}/${{ inputs.API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH }}
           COMMIT_ID: ${{ inputs.COMMIT_ID }}
-          Logging.LogLevel.Default: Debug
+          Logging__LogLevel__Default: Debug
         run: |
           Set-StrictMode -Version Latest
           $ErrorActionPreference = "Stop"
           $VerbosePreference = "Continue"
           $InformationPreference = "Continue"
 
-          Write-Information "Logging.LogLevel.Default: $env:Logging.LogLevel.Default"
+          Write-Information "Logging.LogLevel.Default: $env:Logging__LogLevel__Default"
 
           Write-Information "Downloading publisher..."
           $publisherFileName = "${{ runner.os }}" -like "*win*" ? "publisher.win-x64.exe" : "publisher.linux-x64.exe"
