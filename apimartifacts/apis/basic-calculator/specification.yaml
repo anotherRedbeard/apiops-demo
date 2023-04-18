@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Basic Calculator Api
-  description: Arithmetics is just a call away! from specifiction.yaml
+  description: Arithmetics is just a call away! from specifiction.yaml - this is only a test
   version: '1.0'
 servers:
   - url: https://red-apim-dev.azure-api.net/calc
