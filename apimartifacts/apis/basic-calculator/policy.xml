@@ -14,6 +14,10 @@
 	<inbound>
 		<base />
 		<!--just adding a comment-->
+		<ip-filter action="allow">
+			<address>13.66.201.169</address>
+			<address-range from="13.66.140.128" to="13.66.140.143" />
+		</ip-filter>
 	</inbound>
 	<backend>
 		<base />
