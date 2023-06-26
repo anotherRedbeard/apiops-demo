@@ -24,7 +24,7 @@ namedValues:
   - name: 639121f85ddd1701d02ea23f
     properties:
       displayName: Logger-Credentials--639121f85ddd1701d02ea240
-      value: 37d97e8f-39e4-477d-be1c-313542d8c64d
+      value: "{#appInsightsLoggerKey#}"
 loggers:
     - name: red-scus-apim-ai-dev
       properties:
