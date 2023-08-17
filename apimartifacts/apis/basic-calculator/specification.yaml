@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Basic Calculator Api
-  description: Arithmetics is just a call away! from specifiction.yaml - this is only a test
+  description: Arithmetics new test
   version: '1.0'
 servers:
   - url: https://red-apim-dev.azure-api.net/calc
@@ -18,7 +18,7 @@ paths:
           required: true
           schema:
             enum:
-              - ''
+              - '51'
             type: string
         - name: b
           in: query
@@ -26,86 +26,11 @@ paths:
           required: true
           schema:
             enum:
-              - ''
+              - '49'
             type: string
       responses:
         '200':
           description: ''
-  /mul:
-    get:
-      summary: Multiply two integers
-      description: Produces a product of two numbers.
-      operationId: 6271447c463461115ced7757
-      parameters:
-        - name: a
-          in: query
-          description: First operand. Default value is <code>51</code>.
-          required: true
-          schema:
-            enum:
-              - ''
-            type: string
-        - name: b
-          in: query
-          description: Second operand. Default value is <code>49</code>.
-          required: true
-          schema:
-            enum:
-              - ''
-            type: string
-      responses:
-        '200':
-          description: ''
-  /div:
-    get:
-      summary: Divide two integers
-      description: Produces a quotient of two numbers.
-      operationId: 6271447c463461115ced7758
-      parameters:
-        - name: a
-          in: query
-          description: First operand. Default value is <code>51</code>.
-          required: true
-          schema:
-            enum:
-              - ''
-            type: string
-        - name: b
-          in: query
-          description: Second operand. Default value is <code>49</code>.
-          required: true
-          schema:
-            enum:
-              - ''
-            type: string
-      responses:
-        '200':
-          description: ''
-  /sub:
-    get:
-      summary: Subtract two integers
-      description: Produces a difference between two numbers.
-      operationId: 625eb6d5217d200a1c14530c
-      parameters:
-        - name: a
-          in: query
-          description: First operand. Default value is <code>51</code>.
-          required: true
-          schema:
-            enum:
-              - ''
-            type: string
-        - name: b
-          in: query
-          description: Second operand. Default value is <code>49</code>.
-          required: true
-          schema:
-            enum:
-              - ''
-            type: string
-      responses:
-        '200':
-          description: 'null'
 components:
   securitySchemes:
     apiKeyHeader:

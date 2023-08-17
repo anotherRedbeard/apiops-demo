@@ -4,11 +4,10 @@
     "authenticationSettings": {},
     "contact": {
       "email": "mark.colorsapi@harrison.ws",
-      "name": "Mark Harrison",
       "url": "https://github.com/markharrison/ColorsAPI"
     },
-    "description": "Colors API - description from apiinformation.json",
-    "displayName": "Color API",
+    "description": "Colors API - description from specification.yaml",
+    "displayName": "Mark Harrison",
     "isCurrent": true,
     "license": {
       "name": "Use under MIT License",
