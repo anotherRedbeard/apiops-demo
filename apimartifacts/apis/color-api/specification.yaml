@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Color API
+  title: Mark Harrison
   description: Colors API - description from specification.yaml
   termsOfService: https://github.com/markharrison/ColorsAPI/blob/master/LICENSE
   contact:
@@ -29,9 +29,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ColorsItem'
-              examples:
-                default:
-                  value: 
+              example: ''
             application/json:
               schema:
                 type: array
@@ -93,9 +91,7 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/ColorsItem'
-              examples:
-                default:
-                  value: 
+              example: ''
             application/json:
               schema:
                 $ref: '#/components/schemas/ColorsItem'
@@ -116,9 +112,7 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-              examples:
-                default:
-                  value: 
+              example: ''
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
@@ -150,9 +144,7 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/ColorsItem'
-              examples:
-                default:
-                  value: 
+              example: ''
             application/json:
               schema:
                 $ref: '#/components/schemas/ColorsItem'
@@ -189,9 +181,7 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/ColorsItem'
-              examples:
-                default:
-                  value: 
+              example: ''
             application/json:
               schema:
                 $ref: '#/components/schemas/ColorsItem'
@@ -212,9 +202,7 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-              examples:
-                default:
-                  value: 
+              example: ''
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
@@ -239,9 +227,7 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-              examples:
-                default:
-                  value: 
+              example: ''
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
@@ -305,9 +291,7 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/ColorsItem'
-              examples:
-                default:
-                  value: 
+              example: ''
             application/json:
               schema:
                 $ref: '#/components/schemas/ColorsItem'
@@ -328,9 +312,7 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-              examples:
-                default:
-                  value: 
+              example: ''
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
@@ -370,9 +352,7 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/ColorsItem'
-              examples:
-                default:
-                  value: 
+              example: ''
             application/json:
               schema:
                 $ref: '#/components/schemas/ColorsItem'
@@ -393,9 +373,7 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-              examples:
-                default:
-                  value: 
+              example: ''
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
@@ -435,9 +413,7 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/ColorsItem'
-              examples:
-                default:
-                  value: 
+              example: ''
             application/json:
               schema:
                 $ref: '#/components/schemas/ColorsItem'
@@ -458,9 +434,7 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-              examples:
-                default:
-                  value: 
+              example: ''
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
@@ -493,9 +467,7 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/ColorsItem'
-              examples:
-                default:
-                  value: 
+              example: ''
             application/json:
               schema:
                 $ref: '#/components/schemas/ColorsItem'
@@ -516,9 +488,7 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-              examples:
-                default:
-                  value: 
+              example: ''
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
@@ -551,9 +521,7 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/ColorsItem'
-              examples:
-                default:
-                  value: 
+              example: ''
             application/json:
               schema:
                 $ref: '#/components/schemas/ColorsItem'

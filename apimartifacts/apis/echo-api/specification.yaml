@@ -25,6 +25,11 @@ paths:
           description: 'Another sample parameter, set to not required.'
           schema:
             type: number
+        - name: X-Request-ID
+          in: header
+          required: true
+          schema:
+            type: number
       responses:
         '200':
           description: Returned in all cases.
