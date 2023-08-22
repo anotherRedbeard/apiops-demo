@@ -3,6 +3,6 @@
     "displayName": "environment",
     "secret": false,
     "tags": [],
-    "value": "https://www.bing.com"
+    "value": "https://www.dev-bing.com"
   }
 }
