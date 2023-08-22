@@ -92,6 +92,13 @@ paths:
       responses:
         '200':
           description: ''
+  /get-env:
+    get:
+      summary: Get Environment
+      operationId: get-environment
+      responses:
+        '200':
+          description: 
 components:
   securitySchemes:
     apiKeyHeader:
