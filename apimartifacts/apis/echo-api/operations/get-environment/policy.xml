@@ -21,6 +21,9 @@
 		<base />
 		<return-response>
 			<set-status code="200" reason="Success" />
+			<set-header name="x-request-context-data" exists-action="override">
+				<value>@(context.Deployment.Region)</value>
+			</set-header>
 			<set-body>{
                 "environment":"{{environment}}"
             }</set-body>

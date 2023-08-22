@@ -1,2 +1,1 @@
 #Add apiops configuration files so when you change them they won't force a publish
-configuration.prod.yaml
