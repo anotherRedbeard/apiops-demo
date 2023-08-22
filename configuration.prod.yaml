@@ -3,7 +3,7 @@ namedValues:
   - name: environment
     properties:
       displayName: environment
-      value: https://www.bing-prod.com
+      value: https://www.bing.com
   - name: demo
     properties:
       displayName: demo
