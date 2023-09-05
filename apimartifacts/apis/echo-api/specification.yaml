@@ -95,10 +95,11 @@ paths:
   /get-env:
     get:
       summary: Get Environment
+      description: Get Environment
       operationId: get-environment
       responses:
         '200':
-          description: 
+          description: ''
 components:
   securitySchemes:
     apiKeyHeader:
