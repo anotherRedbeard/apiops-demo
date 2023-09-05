@@ -12,6 +12,7 @@
 -->
 <policies>
 	<inbound>
+		<include-fragment fragment-id="RateLimitByIp" />
 		<base />
 	</inbound>
 	<backend>
