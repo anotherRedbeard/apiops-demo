@@ -42,7 +42,7 @@ diagnostics:
 apis:
   - name: "basic-calculator"
     properties:
-      server-url: "https://google.com/"
+      serviceUrl: "https://google.com/"
     diagnostics:
       - name: applicationinsights
         properties:
