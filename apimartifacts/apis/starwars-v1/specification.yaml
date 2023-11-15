@@ -2,9 +2,9 @@ openapi: 3.0.1
 info:
   title: Star Wars API
   description: Star wars api endpoing
-  version: v1
+  version: ''
 servers:
-  - url: https://red-apim-dev.azure-api.net/sw/v1
+  - url: https://brd-apim-dev.azure-api.net/sw
 paths:
   /people/:
     get:
