@@ -20,13 +20,13 @@ namedValues:
     properties:
       displayName: signingKey
       keyVault: 
-        secretIdentifier: https://red-scus-apimdemo-kv-prd.vault.azure.net/secrets/APIM-signing-key
+        secretIdentifier: https://brd-scus-apimdemo-kv-prd.vault.azure.net/secrets/APIM-signing-key
   - name: 639121f85ddd1701d02ea23f
     properties:
       displayName: Logger-Credentials--639121f85ddd1701d02ea240
       value: "{#appInsightsLoggerKey#}"
 loggers:
-    - name: red-scus-apim-ai-dev
+    - name: brd-scus-apim-ai-dev
       properties:
         loggerType: applicationInsights
         description: App insights logger info
