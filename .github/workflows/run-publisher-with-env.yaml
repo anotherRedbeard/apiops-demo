@@ -104,7 +104,7 @@ jobs:
           $VerbosePreference = "Continue"
           $InformationPreference = "Continue"
 
-          Write-Information ${{ secrets.AZURE_CLIENT_ID }}
+          Write-Information "client:  ${{ vars.CLIENT_ID }}"
 
           Write-Information "Downloading publisher..."
           $publisherFileName = "${{ runner.os }}" -like "*win*" ? "publisher.win-x64.exe" : "publisher.linux-x64.exe"
