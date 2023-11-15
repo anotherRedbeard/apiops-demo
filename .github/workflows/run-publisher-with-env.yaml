@@ -104,6 +104,8 @@ jobs:
           $VerbosePreference = "Continue"
           $InformationPreference = "Continue"
 
+          Write-Information ${{ secrets.AZURE_CLIENT_ID }}
+
           Write-Information "Downloading publisher..."
           $publisherFileName = "${{ runner.os }}" -like "*win*" ? "publisher.win-x64.exe" : "publisher.linux-x64.exe"
           $uri = "https://github.com/Azure/apiops/releases/download/${{ env.apiops_release_version }}/$publisherFileName"
