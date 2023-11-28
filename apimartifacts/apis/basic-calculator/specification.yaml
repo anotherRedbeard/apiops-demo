@@ -31,6 +31,14 @@ paths:
       responses:
         '200':
           description: ''
+  /minus:
+    get:
+      summary: minus
+      description: this is substraction
+      operationId: minus
+      responses:
+        '200':
+          description: 
 components:
   securitySchemes:
     apiKeyHeader:
