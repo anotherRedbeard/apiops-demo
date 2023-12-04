@@ -1,2 +1,61 @@
 # apiops-demo
-This is the implementation of the apiops repo
+This is the implementation of the [APIOps repo](https://github.com/Azure/apiops) that I use to demo the apiops process.  I've also merged in the pipelines from the [repo-name](dev-portal-migration-repo-link) so that I can have a one stop repo for all of my Azure Api Management (APIM) deployment examples.
+
+## Prerequisites
+
+- You will need to create a new client_id and secret on an existing or new service principal.
+  - Here is the command to create the new service principal
+
+    ```# Bash script
+      az ad sp create-for-rbac --name myServicePrincipalName1 --role reader --scopes /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG1
+    ```
+
+- Create environments for each of the APIM instances under *{repository} -> Settings -> Environments* with the below secrets:
+
+    | Secret Name | Description |
+    | ------------- | ----------- |
+    |APIM_INSTANCE_NAME |The name of the APIM instance to migrate from |
+    |RESOURCE_GROUP_NAME|The name of the resource group the APIM instance is in|
+    |AZURE_CLIENT_ID|The client id of the service principal|
+    |AZURE_CLIENT_SECRET|The client secret of the service principal|
+    |AZURE_SUBSCRIPTION_ID|The subscription id of the APIM resource |
+    |AZURE_TENANT_ID|The tenant id of the service principal|
+
+    *Note:* The names of the environments can be dev, stage etc. If using different names, update the run-extractor.yaml and run-publisher-with-env.yaml for the environment names. This would also be a good time to setup [deployment protection rules](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-protection-rules) if you wish in the environment settings of GitHub.
+
+- Grant permissions for the actions to create a PR. Set *Read and write permissions* and "Allow GitHub Actions to create and approve pull requests" under *{repository} -> Settings -> Actions -> General -> Workflow permissions*.
+
+## APIOps Steps
+
+For full documentation steps of how to setup and run APIOps, it would be best to check the [Official Documentation](https://azure.github.io/apiops/apiops/3-apimTools/), but since I've already done all of that here are the steps I use to deploy.
+
+### Portal First Deployment
+
+  1. Run the extractor.yaml
+    a. This will create a PR for you to approve, once you approve the PR the publisher.yaml pipeline will execute which will deploy your code to all the environments
+
+### Code First Deployment
+
+  1. Create a PR for the changes that you've made.
+  2. Approve the PR
+    a. Once you approve the PR the publisher.yaml pipeline will execute which will deploy your code to all the environments
+
+## APIM Developer Portal Deploy Steps
+
+1. Update the *release.yaml* to reflect the stages you want to deploy to. 
+
+2. By default the folder used to store the Developer Portal artifacts in this repo is `artifacts` as referenced in the [release-with-env.yaml file](.github/workflows/release-with-env.yaml#L22). If you would like to use a different folder name, you will need to update that file first.
+
+3. Create url overwrite files for each environment in the format ***urls.{env}.json***. The contents of the file should be as
+
+    ```json
+    {
+        uri: "https://uri1.com,https://uri2.com"
+    }
+    ```
+
+    Update the existing uris in the snapshot in the file ***existingUrls.json***
+
+    *Note*: This is an optional step and is only required if you want to overwrite the urls in the snapshot with the urls in the file.
+
+4. Run the `capture.yaml` pipeline and provide a folder to store the artifacts in, the default is `artifacts`. That will pull in the Developer Portal artifacts that are in the current dev environment (this is set in the [capture.yaml](.github/workflows/capture.yaml#L15) file, so if you want to pull from a different environment update that). Once that is complete, you can see the PR that was created so you can merge it. Once that is merged the `release.yaml` pipeline will automatically trigger.
