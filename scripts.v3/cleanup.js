@@ -15,7 +15,10 @@
  *    --sourceServiceName "< your service name >" ^
  *    --destSubscriptionId "< your subscription ID >" ^
  *    --destResourceGroupName "< your resource group name >" ^
- *    --destServiceName "< your service name >"
+ *    --destServiceName "< your service name >" ^
+ *    --tenantId < your tenant ID > ^
+ *    --servicePrincipal < your service principal ID > ^
+ *    --servicePrincipalSecret < your service principal secret >
  */
 
 const { ImporterExporter } = require("./utils");
@@ -39,6 +42,21 @@ const yargs = require('yargs')
         type: 'string',
         description: 'API Management service name.',
     })
+    .option('tenantId', {
+        type: 'string',
+        description: 'tenant ID.',
+        demandOption: false
+    })
+    .option('servicePrincipal', {
+        type: 'string',
+        description: 'service principal ID.',
+        demandOption: false
+    })
+    .option('servicePrincipalSecret', {
+        type: 'string',
+        description: 'service principal secret.',
+        demandOption: false
+    })
     .help()
     .argv;
 
@@ -46,7 +64,10 @@ async function cleanup() {
     const importerExporter = new ImporterExporter(
         yargs.subscriptionId,
         yargs.resourceGroupName,
-        yargs.serviceName
+        yargs.serviceName,
+        yargs.tenantId,
+        yargs.servicePrincipal,
+        yargs.servicePrincipalSecret
     );
 
     await importerExporter.cleanup();
