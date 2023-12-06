@@ -1,4 +1,4 @@
-name: Run - Release
+name: Run - Dev Portal Release
 
 on:
   # Triggers the workflow on pull request events but only for the main branch

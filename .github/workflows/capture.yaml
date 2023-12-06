@@ -1,4 +1,4 @@
-name: Run - Capture
+name: Run - Dev Portal Capture
 
 on:
   workflow_dispatch:

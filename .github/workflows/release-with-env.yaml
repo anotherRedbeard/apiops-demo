@@ -1,4 +1,4 @@
-name: Run Release with Environment
+name: Run Dev Portal Release with Environment
 
 on:
   workflow_call:
