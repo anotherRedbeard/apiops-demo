@@ -9,7 +9,7 @@
     "protocols": [
       "https"
     ],
-    "serviceUrl": "http://echoapi.cloudapp.net/api",
+    "serviceUrl": "http://echoapi.cloudapp.net/api/v123",
     "subscriptionKeyParameterNames": {
       "header": "Ocp-Apim-Subscription-Key",
       "query": "subscription-key"

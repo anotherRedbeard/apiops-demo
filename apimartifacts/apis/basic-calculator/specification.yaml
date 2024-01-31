@@ -38,7 +38,7 @@ paths:
       operationId: minus
       responses:
         '200':
-          description: 
+          description: ''
 components:
   securitySchemes:
     apiKeyHeader:
