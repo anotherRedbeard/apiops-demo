@@ -42,7 +42,7 @@ diagnostics:
 apis:
   - name: "basic-calculator"
     properties:
-      serviceUrl: "http://calcapi.cloudapp.net/api/"
+      description: "Math is fun! changed from config"
     diagnostics:
       - name: applicationinsights
         properties:
