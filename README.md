@@ -1,5 +1,7 @@
 # apiops-demo
-This is the implementation of the [APIOps repo](https://github.com/Azure/apiops) that I use to demo the apiops process.  I've also merged in the pipelines from the [repo-name](dev-portal-migration-repo-link) so that I can have a one stop repo for all of my Azure Api Management (APIM) deployment examples.
+This is the implementation of the [APIOps repo](https://github.com/Azure/apiops) that I use to demo the apiops process.  I've also merged in the pipelines from the [apim-dev-portal-migration](https://github.com/anotherRedbeard/apim-dev-portal-migration) repo that I forked and modified slightly from [@seenu433](https://github.com/seenu433/apim-dev-portal-migration) so that I can have a one stop repo for all of my Azure Api Management (APIM) deployment examples.
+
+For more information on the automation of developer portal deployments you can go to the [Automate developer portal deployments](https://learn.microsoft.com/en-us/azure/api-management/automate-portal-deployments) document page.
 
 ## Prerequisites
 
