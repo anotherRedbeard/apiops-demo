@@ -3,7 +3,7 @@
     "apiRevision": "1",
     "apiRevisionDescription": "remove ip",
     "authenticationSettings": {},
-    "description": "Math is fun! testing url change",
+    "description": "Math is fun! testing url change test",
     "displayName": "Basic Calculator Api",
     "isCurrent": true,
     "path": "calc",
