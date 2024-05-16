@@ -11,7 +11,7 @@
     "protocols": [
       "https"
     ],
-    "serviceUrl": "https://swapi.dev/api",
+    "serviceUrl": "https://brd-apim-dev.azure-api.net/sw/v1",
     "subscriptionKeyParameterNames": {
       "header": "Ocp-Apim-Subscription-Key",
       "query": "subscription-key"
