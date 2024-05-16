@@ -10,7 +10,7 @@
     "protocols": [
       "https"
     ],
-    "serviceUrl": "http://calcapi.cloudapp.net/api/v1",
+    "serviceUrl": "http://calcapi.cloudapp.net/api/",
     "subscriptionKeyParameterNames": {
       "header": "Ocp-Apim-Subscription-Key",
       "query": "subscription-key"
