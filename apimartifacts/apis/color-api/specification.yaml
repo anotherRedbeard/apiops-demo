@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Mark Harrison
-  description: Colors API - description from specification.yaml new description here
+  description: Colors API - description from specification.yaml azdo test new for demo
   termsOfService: https://github.com/markharrison/ColorsAPI/blob/master/LICENSE
   contact:
     url: https://github.com/markharrison/ColorsAPI
