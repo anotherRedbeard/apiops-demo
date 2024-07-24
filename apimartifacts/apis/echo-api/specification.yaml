@@ -100,6 +100,14 @@ paths:
       responses:
         '200':
           description: ''
+  /test:
+    get:
+      summary: Test
+      description: This is a new endpoint
+      operationId: test
+      responses:
+        '200':
+          description: 
 components:
   securitySchemes:
     apiKeyHeader:
