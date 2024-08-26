@@ -30,11 +30,11 @@ namedValues:
       displayName: allowed-ip-address
       value: "{#allowedIPAddress#}"
 loggers:
-    - name: brd-scus-apim-ai-dev
+    - name: red-scus-apim-ai-dev
       properties:
         loggerType: applicationInsights
         description: App insights logger info
-        resourceId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/microsoft.insights/components/red-scus-apim-ai-prd"
+        resourceId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/microsoft.insights/components/red-scus-apim-appinsights-prd"
         credentials:
           instrumentationKey: "{{Logger-Credentials--639121f85ddd1701d02ea240}}"
         isBuffered: true
@@ -42,7 +42,7 @@ diagnostics:
     - name: applicationinsights
       properties:
         verbosity: Error
-        loggerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-dev/loggers/red-scus-apim-ai-prd"
+        loggerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-prd/loggers/red-scus-apim-ai-prd"
 apis:
   - name: "basic-calculator"
     properties:
@@ -51,5 +51,5 @@ apis:
       - name: applicationinsights
         properties:
           verbosity: Error
-          loggerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-dev/loggers/red-scus-apim-ai-prd"
+          loggerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-prd/loggers/red-scus-apim-ai-prd"
         
