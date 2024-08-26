@@ -25,6 +25,10 @@ namedValues:
     properties:
       displayName: Logger-Credentials--639121f85ddd1701d02ea240
       value: "{#appInsightsLoggerKey#}"
+  - name: allowed-ip-address
+    properties:
+      displayName: allowed-ip-address
+      value: "{#allowedIPAddress#}"
 loggers:
     - name: brd-scus-apim-ai-dev
       properties:

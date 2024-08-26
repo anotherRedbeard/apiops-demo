@@ -13,6 +13,10 @@ namedValues:
       displayName: signingKey
       keyVault: 
         secretIdentifier: https://red-scus-apimdemo-kv-dev.vault.azure.net/secrets/APIM-signing-key
+  - name: allowed-ip-address
+    properties:
+      displayName: allowed-ip-address
+      value: "{#allowedIPAddress#}"
 apis:
   - name: "test"
     properties:

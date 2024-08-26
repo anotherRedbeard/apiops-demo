@@ -16,7 +16,7 @@
 		<!--just adding a comment-->
 		<ip-filter action="allow">
 			<address-range from="13.66.140.128" to="13.66.140.143" />
-			<address>75.31.47.158</address>
+			<address>{{allowed-ip-address}}</address>
 		</ip-filter>
 	</inbound>
 	<backend>
