@@ -50,6 +50,8 @@ jobs:
         env:
           testSecretValue: ${{ vars.RESOURCE_GROUP_NAME }}
           appInsightsLoggerKey: ${{ secrets.APP_INSIGHTS_LOGGER_KEY }}
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          resourceGroupName: ${{ vars.RESOURCE_GROUP_NAME }}
 
       - name: Run publisher without Config Yaml but with Commit ID
         if: ( inputs.CONFIGURATION_YAML_PATH == '' &&  inputs.COMMIT_ID != '')
