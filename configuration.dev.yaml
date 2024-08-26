@@ -18,7 +18,7 @@ namedValues:
       displayName: allowed-ip-address
       value: "{#allowedIPAddress#}"
 loggers:
-    - name: brd-scus-apim-ai-dev
+    - name: red-scus-apim-ai-dev
       properties:
         loggerType: applicationInsights
         description: App insights logger info
