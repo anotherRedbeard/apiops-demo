@@ -16,7 +16,7 @@ namedValues:
 apis:
   - name: "test"
     properties:
-      apiVersionSetId: "/subscriptions/{#subscriptionId*}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-dev/apiVersionSets/6398be47eb8d2b6560dd061a"
+      apiVersionSetId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-dev/apiVersionSets/6398be47eb8d2b6560dd061a"
   - name: "starwars-v1"
     properties:
-      apiVersionSetId: "/subscriptions/{#subscriptionId*}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-dev/apiVersionSets/6398be47eb8d2b6560dd061a"
+      apiVersionSetId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-dev/apiVersionSets/6398be47eb8d2b6560dd061a"
