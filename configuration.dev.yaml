@@ -22,14 +22,14 @@ loggers:
       properties:
         loggerType: applicationInsights
         description: App insights logger info
-        resourceId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/microsoft.insights/components/red-scus-apim-ai-dev"
+        resourceId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/microsoft.insights/components/red-scus-apim-appinsights-dev"
         credentials:
           instrumentationKey: "{{Logger-Credentials--639121f85ddd1701d02ea240}}"
         isBuffered: true
 diagnostics:
     - name: applicationinsights
       properties:
-        loggerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-dev/loggers/red-scus-apim-ai-dev"
+        loggerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-dev/loggers/red-scus-apim-appinsights-dev"
 apis:
   - name: "test"
     properties:
