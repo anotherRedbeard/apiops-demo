@@ -1,16 +1,15 @@
 {
   "properties": {
     "apiRevision": "1",
-    "apiRevisionDescription": "remove ip",
     "authenticationSettings": {},
-    "description": "Math is fun! testing url change test",
-    "displayName": "Basic Calculator Api",
+    "description": "Azure OpenAI APIs for completions and search",
+    "displayName": "Azure OpenAI Service API",
     "isCurrent": true,
-    "path": "calc",
+    "path": "openai",
     "protocols": [
       "https"
     ],
-    "serviceUrl": "http://calcapi.cloudapp.net/api/",
+    "serviceUrl": "https://brd-weu-aoai.openai.azure.com/openai/",
     "subscriptionKeyParameterNames": {
       "header": "Ocp-Apim-Subscription-Key",
       "query": "subscription-key"
