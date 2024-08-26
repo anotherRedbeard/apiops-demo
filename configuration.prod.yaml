@@ -20,7 +20,7 @@ namedValues:
     properties:
       displayName: signingKey
       keyVault: 
-        secretIdentifier: https://brd-scus-apimdemo-kv-prd.vault.azure.net/secrets/APIM-signing-key
+        secretIdentifier: https://red-scus-apimdemo-kv-prd.vault.azure.net/secrets/APIM-signing-key
   - name: 639121f85ddd1701d02ea23f
     properties:
       displayName: Logger-Credentials--639121f85ddd1701d02ea240
@@ -34,7 +34,7 @@ loggers:
       properties:
         loggerType: applicationInsights
         description: App insights logger info
-        resourceId: "/subscriptions/ac81efbd-2d16-4829-9c4c-228a17db1f32/resourceGroups/brd-scus-apiopsdemo-rg-prd/providers/microsoft.insights/components/brd-scus-apim-ai-prd"
+        resourceId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/microsoft.insights/components/red-scus-apim-ai-prd"
         credentials:
           instrumentationKey: "{{Logger-Credentials--639121f85ddd1701d02ea240}}"
         isBuffered: true
@@ -42,7 +42,7 @@ diagnostics:
     - name: applicationinsights
       properties:
         verbosity: Error
-        loggerId: "/subscriptions/ac81efbd-2d16-4829-9c4c-228a17db1f32/resourceGroups/brd-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/brd-apim-dev/loggers/red-scus-apim-ai-dev"
+        loggerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-dev/loggers/red-scus-apim-ai-dev"
 apis:
   - name: "basic-calculator"
     properties:
@@ -51,5 +51,5 @@ apis:
       - name: applicationinsights
         properties:
           verbosity: Error
-          loggerId: "/subscriptions/ac81efbd-2d16-4829-9c4c-228a17db1f32/resourceGroups/brd-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/brd-apim-dev/loggers/red-scus-apim-ai-dev"
+          loggerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-dev/loggers/red-scus-apim-ai-dev"
         
