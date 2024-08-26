@@ -42,7 +42,7 @@ diagnostics:
     - name: applicationinsights
       properties:
         verbosity: Error
-        loggerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-prd/loggers/red-scus-apim-ai-prd"
+        loggerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-prd/loggers/red-scus-apim-ai-dev"
 apis:
   - name: "basic-calculator"
     properties:
@@ -51,5 +51,5 @@ apis:
       - name: applicationinsights
         properties:
           verbosity: Error
-          loggerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-prd/loggers/red-scus-apim-ai-prd"
+          loggerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-prd/loggers/red-scus-apim-ai-dev"
         
