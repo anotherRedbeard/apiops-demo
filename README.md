@@ -5,7 +5,7 @@ For more information on the automation of developer portal deployments you can g
 
 ## Prerequisites
 
-- You will need to create a new client_id and secret on an existing or new service principal.
+- You will need to create a new client_id and secret on an existing or new service principal. Keep in mind if you delete the resource group and re-run the [bicep] modules to create the infrastructure, you will need to go back and grant permissions to this service principal. That is because when you remove the resource group it will remove the RBAC assignments.
   - Here is the command to create the new service principal
 
     ```# Bash script
