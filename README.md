@@ -16,6 +16,8 @@ For more information on the automation of developer portal deployments you can g
 
     | Secret Name | Description |
     | ------------- | ----------- |
+    |ALLOWED_IP_ADDRESS|IP address to check for in one of the policies|
+    |APP_INSIGHTS_LOGGER_KEY|InstrumentationKey from the application insights resource that is created with the bicep modules. You will need to update this each time you re-create the resource|
     |AZURE_CLIENT_ID|The client id of the service principal|
     |AZURE_CLIENT_SECRET|The client secret of the service principal|
     |AZURE_SUBSCRIPTION_ID|The subscription id of the APIM resource |
@@ -24,6 +26,8 @@ For more information on the automation of developer portal deployments you can g
     | Variable Name | Description |
     | ------------- | ----------- |
     |APIM_INSTANCE_NAME |The name of the APIM instance to migrate from |
+    |APIOPS_VERSION |Version of APIOps you want to use |
+    |LOG_LEVEL |Level you want to set for the logging |
     |RESOURCE_GROUP_NAME|The name of the resource group the APIM instance is in|
 
     *Note:* The names of the environments can be dev, stage etc. If using different names, update the run-extractor.yaml and run-publisher-with-env.yaml for the environment names. This would also be a good time to setup [deployment protection rules](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-protection-rules) if you wish in the environment settings of GitHub.
