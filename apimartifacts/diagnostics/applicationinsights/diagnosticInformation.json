@@ -1,5 +1,6 @@
 {
   "properties": {
+    "loggerId": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/loggers/red-scus-apim-ai-dev",
     "alwaysLog": "allErrors",
     "backend": {
       "request": {
@@ -27,10 +28,9 @@
     },
     "httpCorrelationProtocol": "Legacy",
     "logClientIp": true,
-    "loggerId": "/subscriptions/ac81efbd-2d16-4829-9c4c-228a17db1f32/resourceGroups/brd-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/brd-apim-dev/loggers/red-scus-apim-ai-dev",
     "sampling": {
       "percentage": 100,
-      "samplingType": "Fixed"
+      "samplingType": "fixed"
     }
   }
 }

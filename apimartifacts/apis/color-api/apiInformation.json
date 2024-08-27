@@ -1,5 +1,6 @@
 {
   "properties": {
+    "path": "color",
     "apiRevision": "1",
     "authenticationSettings": {},
     "contact": {
@@ -7,13 +8,12 @@
       "url": "https://github.com/markharrison/ColorsAPI"
     },
     "description": "Colors API - description from specification.yaml azdo test new for demo",
-    "displayName": "Mark Harrison",
     "isCurrent": true,
     "license": {
       "name": "Use under MIT License",
       "url": "https://github.com/markharrison/ColorsAPI/blob/master/LICENSE"
     },
-    "path": "color",
+    "displayName": "Mark Harrison",
     "protocols": [
       "https"
     ],

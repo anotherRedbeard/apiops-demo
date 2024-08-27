@@ -1,12 +1,12 @@
 {
   "properties": {
+    "path": "calc",
     "apiRevision": "1",
     "apiRevisionDescription": "remove ip",
     "authenticationSettings": {},
     "description": "Math is fun! testing url change test",
-    "displayName": "Basic Calculator Api",
     "isCurrent": true,
-    "path": "calc",
+    "displayName": "Basic Calculator Api",
     "protocols": [
       "https"
     ],

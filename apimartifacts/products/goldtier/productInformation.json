@@ -1,8 +1,8 @@
 {
   "properties": {
-    "approvalRequired": true,
-    "description": "This is the gold tier product",
     "displayName": "GoldTier",
+    "description": "This is the gold tier product",
+    "approvalRequired": true,
     "state": "notPublished",
     "subscriptionRequired": true,
     "subscriptionsLimit": 5,

@@ -1,5 +1,6 @@
 {
   "properties": {
+    "path": "",
     "apiRevision": "1",
     "authenticationSettings": {},
     "contact": {
@@ -8,13 +9,12 @@
       "url": "https://github.com/markharrison/ColorsAPI"
     },
     "description": "Colors API this one doesn\u0027t work, new for demo",
-    "displayName": "Mark Harrison Colors API",
     "isCurrent": true,
     "license": {
       "name": "Use under MIT License",
       "url": "https://github.com/markharrison/ColorsAPI/blob/master/LICENSE"
     },
-    "path": "",
+    "displayName": "Mark Harrison Colors API",
     "protocols": [
       "https"
     ],
