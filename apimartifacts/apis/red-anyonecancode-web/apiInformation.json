@@ -1,11 +1,11 @@
 {
   "properties": {
+    "path": "anyone",
     "apiRevision": "1",
     "authenticationSettings": {},
     "description": "",
-    "displayName": "red-anyonecancode-web",
     "isCurrent": true,
-    "path": "anyone",
+    "displayName": "red-anyonecancode-web",
     "protocols": [
       "https"
     ],

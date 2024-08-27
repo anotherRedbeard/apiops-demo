@@ -1,13 +1,13 @@
 {
   "properties": {
+    "path": "sw",
     "apiRevision": "1",
     "apiVersion": "v1",
-    "apiVersionSetId": "/subscriptions/ac81efbd-2d16-4829-9c4c-228a17db1f32/resourceGroups/brd-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/brd-apim-dev/apiVersionSets/6398be47eb8d2b6560dd061a",
+    "apiVersionSetId": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apiVersionSets/6398be47eb8d2b6560dd061a",
     "authenticationSettings": {},
     "description": "Star wars api endpoing",
-    "displayName": "Star Wars API",
     "isCurrent": true,
-    "path": "sw",
+    "displayName": "Star Wars API",
     "protocols": [
       "https"
     ],
