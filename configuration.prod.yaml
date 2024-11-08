@@ -43,6 +43,12 @@ diagnostics:
       properties:
         verbosity: Error
         loggerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-prd/loggers/red-scus-apim-ai-dev"
+subscriptions:
+  - name: "66ce4b511f9b910053070002"
+    properties:
+      displayName: "Unlimited Set By APIOps"
+      primaryKey: "{#unlimitedSubscriptionPrimaryKey#}"
+      secondaryKey: "{#unlimitedSubscriptionSecondaryKey#}"
 apis:
   - name: "basic-calculator"
     properties:

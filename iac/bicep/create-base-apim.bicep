@@ -42,6 +42,12 @@ param lawName string = '<lawName>'
 @description('Name of the app insights resource.')
 param appInsightsName string = '<appInsightsName>'
 
+@description('Unlimited subscription primary key.')
+param unlimitedSubPrimaryKey string = '<secret-value>'
+
+@description('Unlimited subscription secondary key.')
+param unlimitedSubSecondaryKey string = '<secret-value>'
+
 // Nested deployment to create resources in another subscription and resource group
 module resourceGroupResource 'br/public:avm/res/resources/resource-group:0.3.0' = {
   name: 'createResourceGroup'
@@ -96,6 +102,16 @@ module vault 'br/public:avm/res/key-vault/vault:0.7.1' = {
         contentType: 'Key'
         name: 'APIM-signing-key'
         value: '123'
+      }
+      {
+        contentType: 'Key'
+        name: 'APIM-Unlimited-Subscription-Primary-Key'
+        value: unlimitedSubPrimaryKey
+      }
+      {
+        contentType: 'Key'
+        name: 'APIM-Unlimited-Subscription-Secondary-Key'
+        value: unlimitedSubSecondaryKey
       }
     ]
   }

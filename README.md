@@ -22,6 +22,7 @@ For more information on the automation of developer portal deployments you can g
     |AZURE_CLIENT_SECRET|The client secret of the service principal|
     |AZURE_SUBSCRIPTION_ID|The subscription id of the APIM resource |
     |AZURE_TENANT_ID|The tenant id of the service principal|
+    |KEYVAULT_NAME|The name of the key vault so it can be used in the APIOps process|
 
     | Variable Name | Description |
     | ------------- | ----------- |

@@ -11,3 +11,5 @@ param apimCapacity = 1
 param apimKeyVaultName = '<apimKeyVaultName>'
 param lawName = '<lawName>'
 param appInsightsName = '<appInsightsName>'
+param unlimitedSubPrimaryKey = '<secret-value>'
+param unlimitedSubSecondaryKey = '<secret-value>'

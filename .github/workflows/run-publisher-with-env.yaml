@@ -37,6 +37,14 @@ jobs:
       - run: npm install -g @stoplight/spectral-cli
       - run: spectral lint "${{ GITHUB.WORKSPACE }}/${{ inputs.API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH }}\apis\*.{json,yml,yaml}" --ruleset https://raw.githubusercontent.com/connectedcircuits/devops-api-linter/main/rules.yaml
 
+      - name: "Get Secrets from KeyVault"
+        id: get-secrets
+        uses: azure/get-keyvault-secrets@v1
+        with:
+          secrets: |
+            APIM-Unlimited-Subscription-Primary-Key
+            APIM-Unlimited-Subscription-Secondary-Key
+          keyvault: ${{ secrets.KEYVAULT_NAME }}
 
       # Add this step for each APIM environment and pass specific set of secrets that you want replaced in the env section below
       - name: "Perform namevalue secret substitution in configuration.${{ inputs.API_MANAGEMENT_ENVIRONMENT}}.yaml"
@@ -53,6 +61,8 @@ jobs:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           resourceGroupName: ${{ vars.RESOURCE_GROUP_NAME }}
           allowedIPAddress: ${{ secrets.ALLOWED_IP_ADDRESS }}
+          unlimitedSubscriptionPrimaryKey: ${{ steps.get-secrets.outputs.APIM-Unlimited-Subscription-Primary-Key }}
+          unlimitedSubscriptionSecondaryKey: ${{ steps.get-secrets.outputs.APIM-Unlimited-Subscription-Secondary-Key }}
 
       - name: Run publisher without Config Yaml but with Commit ID
         if: ( inputs.CONFIGURATION_YAML_PATH == '' &&  inputs.COMMIT_ID != '')
