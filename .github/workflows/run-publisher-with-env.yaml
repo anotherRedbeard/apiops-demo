@@ -47,9 +47,7 @@ jobs:
         id: get-secrets
         uses: azure/get-keyvault-secrets@v1
         with:
-          secrets: |
-            APIM-Unlimited-Subscription-Primary-Key
-            APIM-Unlimited-Subscription-Secondary-Key
+          secrets: 'APIM-Unlimited-Subscription-Primary-Key, APIM-Unlimited-Subscription-Secondary-Key'
           keyvault: ${{ secrets.KEYVAULT_NAME }}
 
       # Add this step for each APIM environment and pass specific set of secrets that you want replaced in the env section below

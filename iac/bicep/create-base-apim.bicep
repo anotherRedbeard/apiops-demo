@@ -48,6 +48,9 @@ param unlimitedSubPrimaryKey string = '<secret-value>'
 @description('Unlimited subscription secondary key.')
 param unlimitedSubSecondaryKey string = '<secret-value>'
 
+@description('Client Id of the service principal that will run the deployment.')
+param spAPIOpsDemoObjectId string = '<clientId>'
+
 // Nested deployment to create resources in another subscription and resource group
 module resourceGroupResource 'br/public:avm/res/resources/resource-group:0.3.0' = {
   name: 'createResourceGroup'
@@ -93,6 +96,11 @@ module vault 'br/public:avm/res/key-vault/vault:0.7.1' = {
     roleAssignments: [
       {
         principalId: service.outputs.systemAssignedMIPrincipalId
+        principalType: 'ServicePrincipal'
+        roleDefinitionIdOrName: 'Key Vault Secrets User'
+      }
+      {
+        principalId: spAPIOpsDemoObjectId
         principalType: 'ServicePrincipal'
         roleDefinitionIdOrName: 'Key Vault Secrets User'
       }
