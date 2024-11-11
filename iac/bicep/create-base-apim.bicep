@@ -48,8 +48,8 @@ param unlimitedSubPrimaryKey string = '<secret-value>'
 @description('Unlimited subscription secondary key.')
 param unlimitedSubSecondaryKey string = '<secret-value>'
 
-@description('Client Id of the service principal that will run the deployment.')
-param spAPIOpsDemoObjectId string = '<clientId>'
+@description('Object ID from the enterprise application screen in Entra of the service principal that will run the deployment.')
+param spAPIOpsDemoObjectId string = '<objectId>'
 
 // Nested deployment to create resources in another subscription and resource group
 module resourceGroupResource 'br/public:avm/res/resources/resource-group:0.3.0' = {
