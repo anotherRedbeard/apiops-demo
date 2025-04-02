@@ -39,6 +39,14 @@ paths:
       responses:
         '200':
           description: ''
+  /divide:
+    get:
+      summary: divide
+      description: divide
+      operationId: divide
+      responses:
+        '200':
+          description: ''
 components:
   securitySchemes:
     apiKeyHeader:
