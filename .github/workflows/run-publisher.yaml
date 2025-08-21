@@ -32,8 +32,7 @@ jobs:
       - name: Use the dynamic variable
         run: |
           echo "Using dynamic variable:"
-          echo "Commit ID 1: ${{ steps.commit.outputs.commitId1 }}"
-          echo "Commit ID 2: ${{ steps.commit.outputs.commitId2 }}"
+          echo "Commit ID 1: $commit_id"
     outputs:
       commit_id: ${{ steps.commit.outputs.commit_id }}
   #Publish with Commit ID
