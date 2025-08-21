@@ -32,9 +32,9 @@ jobs:
       - name: Use the dynamic variable
         run: |
           echo "Using dynamic variable:"
-          echo "Commit ID 1: $commit_id"
+          echo "Commit ID 1: ${{ steps.commit.outputs.commit_id }}"
     outputs:
-      commit_id: $commit_id
+      commit_id: ${{ steps.commit.outputs.commit_id }}
   #Publish with Commit ID
   Push-Changes-To-APIM-Dev-With-Commit-ID:
     if: (github.event.inputs.COMMIT_ID_CHOICE == 'publish-artifacts-in-last-commit' || github.event.inputs.COMMIT_ID_CHOICE == '')
