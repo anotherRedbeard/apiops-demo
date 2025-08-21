@@ -29,10 +29,6 @@ jobs:
         id: commit
         run: |
           echo "commit_id=${GITHUB_SHA}" >> $GITHUB_OUTPUT
-      - name: Use the dynamic variable
-        run: |
-          echo "Using dynamic variable:"
-          echo "Commit ID 1: ${{ steps.commit.outputs.commit_id }}"
     outputs:
       commit_id: ${{ steps.commit.outputs.commit_id }}
   #Publish with Commit ID
