@@ -5,13 +5,13 @@
     "backend": {
       "request": {
         "body": {
-          "bytes": 1
+          "bytes": 8192
         },
         "headers": []
       },
       "response": {
         "body": {
-          "bytes": 0
+          "bytes": 8192
         },
         "headers": []
       }
@@ -19,13 +19,13 @@
     "frontend": {
       "request": {
         "body": {
-          "bytes": 0
+          "bytes": 8192
         },
         "headers": []
       },
       "response": {
         "body": {
-          "bytes": 0
+          "bytes": 8192
         },
         "headers": []
       }
