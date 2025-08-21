@@ -28,7 +28,7 @@ jobs:
       - name: Set the Commit Id
         id: commit
         run: |
-          echo "commit_id=${GITHUB_SHA}" >> $GITHUB_ENV
+          echo "commit_id=${GITHUB_SHA}" >> $GITHUB_OUTPUT
       - name: Use the dynamic variable
         run: |
           echo "Using dynamic variable:"
