@@ -55,14 +55,6 @@ paths:
       responses:
         '200':
           description: ''
-  /newop:
-    post:
-      summary: New Op
-      description: description
-      operationId: new-op-123
-      responses:
-        '200':
-          description: ''
 components:
   securitySchemes:
     apiKeyHeader:
