@@ -1,8 +1,8 @@
 {
   "properties": {
     "path": "calc",
-    "apiRevision": "2",
-    "apiRevisionDescription": "new revision 2\n",
+    "apiRevision": "1",
+    "apiRevisionDescription": "revision 1",
     "authenticationSettings": {},
     "description": "Math is fun? Broken, who owns this api?addedagain",
     "isCurrent": true,
