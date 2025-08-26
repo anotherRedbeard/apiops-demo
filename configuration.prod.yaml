@@ -52,7 +52,7 @@ subscriptions:
       primaryKey: "{#unlimitedSubscriptionPrimaryKey#}"
       secondaryKey: "{#unlimitedSubscriptionSecondaryKey#}"
 apis:
-  - name: "basic-calculator"
+  - name: "basic-calculator;rev=1"
     properties:
       description: "Math is fun! changed from config"
     diagnostics:
