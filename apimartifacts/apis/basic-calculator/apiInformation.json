@@ -7,6 +7,7 @@
     "description": "Math is fun? Broken, who owns this api?",
     "isCurrent": true,
     "displayName": "Basic Calculator Api",
+    "serviceUrl": "http://calcapi.cloudapp.net/api/",
     "protocols": [
       "https"
     ],
