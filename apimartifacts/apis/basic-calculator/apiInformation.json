@@ -7,7 +7,7 @@
     "description": "Math is fun? Broken, who owns this api?",
     "isCurrent": true,
     "displayName": "Basic Calculator Api",
-    "serviceUrl": "test",
+    "servicedUrl": "https://www.google.com",
     "protocols": [
       "https"
     ],
