@@ -55,13 +55,6 @@ paths:
       responses:
         '200':
           description: ''
-  /newop2:
-    get:
-      summary: new op 2
-      operationId: new-op-2
-      responses:
-        '200':
-          description: ''
   /newop3:
     get:
       summary: new op 3
