@@ -53,8 +53,8 @@ subscriptions:
       secondaryKey: "{#unlimitedSubscriptionSecondaryKey#}"
 apis:
   - name: "basic-calculator;rev=1"
-    properties:
-      description: "Math is fun! changed from config"
+    #properties:
+    #  description: "Math is fun! changed from config"
     diagnostics:
       - name: applicationinsights
         properties:
