@@ -12,12 +12,8 @@
 -->
 <policies>
 	<inbound>
+		<include-fragment fragment-id="ForwardContext" />
 		<base />
-		<!--just adding a revision 1-->
-		<ip-filter action="allow">
-			<address-range from="13.66.140.128" to="13.66.140.143" />
-			<address>{{allowed-ip-address}}</address>
-		</ip-filter>
 	</inbound>
 	<backend>
 		<base />
