@@ -6,7 +6,7 @@
     "authenticationSettings": {},
     "description": "Math is fun? Broken, who owns this api?",
     "isCurrent": true,
-    "serviceUrl": "http://calcapi.cloudapp.net/api/",
+    "displayName": "Basic Calculator Api",
     "protocols": [
       "https"
     ],
