@@ -55,13 +55,6 @@ paths:
       responses:
         '200':
           description: ''
-  /newop3:
-    get:
-      summary: new op 3
-      operationId: new-op-3
-      responses:
-        '200':
-          description: ''
 components:
   securitySchemes:
     apiKeyHeader:
