@@ -3,6 +3,7 @@
     "path": "calc",
     "apiRevision": "3",
     "apiRevisionDescription": "rew revision 3",
+    "apiVersionSetId": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apiVersionSets/68af0e936940c66af6468113",
     "authenticationSettings": {},
     "description": "Math is fun? Broken, who owns this api?addedagain",
     "displayName": "Basic Calculator Api",

@@ -1,12 +1,12 @@
 {
   "properties": {
     "path": "calc",
-    "apiRevision": "1",
-    "apiRevisionDescription": "revision 1",
+    "apiRevision": "3",
+    "apiRevisionDescription": "add r3",
+    "apiVersion": "v1",
     "apiVersionSetId": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apiVersionSets/68af0e936940c66af6468113",
     "authenticationSettings": {},
     "description": "Math is fun? Broken, who owns this api?addedagain",
-    "isCurrent": true,
     "displayName": "Basic Calculator Api",
     "protocols": [
       "https"
