@@ -8,16 +8,15 @@
       "url": "https://github.com/markharrison/ColorsAPI"
     },
     "description": "Colors API - description from specification.yaml azdo test new for demo",
+    "displayName": "Mark Harrison",
     "isCurrent": true,
     "license": {
       "name": "Use under MIT License",
       "url": "https://github.com/markharrison/ColorsAPI/blob/master/LICENSE"
     },
-    "displayName": "Mark Harrison",
     "protocols": [
       "https"
     ],
-    "serviceUrl": "https://colors-api.azurewebsites.net/",
     "subscriptionKeyParameterNames": {
       "header": "Ocp-Apim-Subscription-Key",
       "query": "subscription-key"
