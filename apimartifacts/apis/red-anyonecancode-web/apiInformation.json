@@ -4,12 +4,11 @@
     "apiRevision": "1",
     "authenticationSettings": {},
     "description": "",
-    "isCurrent": true,
     "displayName": "red-anyonecancode-web",
+    "isCurrent": true,
     "protocols": [
       "https"
     ],
-    "serviceUrl": "https://brd-apim-dev.azure-api.net/anyone",
     "subscriptionKeyParameterNames": {
       "header": "Ocp-Apim-Subscription-Key",
       "query": "subscription-key"
