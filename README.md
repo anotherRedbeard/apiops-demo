@@ -30,6 +30,7 @@ For more information on the automation of developer portal deployments you can g
     |APIOPS_VERSION |Version of APIOps you want to use |
     |LOG_LEVEL |Level you want to set for the logging |
     |RESOURCE_GROUP_NAME|The name of the resource group the APIM instance is in|
+    |ARM_API_VERSION|(Optional)If you need to use a different api version you can set this variable|
 
     *Note:* The names of the environments can be dev, stage etc. If using different names, update the run-extractor.yaml and run-publisher-with-env.yaml for the environment names. This would also be a good time to setup [deployment protection rules](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-protection-rules) if you wish in the environment settings of GitHub.
 
