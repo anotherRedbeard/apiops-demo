@@ -2,9 +2,8 @@ name: Run - Publisher
 
 on:
   # Triggers the workflow on pull request events but only for the main branch
-  pull_request:
+  push:
     branches: [main]
-    types: [closed]
     paths-ignore:
       - 'devportal-artifacts/**'
 
