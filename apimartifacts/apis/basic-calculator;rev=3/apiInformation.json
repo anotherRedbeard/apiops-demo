@@ -9,7 +9,6 @@
     "protocols": [
       "https"
     ],
-    "serviceUrl": "https://red-apim-dev.azure-api.net/calc",
     "subscriptionKeyParameterNames": {
       "header": "Ocp-Apim-Subscription-Key",
       "query": "subscription-key"

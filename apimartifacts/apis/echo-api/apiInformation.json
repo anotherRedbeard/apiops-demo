@@ -4,12 +4,11 @@
     "apiRevision": "1",
     "apiRevisionDescription": "Adding a new revision",
     "authenticationSettings": {},
-    "isCurrent": true,
     "displayName": "The Echo API",
+    "isCurrent": true,
     "protocols": [
       "https"
     ],
-    "serviceUrl": "https://echo.playground.azure-api.net/api",
     "subscriptionKeyParameterNames": {
       "header": "Ocp-Apim-Subscription-Key",
       "query": "subscription-key"
