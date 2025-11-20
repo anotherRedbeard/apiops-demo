@@ -2,14 +2,13 @@
   "properties": {
     "path": "calc",
     "apiRevision": "3",
-    "apiRevisionDescription": "rew revision 3",
+    "apiRevisionDescription": "revision 1",
     "authenticationSettings": {},
     "description": "Math is fun? Broken, who owns this api?addedagain",
     "displayName": "Basic Calculator Api",
     "protocols": [
       "https"
     ],
-    "serviceUrl": "https://red-apim-dev.azure-api.net/calc",
     "subscriptionKeyParameterNames": {
       "header": "Ocp-Apim-Subscription-Key",
       "query": "subscription-key"
