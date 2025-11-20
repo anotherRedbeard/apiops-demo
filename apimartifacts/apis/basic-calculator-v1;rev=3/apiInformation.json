@@ -2,7 +2,7 @@
   "properties": {
     "path": "calc",
     "apiRevision": "3",
-    "apiRevisionDescription": "add r3",
+    "apiRevisionDescription": "add r2 ",
     "apiVersion": "v1",
     "apiVersionSetId": "/apiVersionSets/68af0e936940c66af6468113",
     "authenticationSettings": {},
@@ -11,7 +11,6 @@
     "protocols": [
       "https"
     ],
-    "serviceUrl": "https://red-apim-dev.azure-api.net/calc",
     "subscriptionKeyParameterNames": {
       "header": "Ocp-Apim-Subscription-Key",
       "query": "subscription-key"
