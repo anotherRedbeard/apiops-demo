@@ -17,6 +17,7 @@
     "protocols": [
       "https"
     ],
+    "serviceUrl": "https://colors-api.azurewebsites.net/",
     "subscriptionKeyParameterNames": {
       "header": "Ocp-Apim-Subscription-Key",
       "query": "subscription-key"
