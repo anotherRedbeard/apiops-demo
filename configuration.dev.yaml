@@ -25,6 +25,9 @@ backends:
         services:
           - weight: 35 
           - weight: 65
+  - name: MyCustomBackend
+    properties:
+      url: "https://mycustombackend-dev.azurewebsites.net"
 loggers:
     - name: red-scus-apim-ai-dev
       properties:
