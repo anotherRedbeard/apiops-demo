@@ -20,7 +20,6 @@ namedValues:
 backends:
   - name: backend-pool-test
     properties:
-      url: "www.google.com"
       pool:
         services:
           - weight: 35 
