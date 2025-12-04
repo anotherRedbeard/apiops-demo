@@ -17,6 +17,13 @@ namedValues:
     properties:
       displayName: allowed-ip-address
       value: "{#allowedIPAddress#}"
+backends:
+  - name: backend-pool-test
+      properties:
+        pool:
+          services:
+            - weight: 70
+            - weight: 30
 loggers:
     - name: red-scus-apim-ai-dev
       properties:
