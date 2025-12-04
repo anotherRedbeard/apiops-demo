@@ -19,11 +19,11 @@ namedValues:
       value: "{#allowedIPAddress#}"
 backends:
   - name: backend-pool-test
-      properties:
-        pool:
-          services:
-            - weight: 35 
-            - weight: 65
+    properties:
+      pool:
+        services:
+          - weight: 35 
+          - weight: 65
 loggers:
     - name: red-scus-apim-ai-dev
       properties:
