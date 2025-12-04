@@ -22,8 +22,8 @@ backends:
       properties:
         pool:
           services:
-            - weight: 70
-            - weight: 30
+            - weight: 35 
+            - weight: 65
 loggers:
     - name: red-scus-apim-ai-dev
       properties:
