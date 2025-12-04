@@ -10,6 +10,6 @@
       "validateCertificateChain": true,
       "validateCertificateName": true
     },
-    "url": "https://google2.com"
+    "url": "https://google.com"
   }
 }
