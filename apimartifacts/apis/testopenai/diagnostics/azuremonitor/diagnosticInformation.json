@@ -32,7 +32,7 @@
     },
     "logClientIp": true,
     "sampling": {
-      "percentage": 99,
+      "percentage": 98,
       "samplingType": "fixed"
     },
     "verbosity": "verbose"

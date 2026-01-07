@@ -50,12 +50,14 @@ apis:
     properties:
       apiVersionSetId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-dev/apiVersionSets/6398be47eb8d2b6560dd061a"
   - name: "testopenai"
-    properties:
-      largeLanguageModel:
-        logs: "enabled"
-        requests:
-          messages: "all"
-          maxSizeInBytes: 32768
-        responses:
-          messages: "all"
-          maxSizeInBytes: 32768
+    diagnostics:
+      - name: azuremonitor
+        properties:
+          largeLanguageModel:
+            logs: "enabled"
+            requests:
+              messages: "all"
+              maxSizeInBytes: 32768
+            responses:
+              messages: "all"
+              maxSizeInBytes: 32768
