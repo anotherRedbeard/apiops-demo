@@ -28,7 +28,7 @@ loggers:
         description: App insights logger info
         resourceId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/microsoft.insights/components/red-scus-apim-appinsights-dev"
         credentials:
-          instrumentationKey: "{{Logger-Credentials--639121f85ddd1701d02ea240}}"
+          instrumentationKey: "{#appInsightsLoggerKey#}"
         isBuffered: true
 apis:
   - name: "test"
