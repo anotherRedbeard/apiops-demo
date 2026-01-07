@@ -66,3 +66,15 @@ apis:
   - name: "starwars-v1"
     properties:
       apiVersionSetId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-prd/apiVersionSets/6398be47eb8d2b6560dd061a"    
+  - name: "testopenai"
+    diagnostics:
+      - name: azuremonitor
+        properties:
+          largeLanguageModel:
+            logs: "enabled"
+            requests:
+              messages: "all"
+              maxSizeInBytes: 32768
+            responses:
+              messages: "all"
+              maxSizeInBytes: 32768
