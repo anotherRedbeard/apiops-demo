@@ -1,4 +1,4 @@
-apimServiceName: red-apim-dev
+apimServiceName: red-wus-apim-dev
 namedValues:
   - name: 639121f85ddd1701d02ea23f
     properties:
@@ -18,14 +18,6 @@ namedValues:
       displayName: allowed-ip-address
       value: "{#allowedIPAddress#}"
 backends:
-  - name: backend-pool-test
-    properties:
-      pool:
-        services:
-          - id: "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/backends/MyCustomBackend"
-            weight: 35
-          - id: "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/backends/WebApp_red-anyonecancode-web"
-            weight: 65
   - name: MyCustomBackend
     properties:
       url: "https://mycustombackend-dev.azurewebsites.net"
@@ -36,19 +28,15 @@ loggers:
         description: App insights logger info
         resourceId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/microsoft.insights/components/red-scus-apim-appinsights-dev"
         credentials:
-          instrumentationKey: "{{Logger-Credentials--639121f85ddd1701d02ea240}}"
+          instrumentationKey: "{#appInsightsLoggerKey#}"
         isBuffered: true
-diagnostics:
-    - name: applicationinsights
-      properties:
-        loggerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-dev/loggers/red-scus-apim-ai-dev"
 apis:
   - name: "test"
     properties:
-      apiVersionSetId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-dev/apiVersionSets/6398be47eb8d2b6560dd061a"
+      apiVersionSetId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-wus-apim-dev/apiVersionSets/6398be47eb8d2b6560dd061a"
   - name: "starwars-v1"
     properties:
-      apiVersionSetId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-dev/apiVersionSets/6398be47eb8d2b6560dd061a"
+      apiVersionSetId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-wus-apim-dev/apiVersionSets/6398be47eb8d2b6560dd061a"
   - name: "testopenai"
     diagnostics:
       - name: azuremonitor
