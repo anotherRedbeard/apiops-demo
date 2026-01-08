@@ -1,5 +1,5 @@
 apimServiceName: red-wus-apim-prd
-namedValues:
+named values:
   - name: environment
     properties:
       displayName: environment

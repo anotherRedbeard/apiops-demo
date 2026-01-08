@@ -1,5 +1,5 @@
 apimServiceName: red-wus-apim-dev
-namedValues:
+named values:
   - name: 639121f85ddd1701d02ea23f
     properties:
       displayName: Logger-Credentials--639121f85ddd1701d02ea240
