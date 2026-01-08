@@ -16,8 +16,7 @@ named values:
   - name: allowed-ip-address
     properties:
       displayName: allowed-ip-address
-      #value: "{#allowedIPAddress#}"
-      value: "1.1.1.1"
+      value: "{#allowedIPAddress#}"
 backends:
   - name: MyCustomBackend
     properties:
