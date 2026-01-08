@@ -3,8 +3,7 @@ namedValues:
   - name: 639121f85ddd1701d02ea23f
     properties:
       displayName: Logger-Credentials--639121f85ddd1701d02ea240
-      #value: "{#appInsightsLoggerKey#}"
-      value: "MyIpAddress"
+      value: "{#appInsightsLoggerKey#}"
   - name: testSecret
     properties:
       displayName: testSecret
@@ -17,7 +16,8 @@ namedValues:
   - name: allowed-ip-address
     properties:
       displayName: allowed-ip-address
-      value: "{#allowedIPAddress#}"
+      #value: "{#allowedIPAddress#}"
+      value: "MyIpAddress"
 backends:
   - name: MyCustomBackend
     properties:
