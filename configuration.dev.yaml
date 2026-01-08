@@ -3,7 +3,8 @@ namedValues:
   - name: 639121f85ddd1701d02ea23f
     properties:
       displayName: Logger-Credentials--639121f85ddd1701d02ea240
-      value: "{#appInsightsLoggerKey#}"
+      #value: "{#appInsightsLoggerKey#}"
+      value: "MyIpAddress"
   - name: testSecret
     properties:
       displayName: testSecret
