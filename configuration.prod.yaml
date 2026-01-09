@@ -1,4 +1,4 @@
-apimServiceName: red-wus-apim-prd
+apimServiceName: red-wus-apim-prod
 named values:
   - name: environment
     properties:
