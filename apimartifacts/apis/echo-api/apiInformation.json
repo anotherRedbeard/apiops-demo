@@ -4,8 +4,8 @@
     "apiRevision": "1",
     "apiRevisionDescription": "Adding a new revision",
     "authenticationSettings": {},
-    "displayName": "The Echo API",
     "isCurrent": true,
+    "displayName": "The Echo API",
     "protocols": [
       "https"
     ],

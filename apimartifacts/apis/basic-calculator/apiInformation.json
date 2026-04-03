@@ -1,12 +1,12 @@
 {
   "properties": {
-    "path": "calc-og",
+    "path": "calc",
     "apiRevision": "1",
     "apiRevisionDescription": "revision 1",
     "authenticationSettings": {},
     "description": "Math is fun? Broken, who owns this api?addedagain",
-    "displayName": "Basic Calculator Api",
     "isCurrent": true,
+    "displayName": "Basic Calculator Api",
     "protocols": [
       "https"
     ],

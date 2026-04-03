@@ -1,6 +1,6 @@
 {
   "properties": {
-    "path": "calc-og",
+    "path": "calc",
     "apiRevision": "3",
     "apiRevisionDescription": "revision 1",
     "authenticationSettings": {},

@@ -4,8 +4,8 @@
     "apiRevision": "1",
     "authenticationSettings": {},
     "description": "",
-    "displayName": "red-anyonecancode-web",
     "isCurrent": true,
+    "displayName": "red-anyonecancode-web",
     "protocols": [
       "https"
     ],
