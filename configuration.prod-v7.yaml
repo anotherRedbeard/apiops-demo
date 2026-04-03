@@ -1,5 +1,6 @@
-apimServiceName: red-apim-prd
-namedValues:
+apimServiceName: red-wus-apim-prod
+
+named_values:
   - name: environment
     properties:
       displayName: environment
@@ -29,26 +30,27 @@ namedValues:
     properties:
       displayName: allowed-ip-address
       value: "{#allowedIPAddress#}"
+
 loggers:
-    - name: red-scus-apim-ai-dev
-      properties:
-        loggerType: applicationInsights
-        description: App insights logger info
-        resourceId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/microsoft.insights/components/red-scus-apim-appinsights-prd"
-        credentials:
-          instrumentationKey: "{{Logger-Credentials--639121f85ddd1701d02ea240}}"
-        isBuffered: true
+  - name: red-scus-apim-ai-dev
+    properties:
+      loggerType: applicationInsights
+      description: App insights logger info
+      resourceId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/microsoft.insights/components/red-scus-apim-appinsights-prd"
+      credentials:
+        instrumentationKey: "{{Logger-Credentials--639121f85ddd1701d02ea240}}"
+      isBuffered: true
 diagnostics:
-    - name: applicationinsights
-      properties:
-        verbosity: Error
-        loggerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-prd/loggers/red-scus-apim-ai-dev"
+  - name: applicationinsights
+    properties:
+      verbosity: Error
+      loggerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-wus-apim-prod/loggers/red-scus-apim-ai-dev"
 subscriptions:
   - name: "66ce4b511f9b910053070002"
     properties:
       displayName: "Unlimited Set By APIOps"
-      scope: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-prd/products/unlimited"
-      ownerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-prd/users/1"
+      scope: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-wus-apim-prod/products/unlimited"
+      ownerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-wus-apim-prod/users/1"
       primaryKey: "{#unlimitedSubscriptionPrimaryKey#}"
       secondaryKey: "{#unlimitedSubscriptionSecondaryKey#}"
 apis:
@@ -59,13 +61,13 @@ apis:
       - name: applicationinsights
         properties:
           verbosity: Error
-          loggerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-prd/loggers/red-scus-apim-ai-dev"
+          loggerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-wus-apim-prod/loggers/red-scus-apim-ai-dev"
   - name: "test"
     properties:
-      apiVersionSetId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-prd/apiVersionSets/6398be47eb8d2b6560dd061a"
+      apiVersionSetId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-wus-apim-prod/apiVersionSets/6398be47eb8d2b6560dd061a"
   - name: "starwars-v1"
     properties:
-      apiVersionSetId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-prd/apiVersionSets/6398be47eb8d2b6560dd061a"    
+      apiVersionSetId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-wus-apim-prod/apiVersionSets/6398be47eb8d2b6560dd061a"    
   - name: "testopenai"
     diagnostics:
       - name: azuremonitor
