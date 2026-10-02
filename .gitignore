@@ -1,4 +1,7 @@
-#Add apiops configuration files so when you change them they won't force a publish
+# Node.js dependencies
+node_modules/
+
+# Add apiops configuration files so when you change them they won't force a publish
 .vscode
 
 # all dev bicepparm files

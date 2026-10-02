@@ -304,18 +304,185 @@ The GitHub repository contains:
 7. Publish a controlled change and verify it in APIM.
 8. Restore the target and repository to their baseline state.
 
-## Planned Toolkit migration walkthrough
+## Toolkit migration walkthrough
 
-1. Create an isolated migration branch in `apiops-demo`.
-2. Preserve the existing `apimartifacts/` directory.
-3. Run `apiops init` without overwriting files unexpectedly.
-4. Compare the generated workflows with the legacy extractor and publisher.
-5. Update the legacy extraction filter to the current schema.
-6. Validate environment override and token syntax.
-7. Replace client-secret authentication with GitHub OIDC.
-8. Run a dry-run using the existing Toolkit artifacts.
-9. Verify compatibility before performing a controlled publish.
-10. Restore by deleting or recreating only the disposable migration branch.
+### 1. Preserve the Toolkit baseline
+
+The original Toolkit implementation remains on `main`. A tag and disposable
+branch isolate each migration rehearsal:
+
+```bash
+git switch main
+git tag demo-part2-start
+git push origin demo-part2-start
+git switch -c demo/migration-rehearsal
+```
+
+For another rehearsal, create a fresh branch from the same tag:
+
+```bash
+git switch main
+git branch -D demo/migration-rehearsal
+git switch -c demo/migration-rehearsal demo-part2-start
+```
+
+### 2. Generate the CLI scaffold beside the Toolkit files
+
+`apiops init` fails when configuration files already exist. Do not use
+`--force` directly against a Toolkit repository because it replaces meaningful
+configuration and package files. Rename the Toolkit configuration files first,
+then generate clean CLI files for comparison:
+
+```bash
+mv configuration.extractor.yaml configuration.extractor.toolkit.yaml
+mv configuration.dev.yaml configuration.dev.toolkit.yaml
+mv configuration.prod.yaml configuration.prod.toolkit.yaml
+cp package.json package.toolkit.json
+cp package-lock.json package-lock.toolkit.json
+
+npx -y @azure-tools/apiops-cli@latest init \
+  --ci github-actions \
+  --artifact-dir ./apimartifacts \
+  --environments dev,prod \
+  --non-interactive
+```
+
+Keep the existing `apimartifacts/` directory. The APIOps CLI publisher is
+designed to consume the existing Toolkit artifact format.
+
+### 3. Translate the extraction filter
+
+The Toolkit field `subscriptionNames` was renamed to `subscriptions`:
+
+```yaml
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/apiops-cli/main/schemas/v1/extractor-config.schema.json
+
+subscriptions:
+  - 66ce4b511f9b910053070002
+```
+
+### 4. Translate environment overrides
+
+Apply these changes while comparing each generated file with its `.toolkit`
+copy:
+
+- Remove `apimServiceName`; the CLI receives the service through
+  `--service-name`.
+- Change Toolkit tokens from `{#tokenName#}` to `{#[TOKEN_NAME]#}`.
+- Add `properties: {}` to API entries that contain only nested diagnostics.
+  The current CLI override schema requires an active `properties` object.
+- Validate both files against the APIOps CLI override schema before publishing.
+
+The migrated files use GitHub secret names directly, including
+`AZURE_SUBSCRIPTION_ID`, `APIM_RESOURCE_GROUP_DEV`,
+`APIM_RESOURCE_GROUP_PROD`, `APIM_SERVICE_NAME_DEV`, and
+`APIM_SERVICE_NAME_PROD`.
+
+### 5. Preserve Key Vault subscription-key replacement
+
+The production subscription override retains tokens rather than storing keys:
+
+```yaml
+primaryKey: "{#[UNLIMITED_SUBSCRIPTION_PRIMARY_KEY]#}"
+secondaryKey: "{#[UNLIMITED_SUBSCRIPTION_SECONDARY_KEY]#}"
+```
+
+After `azure/login`, the publisher retrieves
+`APIM-Unlimited-Subscription-Primary-Key` and
+`APIM-Unlimited-Subscription-Secondary-Key` from the environment's Key Vault.
+The workflow masks the values and maps them to:
+
+- `UNLIMITED_SUBSCRIPTION_PRIMARY_KEY`
+- `UNLIMITED_SUBSCRIPTION_SECONDARY_KEY`
+
+Token validation first checks GitHub environment secrets and then checks values
+loaded into the runtime environment. Key Vault retrieval runs for both
+environments so future environment-specific secrets do not require a workflow
+structure change.
+
+### 6. Merge package dependencies
+
+The generated package must not replace the existing developer-portal package.
+Restore the baseline package files, then add the CLI:
+
+```bash
+git show HEAD:package.json > package.json
+git show HEAD:package-lock.json > package-lock.json
+npm install @azure-tools/apiops-cli@latest --save
+npm pkg set 'dependencies.@azure-tools/apiops-cli=latest'
+npm install
+```
+
+The final package retains `@azure/storage-blob`, `mime`, and `yargs`, and adds
+`@azure-tools/apiops-cli` with the manifest value `latest`. The lock file pins
+the resolved release used by the rehearsal. `npm audit --omit=dev` reported no
+runtime dependency vulnerabilities; do not run `npm audit fix --force` during
+the demo because it can make unrelated dependency changes.
+
+Add `node_modules/` to `.gitignore`.
+
+### 7. Correct the generated publisher trigger
+
+As in the greenfield scaffold, remove the leading `./` from the artifact path:
+
+```yaml
+paths:
+  - 'apimartifacts/**'
+  - 'configuration.*.yaml'
+```
+
+### 8. Replace client-secret authentication with GitHub OIDC
+
+Reuse the existing environment-specific registrations so their Azure RBAC
+assignments remain unchanged:
+
+| Environment | App registration | Client ID | Service-principal object ID |
+|---|---|---|---|
+| dev | `spAPIOpsDemoDev` | `733d9303-bfc0-4463-a6c6-519fa26ce397` | `72d8523b-27b1-4706-b3b9-5b9c2f36c63b` |
+| prod | `spAPIOpsDemoPrd` | `84c9ad8f-123c-4af8-8741-ab1ebce74dc7` | `404b4201-2ae4-4637-995e-6f4fb72af2fe` |
+
+Add one environment-scoped GitHub federated credential to each registration:
+
+- Dev subject:
+  `repo:anotherRedbeard@34103220/apiops-demo@601646614:environment:dev`
+- Prod subject:
+  `repo:anotherRedbeard@34103220/apiops-demo@601646614:environment:prod`
+- Issuer: `https://token.actions.githubusercontent.com`
+- Audience: `api://AzureADTokenExchange`
+
+The generated CLI workflows use `azure/login@v3` with `AZURE_CLIENT_ID`,
+`AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. They do not use
+`AZURE_CLIENT_SECRET`. Keep that secret temporarily because the legacy
+workflows still use it during the side-by-side migration.
+
+### 9. Reuse existing GitHub environment variables
+
+The `dev` and `prod` GitHub environments already define:
+
+- `RESOURCE_GROUP_NAME`
+- `APIM_INSTANCE_NAME`
+
+Do not create duplicate resource-group or service-name secrets. The extractor
+maps these variables to `APIM_RESOURCE_GROUP` and `APIM_SERVICE_NAME`. The
+publisher exposes them as job environment values and also maps
+`TEST_SECRET_VALUE` to `RESOURCE_GROUP_NAME`, preserving the legacy workflow's
+replacement behavior.
+
+The migrated override tokens use the reusable names:
+
+- `{#[RESOURCE_GROUP_NAME]#}`
+- `{#[APIM_INSTANCE_NAME]#}`
+- `{#[TEST_SECRET_VALUE]#}`
+- Existing GitHub secret names for Azure IDs, App Insights, and allowed IP
+- Runtime values loaded from Key Vault for the subscription keys
+
+### Remaining migration validation
+
+1. Commit and push the migration checkpoint.
+2. Run a full-artifact CLI dry-run using the existing Toolkit artifacts.
+3. Resolve any compatibility issues before performing a controlled publish.
+4. Test extraction with the translated `subscriptions` filter.
+5. Recreate the branch from `demo-part2-start` to verify the reset procedure.
 
 ## Reset strategy
 

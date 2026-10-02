@@ -1,4 +1,5 @@
-apimServiceName: red-apim-prd
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/apiops-cli/main/schemas/v1/override-config.schema.json
+
 namedValues:
   - name: environment
     properties:
@@ -15,26 +16,26 @@ namedValues:
   - name: testSecret
     properties:
       displayName: testSecret
-      value: "{#testSecretValue#}"
+      value: "{#[TEST_SECRET_VALUE]#}"
   - name: signingKey
     properties:
       displayName: signingKey
-      keyVault: 
+      keyVault:
         secretIdentifier: https://red-scus-apimdemo-kv-prd.vault.azure.net/secrets/APIM-signing-key
   - name: 639121f85ddd1701d02ea23f
     properties:
       displayName: Logger-Credentials--639121f85ddd1701d02ea240
-      value: "{#appInsightsLoggerKey#}"
+      value: "{#[APP_INSIGHTS_LOGGER_KEY]#}"
   - name: allowed-ip-address
     properties:
       displayName: allowed-ip-address
-      value: "{#allowedIPAddress#}"
+      value: "{#[ALLOWED_IP_ADDRESS]#}"
 loggers:
     - name: red-scus-apim-ai-dev
       properties:
         loggerType: applicationInsights
         description: App insights logger info
-        resourceId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/microsoft.insights/components/red-scus-apim-appinsights-prd"
+        resourceId: "/subscriptions/{#[AZURE_SUBSCRIPTION_ID]#}/resourceGroups/{#[RESOURCE_GROUP_NAME]#}/providers/microsoft.insights/components/red-scus-apim-appinsights-prd"
         credentials:
           instrumentationKey: "{{Logger-Credentials--639121f85ddd1701d02ea240}}"
         isBuffered: true
@@ -42,31 +43,31 @@ diagnostics:
     - name: applicationinsights
       properties:
         verbosity: Error
-        loggerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-prd/loggers/red-scus-apim-ai-dev"
+        loggerId: "/subscriptions/{#[AZURE_SUBSCRIPTION_ID]#}/resourceGroups/{#[RESOURCE_GROUP_NAME]#}/providers/Microsoft.ApiManagement/service/{#[APIM_INSTANCE_NAME]#}/loggers/red-scus-apim-ai-dev"
 subscriptions:
   - name: "66ce4b511f9b910053070002"
     properties:
       displayName: "Unlimited Set By APIOps"
-      scope: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-prd/products/unlimited"
-      ownerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-prd/users/1"
-      primaryKey: "{#unlimitedSubscriptionPrimaryKey#}"
-      secondaryKey: "{#unlimitedSubscriptionSecondaryKey#}"
+      scope: "/subscriptions/{#[AZURE_SUBSCRIPTION_ID]#}/resourceGroups/{#[RESOURCE_GROUP_NAME]#}/providers/Microsoft.ApiManagement/service/{#[APIM_INSTANCE_NAME]#}/products/unlimited"
+      ownerId: "/subscriptions/{#[AZURE_SUBSCRIPTION_ID]#}/resourceGroups/{#[RESOURCE_GROUP_NAME]#}/providers/Microsoft.ApiManagement/service/{#[APIM_INSTANCE_NAME]#}/users/1"
+      primaryKey: "{#[UNLIMITED_SUBSCRIPTION_PRIMARY_KEY]#}"
+      secondaryKey: "{#[UNLIMITED_SUBSCRIPTION_SECONDARY_KEY]#}"
 apis:
   - name: "basic-calculator;rev=1"
-    #properties:
-    #  description: "Math is fun! changed from config"
+    properties: {}
     diagnostics:
       - name: applicationinsights
         properties:
           verbosity: Error
-          loggerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-prd/loggers/red-scus-apim-ai-dev"
+          loggerId: "/subscriptions/{#[AZURE_SUBSCRIPTION_ID]#}/resourceGroups/{#[RESOURCE_GROUP_NAME]#}/providers/Microsoft.ApiManagement/service/{#[APIM_INSTANCE_NAME]#}/loggers/red-scus-apim-ai-dev"
   - name: "test"
     properties:
-      apiVersionSetId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-prd/apiVersionSets/6398be47eb8d2b6560dd061a"
+      apiVersionSetId: "/subscriptions/{#[AZURE_SUBSCRIPTION_ID]#}/resourceGroups/{#[RESOURCE_GROUP_NAME]#}/providers/Microsoft.ApiManagement/service/{#[APIM_INSTANCE_NAME]#}/apiVersionSets/6398be47eb8d2b6560dd061a"
   - name: "starwars-v1"
     properties:
-      apiVersionSetId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-prd/apiVersionSets/6398be47eb8d2b6560dd061a"    
+      apiVersionSetId: "/subscriptions/{#[AZURE_SUBSCRIPTION_ID]#}/resourceGroups/{#[RESOURCE_GROUP_NAME]#}/providers/Microsoft.ApiManagement/service/{#[APIM_INSTANCE_NAME]#}/apiVersionSets/6398be47eb8d2b6560dd061a"
   - name: "testopenai"
+    properties: {}
     diagnostics:
       - name: azuremonitor
         properties:

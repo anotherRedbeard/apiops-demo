@@ -10,13 +10,13 @@
     "engines": {
         "node": ">=14.18.2"
     },
-    "scripts": {},
+    "scripts": {
+    },
     "devDependencies": {
         "@azure/storage-blob": "12.13.0"
     },
-    "dependencies": {
-        "@azure-tools/apiops-cli": "latest",
-        "mime": "^3.0.0",
-        "yargs": "17.7.2"
-    }
+  "dependencies": {
+      "mime": "^3.0.0",
+      "yargs": "17.7.2"
+  }
 }
