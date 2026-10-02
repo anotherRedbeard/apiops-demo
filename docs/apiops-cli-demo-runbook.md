@@ -19,6 +19,187 @@ This runbook documents the repeatable two-part APIOps demonstration:
 | Development/source | `ME-MngEnvMCAP811683-andrewredman-1` | `red-scus-apiopsdemo-rg-dev` | `red-apim-dev` |
 | Production/target | `ME-MngEnvMCAP811683-andrewredman-2` | `red-scus-apiopsdemo-rg-prd` | `red-apim-prd` |
 
+## Live demo operator script
+
+Use this section during the presentation. The detailed setup and troubleshooting
+notes remain below it.
+
+### Opening explanation
+
+APIOps moves API Management configuration through the same controlled lifecycle
+as application code:
+
+1. Extract APIM configuration into Git-managed artifacts.
+2. Review changes through a pull request.
+3. Publish the approved artifacts to another APIM environment.
+4. Apply environment-specific values without duplicating the artifact set.
+
+The newer APIOps CLI keeps this operating model but replaces the separate
+Toolkit executables and generated pipeline templates with one `apiops` command:
+
+```text
+apiops extract -> pull request -> apiops publish
+```
+
+### Part 1: Greenfield APIOps CLI
+
+Repository: `anotherRedbeard/apiops-cli-demo`
+
+```bash
+cd /Users/andrewredman/src/apiops/apiops-cli-demo
+git status --short
+npx apiops --version
+```
+
+Show these generated files:
+
+```text
+.github/workflows/run-apiops-extractor.yml
+.github/workflows/run-apiops-publisher.yml
+.github/prompts/
+APIOPS-WORKFLOW-IDENTITY-SETUP.md
+configuration.extractor.yaml
+configuration.dev.yaml
+configuration.prod.yaml
+apim-artifacts/
+```
+
+Talking points:
+
+- `apiops init` generated the repository structure and CI/CD workflows.
+- GitHub OIDC authenticates without storing an Azure client secret.
+- `configuration.extractor.yaml` limits direct extraction to `echo-api`.
+- Referenced dependencies, such as the `environment` named value, are included
+  transitively.
+- `configuration.prod.yaml` changes only the environment-specific named value.
+- The same extracted artifact set is promoted to dev and prod.
+
+Show the focused filter:
+
+```bash
+cat configuration.extractor.yaml
+```
+
+Show the extracted artifact layout:
+
+```bash
+find apim-artifacts -type f | sort | head -40
+```
+
+Show the completed GitHub flow rather than changing Azure during the
+presentation:
+
+```bash
+gh pr view 2 --repo anotherRedbeard/apiops-cli-demo --web
+gh run list --repo anotherRedbeard/apiops-cli-demo --limit 10
+```
+
+Explain that the extraction workflow created PR #2, the PR was reviewed and
+merged, and the generated publisher was validated against both dev and prod.
+
+### Part 2: Toolkit-to-CLI migration
+
+Repository: `anotherRedbeard/apiops-demo`
+
+```bash
+cd /Users/andrewredman/src/apiops/apiops-demo
+git status --short
+git tag --list 'demo-part2-start'
+gh pr view 79 --web
+```
+
+Use PR #79 to show the migration instead of recreating it under time pressure.
+Highlight:
+
+- Existing `apimartifacts/` remained unchanged and was accepted by the CLI.
+- Toolkit configuration files were preserved as `.toolkit.yaml` references.
+- `subscriptionNames` became `subscriptions`.
+- Toolkit tokens such as `{#tokenName#}` became
+  `{#[TOKEN_NAME]#}`.
+- `apimServiceName` was removed because service selection is a CLI argument.
+- Existing developer-portal dependencies were retained while
+  `@azure-tools/apiops-cli` was added.
+- Existing dev/prod Entra applications now use GitHub environment-scoped OIDC.
+- The three legacy Toolkit workflows are disabled; developer-portal workflows
+  remain active.
+
+Show the package migration:
+
+```bash
+cat package.json
+```
+
+Show the translated filter and overrides:
+
+```bash
+cat configuration.extractor.yaml
+grep -Fn '{#[' configuration.dev.yaml configuration.prod.yaml
+```
+
+Show the new active workflows and disabled Toolkit workflows:
+
+```bash
+gh workflow list --all
+```
+
+### Validated migration result
+
+The full existing Toolkit artifact set was tested locally with APIOps CLI
+1.0.4:
+
+```text
+135 creates/updates
+0 patches
+0 deletes
+2 skipped subscriptions
+```
+
+The two skips are product subscriptions whose resource names are 24-character
+hexadecimal IDs. APIOps CLI classifies those names as APIM-generated. The
+existing Unlimited subscription is intentionally managed, so the migrated
+publisher performs a post-publish APIM REST update that:
+
+1. Reads the existing subscription.
+2. Preserves its display name, scope, owner, state, and tracing setting.
+3. Replaces only its primary and secondary keys with masked Key Vault values.
+
+This behavior should be reported upstream as a false-positive subscription
+classification in `Azure/apiops-cli`.
+
+### Live-demo safety and fallback
+
+- Do not perform a real publish unless the target baseline has been confirmed.
+- Keep `DRY_RUN_ONLY=true` for manual publisher runs.
+- The first execution of the newly merged publisher currently requires
+  one-time approval in GitHub because malicious-workflow protection flagged the
+  new workflow file.
+- If workflow approval is not completed during the presentation, show PR #79,
+  the workflow file, and the validated local dry-run summary instead.
+- Do not run `npm audit fix --force`.
+- Do not use `--delete-unmatched` during the demo.
+
+### Reset commands
+
+Greenfield rehearsal:
+
+```bash
+cd /Users/andrewredman/src/apiops/apiops-cli-demo
+git switch main
+git switch -c demo/rehearsal-YYYYMMDD demo-part1-start
+```
+
+Migration rehearsal:
+
+```bash
+cd /Users/andrewredman/src/apiops/apiops-demo
+git switch main
+git switch -c demo/migration-rehearsal-YYYYMMDD demo-part2-start
+```
+
+The tags preserve the original repository states. OIDC applications, GitHub
+environments, and Azure RBAC are reusable prerequisites and do not need to be
+deleted between demonstrations.
+
 ## Completed preparation
 
 ### 1. Create the greenfield repository
