@@ -400,6 +400,24 @@ loaded into the runtime environment. Key Vault retrieval runs for both
 environments so future environment-specific secrets do not require a workflow
 structure change.
 
+APIOps CLI 1.0.4 treats every product-scoped subscription with a 24-character
+hexadecimal resource name as an APIM-generated subscription and skips it during
+publish. The existing managed subscription
+`66ce4b511f9b910053070002` matches that heuristic even though the repository
+explicitly manages its primary and secondary keys.
+
+Keep the original hexadecimal artifact and override names so extraction remains
+stable. After a successful CLI publish, the workflow performs an explicit
+`az rest` update against that existing subscription. It uses the already
+masked Key Vault values, reads the existing target subscription, and preserves
+its display name, scope, owner, state, and tracing setting while replacing only
+the primary and secondary keys. A dry-run-only workflow execution verifies
+that the target subscription exists but does not update its keys.
+
+This is a compatibility workaround for the CLI's false-positive
+auto-generated-subscription detection. File an upstream issue against
+`Azure/apiops-cli` when GitHub organization SAML authorization is available.
+
 ### 6. Merge package dependencies
 
 The generated package must not replace the existing developer-portal package.
@@ -478,11 +496,22 @@ The migrated override tokens use the reusable names:
 
 ### Remaining migration validation
 
-1. Commit and push the migration checkpoint.
-2. Run a full-artifact CLI dry-run using the existing Toolkit artifacts.
-3. Resolve any compatibility issues before performing a controlled publish.
+1. Commit and push the publisher safety and subscription-key workaround.
+2. Run the safeguarded GitHub Actions dry-run after the workflow is available
+   on the default branch.
+3. Perform a controlled publish and verify the managed subscription keys.
 4. Test extraction with the translated `subscriptions` filter.
 5. Recreate the branch from `demo-part2-start` to verify the reset procedure.
+
+The local full-artifact CLI dry-run completed successfully against dev:
+
+- 135 creates or updates
+- 0 patches
+- 0 deletes
+- 2 skipped auto-generated product subscriptions
+
+The skip result is expected until the upstream behavior changes; the explicit
+post-publish REST step handles the one subscription whose keys are managed.
 
 ## Reset strategy
 
