@@ -1,13 +1,14 @@
-apimServiceName: red-apim-dev
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/apiops-cli/main/schemas/v1/override-config.schema.json
+
 namedValues:
   - name: 639121f85ddd1701d02ea23f
     properties:
       displayName: Logger-Credentials--639121f85ddd1701d02ea240
-      value: "{#appInsightsLoggerKey#}"
+      value: "{#[APP_INSIGHTS_LOGGER_KEY]#}"
   - name: testSecret
     properties:
       displayName: testSecret
-      value: "{#testSecretValue#}"
+      value: "{#[TEST_SECRET_VALUE]#}"
   - name: signingKey
     properties:
       displayName: signingKey
@@ -16,15 +17,15 @@ namedValues:
   - name: allowed-ip-address
     properties:
       displayName: allowed-ip-address
-      value: "{#allowedIPAddress#}"
+      value: "{#[ALLOWED_IP_ADDRESS]#}"
 backends:
   - name: backend-pool-test
     properties:
       pool:
         services:
-          - id: "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/backends/MyCustomBackend"
+          - id: "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/{#[APIM_INSTANCE_NAME]#}/backends/MyCustomBackend"
             weight: 35
-          - id: "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/backends/WebApp_red-anyonecancode-web"
+          - id: "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/{#[APIM_INSTANCE_NAME]#}/backends/WebApp_red-anyonecancode-web"
             weight: 65
   - name: MyCustomBackend
     properties:
@@ -34,22 +35,23 @@ loggers:
       properties:
         loggerType: applicationInsights
         description: App insights logger info
-        resourceId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/microsoft.insights/components/red-scus-apim-appinsights-dev"
+        resourceId: "/subscriptions/{#[AZURE_SUBSCRIPTION_ID]#}/resourceGroups/{#[RESOURCE_GROUP_NAME]#}/providers/microsoft.insights/components/red-scus-apim-appinsights-dev"
         credentials:
           instrumentationKey: "{{Logger-Credentials--639121f85ddd1701d02ea240}}"
         isBuffered: true
 diagnostics:
     - name: applicationinsights
       properties:
-        loggerId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-dev/loggers/red-scus-apim-ai-dev"
+        loggerId: "/subscriptions/{#[AZURE_SUBSCRIPTION_ID]#}/resourceGroups/{#[RESOURCE_GROUP_NAME]#}/providers/Microsoft.ApiManagement/service/{#[APIM_INSTANCE_NAME]#}/loggers/red-scus-apim-ai-dev"
 apis:
   - name: "test"
     properties:
-      apiVersionSetId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-dev/apiVersionSets/6398be47eb8d2b6560dd061a"
+      apiVersionSetId: "/subscriptions/{#[AZURE_SUBSCRIPTION_ID]#}/resourceGroups/{#[RESOURCE_GROUP_NAME]#}/providers/Microsoft.ApiManagement/service/{#[APIM_INSTANCE_NAME]#}/apiVersionSets/6398be47eb8d2b6560dd061a"
   - name: "starwars-v1"
     properties:
-      apiVersionSetId: "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/Microsoft.ApiManagement/service/red-apim-dev/apiVersionSets/6398be47eb8d2b6560dd061a"
+      apiVersionSetId: "/subscriptions/{#[AZURE_SUBSCRIPTION_ID]#}/resourceGroups/{#[RESOURCE_GROUP_NAME]#}/providers/Microsoft.ApiManagement/service/{#[APIM_INSTANCE_NAME]#}/apiVersionSets/6398be47eb8d2b6560dd061a"
   - name: "testopenai"
+    properties: {}
     diagnostics:
       - name: azuremonitor
         properties:

@@ -1,4 +1,3 @@
-# Note: With the introduction of workspaces we recommend using workspaces with APIOps when possible to limit what can be extracted whenever possible. 
-# More information about workspaces can be found here https://learn.microsoft.com/en-us/azure/api-management/workspaces-overview
-subscriptionNames:
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/apiops-cli/main/schemas/v1/extractor-config.schema.json
+subscriptions:
   - 66ce4b511f9b910053070002
