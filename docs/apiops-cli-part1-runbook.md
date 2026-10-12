@@ -6,22 +6,22 @@ This is the complete operator sequence for the greenfield APIOps CLI demo.
 
 | Item | Value |
 |---|---|
-| Repository | `anotherRedbeard/apiops-cli-demo` |
-| Local path | `/Users/andrewredman/src/apiops/apiops-cli-demo` |
+| Repository | `<github-owner>/apiops-cli-demo` |
+| Local path | `<path-to-apiops-cli-demo>` |
 | Starting tag | `demo-part1-start` |
-| Source subscription | `0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8` |
-| Source resource group | `red-scus-apiopsdemo-rg-dev` |
-| Source APIM | `red-apim-dev` |
-| Target subscription | `c32b355a-3c13-4bd7-8b52-4202f962418a` |
-| Target resource group | `red-scus-apiopsdemo-rg-prd` |
-| Target APIM | `red-apim-prd` |
+| Source subscription | `<dev-subscription-id>` |
+| Source resource group | `<dev-resource-group>` |
+| Source APIM | `<dev-apim-service>` |
+| Target subscription | `<prod-subscription-id>` |
+| Target resource group | `<prod-resource-group>` |
+| Target APIM | `<prod-apim-service>` |
 
 ## 1. Start from the empty baseline
 
 Create a new disposable branch. Use a unique branch name for each rehearsal:
 
 ```bash
-cd /Users/andrewredman/src/apiops/apiops-cli-demo
+cd <path-to-apiops-cli-demo>
 git fetch origin --tags --prune
 git switch main
 git pull --ff-only origin main
@@ -133,7 +133,7 @@ Explain the filter semantics:
 Confirm the Azure CLI is using the development subscription:
 
 ```bash
-az account set --subscription 0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8
+az account set --subscription <dev-subscription-id>
 az account show --query '{name:name,id:id}' -o table
 ```
 
@@ -141,10 +141,10 @@ Run the extractor:
 
 ```bash
 npx apiops \
-  --subscription-id 0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8 \
+  --subscription-id <dev-subscription-id> \
   extract \
-  --resource-group red-scus-apiopsdemo-rg-dev \
-  --service-name red-apim-dev \
+  --resource-group <dev-resource-group> \
+  --service-name <dev-apim-service> \
   --output ./apim-artifacts \
   --filter configuration.extractor.yaml \
   --remove-stale
@@ -211,8 +211,8 @@ triggering the publisher during rehearsal.
 
 The reusable setup already exists:
 
-- Entra application: `apiops-cli-demo-github`
-- Client ID: `cce44b20-c114-43e0-a537-e0d3ababbd4b`
+- Entra application: `<greenfield-oidc-app>`
+- Client ID: stored as the `AZURE_CLIENT_ID` GitHub environment secret
 - GitHub environments: `dev`, `prod`
 - Authentication: GitHub environment-scoped federated credentials
 - No Azure client secret is stored
@@ -258,8 +258,8 @@ does not need to be merged during every presentation.
 Show the extraction pull request and workflow history:
 
 ```bash
-gh pr view 2 --repo anotherRedbeard/apiops-cli-demo --web
-gh run list --repo anotherRedbeard/apiops-cli-demo --limit 10
+gh pr view 2 --repo <github-owner>/apiops-cli-demo --web
+gh run list --repo <github-owner>/apiops-cli-demo --limit 10
 ```
 
 Explain:
@@ -274,7 +274,7 @@ If running the existing extractor workflow live:
 
 ```bash
 gh workflow run run-apiops-extractor.yml \
-  --repo anotherRedbeard/apiops-cli-demo \
+  --repo <github-owner>/apiops-cli-demo \
   --ref main \
   -f ENVIRONMENT=dev \
   -f CONFIGURATION_YAML_PATH=configuration.extractor.yaml
@@ -284,7 +284,7 @@ Watch the run:
 
 ```bash
 gh run list \
-  --repo anotherRedbeard/apiops-cli-demo \
+  --repo <github-owner>/apiops-cli-demo \
   --workflow run-apiops-extractor.yml \
   --limit 5
 ```
@@ -332,7 +332,7 @@ development and production.
 The disposable branch can be abandoned. For another rehearsal:
 
 ```bash
-cd /Users/andrewredman/src/apiops/apiops-cli-demo
+cd <path-to-apiops-cli-demo>
 git switch main
 git switch -c demo/live-YYYYMMDD-HHMM demo-part1-start
 ```

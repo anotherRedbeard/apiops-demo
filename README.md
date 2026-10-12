@@ -1,12 +1,15 @@
 # apiops-demo
-This is the implementation of the [APIOps repo](https://github.com/Azure/apiops) that I use to demo the apiops process.  I've also merged in the pipelines from the [apim-dev-portal-migration](https://github.com/anotherRedbeard/apim-dev-portal-migration) repo that I forked and modified slightly from [@seenu433](https://github.com/seenu433/apim-dev-portal-migration) so that I can have a one stop repo for all of my Azure Api Management (APIM) deployment examples.
+This repository demonstrates the process from the
+[Azure APIOps project](https://github.com/Azure/apiops). It also includes
+adapted developer-portal migration pipelines so the APIM deployment examples
+can be demonstrated from one repository.
 
 For more information on the automation of developer portal deployments you can go to the [Automate developer portal deployments](https://learn.microsoft.com/en-us/azure/api-management/automate-portal-deployments) document page.
 
 ## Prerequisites
 
 - You will need to create a new client_id and secret on an existing or new service principal. Keep in mind if you delete the resource group and re-run the [bicep] modules to create the infrastructure, you will need to go back and grant permissions to this service principal. That is because when you remove the resource group it will remove the RBAC assignments.
-  - Here is the command to create the new service principal. I would recommend using 2 service principals, named something similiar to this:  spAPIOpsDemoDev and spAPIOpsDemoPrd.
+  - Here is the command to create the new service principal. For environment isolation, use separate identities such as `apiops-dev` and `apiops-prod`.
 
     ```# Bash script
       az ad sp create-for-rbac --name myServicePrincipalName1 --role reader --scopes /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG1
