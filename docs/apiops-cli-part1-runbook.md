@@ -9,6 +9,7 @@ This is the complete operator sequence for the greenfield APIOps CLI demo.
 | Repository | `<github-owner>/apiops-cli-demo` |
 | Local path | `<path-to-apiops-cli-demo>` |
 | Starting tag | `demo-part1-start` |
+| APIOps CLI | `1.0.5` |
 | Source subscription | `<dev-subscription-id>` |
 | Source resource group | `<dev-resource-group>` |
 | Source APIM | `<dev-apim-service>` |
@@ -36,7 +37,7 @@ reference implementation remain available.
 ## 2. Show the CLI initialization command
 
 ```bash
-npx -y @azure-tools/apiops-cli@latest init --help
+npx -y @azure-tools/apiops-cli@1.0.5 init --help
 ```
 
 Explain:
@@ -48,7 +49,7 @@ Explain:
 ## 3. Initialize the repository
 
 ```bash
-npx -y @azure-tools/apiops-cli@latest init
+npx -y @azure-tools/apiops-cli@1.0.5 init
 ```
 
 Choose:
@@ -60,7 +61,7 @@ Choose:
 Equivalent non-interactive command:
 
 ```bash
-npx -y @azure-tools/apiops-cli@latest init \
+npx -y @azure-tools/apiops-cli@1.0.5 init \
   --ci github-actions \
   --artifact-dir ./apim-artifacts \
   --environments dev,prod \
@@ -204,8 +205,7 @@ to:
 - 'apim-artifacts/**'
 ```
 
-The leading `./` prevented artifact-only extraction pull requests from
-triggering the publisher during rehearsal.
+The leading `./` does not match artifact-only extraction pull-request paths.
 
 ## 9. Explain GitHub OIDC
 

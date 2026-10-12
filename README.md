@@ -1,58 +1,72 @@
 # apiops-demo
-This repository demonstrates the process from the
-[Azure APIOps project](https://github.com/Azure/apiops). It also includes
-adapted developer-portal migration pipelines so the APIM deployment examples
-can be demonstrated from one repository.
 
-For more information on the automation of developer portal deployments you can go to the [Automate developer portal deployments](https://learn.microsoft.com/en-us/azure/api-management/automate-portal-deployments) document page.
+This repository demonstrates the
+[Azure APIOps](https://azure.github.io/apiops/) process using APIOps CLI. It
+also retains the developer portal migration pipelines so both APIM and portal
+deployment examples can be demonstrated from one repository.
 
-## Prerequisites
+## APIOps CLI demo
 
-- You will need to create a new client_id and secret on an existing or new service principal. Keep in mind if you delete the resource group and re-run the [bicep] modules to create the infrastructure, you will need to go back and grant permissions to this service principal. That is because when you remove the resource group it will remove the RBAC assignments.
-  - Here is the command to create the new service principal. For environment isolation, use separate identities such as `apiops-dev` and `apiops-prod`.
+The demonstration has two repeatable parts:
 
-    ```# Bash script
-      az ad sp create-for-rbac --name myServicePrincipalName1 --role reader --scopes /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG1
-    ```
+1. Build a greenfield APIOps CLI repository.
+2. Migrate an existing APIOps Toolkit repository to APIOps CLI without
+   rebuilding its APIM artifacts.
 
-- Create environments for each of the APIM instances under *{repository} -> Settings -> Environments* with the below secrets and variables:
+Use these runbooks:
 
-    | Secret Name | Description |
-    | ------------- | ----------- |
-    |ALLOWED_IP_ADDRESS|IP address to check for in one of the policies|
-    |APP_INSIGHTS_LOGGER_KEY|InstrumentationKey from the application insights resource that is created with the bicep modules. You will need to update this each time you re-create the resource|
-    |AZURE_CLIENT_ID|The client id of the service principal|
-    |AZURE_CLIENT_SECRET|The client secret of the service principal|
-    |AZURE_SUBSCRIPTION_ID|The subscription id of the APIM resource |
-    |AZURE_TENANT_ID|The tenant id of the service principal|
-    |KEYVAULT_NAME|The name of the key vault so it can be used in the APIOps process|
+- [Demo overview and safety controls](docs/apiops-cli-demo-runbook.md)
+- [Part 1: Greenfield APIOps CLI](docs/apiops-cli-part1-runbook.md)
+- [Part 2: Toolkit migration](docs/apiops-cli-part2-migration-runbook.md)
 
-    | Variable Name | Description |
-    | ------------- | ----------- |
-    |APIM_INSTANCE_NAME |The name of the APIM instance to migrate from |
-    |APIOPS_VERSION |Version of APIOps you want to use |
-    |LOG_LEVEL |Level you want to set for the logging |
-    |RESOURCE_GROUP_NAME|The name of the resource group the APIM instance is in|
-    |ARM_API_VERSION|(Optional)If you need to use a different api version you can set this variable|
+The migration repository pins `@azure-tools/apiops-cli` 1.0.5.
 
-    *Note:* The names of the environments can be dev, stage etc. If using different names, update the run-extractor.yaml and run-publisher-with-env.yaml for the environment names. This would also be a good time to setup [deployment protection rules](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-protection-rules) if you wish in the environment settings of GitHub.
+## APIOps CLI prerequisites
 
-- Grant permissions for the actions to create a PR. Set *Read and write permissions* and "Allow GitHub Actions to create and approve pull requests" under *{repository} -> Settings -> Actions -> General -> Workflow permissions*.
+Create GitHub environments named `dev` and `prod`. Configure each environment
+with:
 
-## APIOps Steps
+| Type | Name | Purpose |
+|---|---|---|
+| Secret | `AZURE_CLIENT_ID` | Entra application client ID |
+| Secret | `AZURE_TENANT_ID` | Entra tenant ID |
+| Secret | `AZURE_SUBSCRIPTION_ID` | Target Azure subscription |
+| Secret | `KEYVAULT_NAME` | Key Vault used for runtime secrets |
+| Secret | `APP_INSIGHTS_LOGGER_KEY` | Application Insights logger value |
+| Secret | `ALLOWED_IP_ADDRESS` | Policy-specific allowed IP value |
+| Variable | `RESOURCE_GROUP_NAME` | APIM resource group |
+| Variable | `APIM_INSTANCE_NAME` | APIM service name |
 
-For full documentation steps of how to setup and run APIOps, it would be best to check the [Official Documentation](https://azure.github.io/apiops/apiops/3-apimTools/), but since I've already done all of that here are the steps I use to deploy.
+The APIOps CLI workflows use GitHub OIDC and do not require an Azure client
+secret. Configure environment-scoped federated credentials:
 
-### Portal First Deployment
+```text
+repo:<github-owner>/apiops-demo:environment:dev
+repo:<github-owner>/apiops-demo:environment:prod
+```
 
-  1. Run the extractor.yaml
-    a. This will create a PR for you to approve, once you approve the PR the publisher.yaml pipeline will execute which will deploy your code to all the environments
+Grant the workflow identities the required APIM and Key Vault permissions.
+Under **Settings > Actions > General > Workflow permissions**, allow GitHub
+Actions to create pull requests.
 
-### Code First Deployment
+## APIOps workflow
 
-  1. Create a PR for the changes that you've made.
-  2. Approve the PR
-    a. Once you approve the PR the publisher.yaml pipeline will execute which will deploy your code to all the environments
+Portal-first changes:
+
+1. Run `run-apiops-extractor.yml`.
+2. Review and merge the generated artifact pull request.
+3. Review the publisher dry-run.
+4. Intentionally enable a real publish only after approval.
+
+Code-first changes:
+
+1. Create and review a pull request containing artifact or override changes.
+2. Merge the approved pull request.
+3. Review the publisher dry-run.
+4. Intentionally enable a real publish only after approval.
+
+Automatic real publishing is disabled unless the repository variable
+`ENABLE_AUTOMATIC_PUBLISH` is explicitly set to `true`.
 
 ## APIM Developer Portal Deploy Steps
 

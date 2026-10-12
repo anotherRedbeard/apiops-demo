@@ -1,729 +1,156 @@
 # APIOps CLI Demo Runbook
 
-This runbook documents the repeatable two-part APIOps demonstration:
+This document is the operator index for the two-part APIOps demonstration. The
+step-by-step procedures are maintained in separate runbooks so presentation
+steps stay concise and troubleshooting history does not become part of the
+demo.
 
-1. Create a new APIOps CLI implementation from an empty repository.
-2. Migrate an existing APIOps Toolkit implementation to APIOps CLI.
+## Authoritative procedures
 
-## Demo repositories
-
-| Part | Repository | Local path |
+| Demo | Runbook | Starting point |
 |---|---|---|
-| Greenfield APIOps CLI | `<github-owner>/apiops-cli-demo` | `<path-to-apiops-cli-demo>` |
-| Toolkit migration | `<github-owner>/apiops-demo` | `<path-to-apiops-demo>` |
+| Part 1: Greenfield APIOps CLI | [apiops-cli-part1-runbook.md](apiops-cli-part1-runbook.md) | `demo-part1-start` |
+| Part 2: Toolkit migration | [apiops-cli-part2-migration-runbook.md](apiops-cli-part2-migration-runbook.md) | `demo-part2-start` |
 
-## Azure demo environments
+Use those runbooks during preparation and rehearsal. This document records
+only the shared model, prerequisites, safety rules, and verified outcomes.
 
-| Environment | Subscription | Resource group | APIM service |
-|---|---|---|---|
-| Development/source | `<dev-subscription>` | `<dev-resource-group>` | `<dev-apim-service>` |
-| Production/target | `<prod-subscription>` | `<prod-resource-group>` | `<prod-apim-service>` |
+## Operating model
 
-## Live demo operator script
-
-Use this section during the presentation. The detailed setup and troubleshooting
-notes remain below it.
-
-### Opening explanation
-
-APIOps moves API Management configuration through the same controlled lifecycle
-as application code:
-
-1. Extract APIM configuration into Git-managed artifacts.
-2. Review changes through a pull request.
-3. Publish the approved artifacts to another APIM environment.
-4. Apply environment-specific values without duplicating the artifact set.
-
-The newer APIOps CLI keeps this operating model but replaces the separate
-Toolkit executables and generated pipeline templates with one `apiops` command:
+Both the legacy Toolkit and APIOps CLI use the same core APIOps flow:
 
 ```text
-apiops extract -> pull request -> apiops publish
+APIM source
+    |
+    v
+Extract configuration
+    |
+    v
+Git branch and pull request
+    |
+    v
+Review and merge
+    |
+    v
+Dry-run validation
+    |
+    v
+Publish to target APIM
 ```
 
-### Part 1: Greenfield APIOps CLI
+APIOps CLI modernizes the tooling and generated workflows. It does not replace
+the Git-based review and promotion model.
 
-Repository: `<github-owner>/apiops-cli-demo`
+## Shared prerequisites
 
-```bash
-cd <path-to-apiops-cli-demo>
-git status --short
-npx apiops --version
-```
+- Node.js 22.
+- Azure CLI for local validation.
+- GitHub CLI for repeatable workflow and pull-request commands.
+- GitHub environments named `dev` and `prod`.
+- Environment-scoped Entra federated credentials.
+- APIM and Key Vault permissions for the workflow identities.
+- GitHub Actions permission to create pull requests.
 
-Show these generated files:
+APIOps CLI workflow secrets:
 
 ```text
-.github/workflows/run-apiops-extractor.yml
-.github/workflows/run-apiops-publisher.yml
-.github/prompts/
-APIOPS-WORKFLOW-IDENTITY-SETUP.md
-configuration.extractor.yaml
-configuration.dev.yaml
-configuration.prod.yaml
-apim-artifacts/
+AZURE_CLIENT_ID
+AZURE_TENANT_ID
+AZURE_SUBSCRIPTION_ID
+KEYVAULT_NAME
+APP_INSIGHTS_LOGGER_KEY
+ALLOWED_IP_ADDRESS
 ```
 
-Talking points:
-
-- `apiops init` generated the repository structure and CI/CD workflows.
-- GitHub OIDC authenticates without storing an Azure client secret.
-- `configuration.extractor.yaml` limits direct extraction to `echo-api`.
-- Referenced dependencies, such as the `environment` named value, are included
-  transitively.
-- `configuration.prod.yaml` changes only the environment-specific named value.
-- The same extracted artifact set is promoted to dev and prod.
-
-Show the focused filter:
-
-```bash
-cat configuration.extractor.yaml
-```
-
-Show the extracted artifact layout:
-
-```bash
-find apim-artifacts -type f | sort | head -40
-```
-
-Show the completed GitHub flow rather than changing Azure during the
-presentation:
-
-```bash
-gh pr view 2 --repo <github-owner>/apiops-cli-demo --web
-gh run list --repo <github-owner>/apiops-cli-demo --limit 10
-```
-
-Explain that the extraction workflow created PR #2, the PR was reviewed and
-merged, and the generated publisher was validated against both dev and prod.
-
-### Part 2: Toolkit-to-CLI migration
-
-Repository: `<github-owner>/apiops-demo`
-
-```bash
-cd <path-to-apiops-demo>
-git status --short
-git tag --list 'demo-part2-start'
-gh pr view 79 --web
-```
-
-Use PR #79 to show the migration instead of recreating it under time pressure.
-Highlight:
-
-- Existing `apimartifacts/` remained unchanged and was accepted by the CLI.
-- Toolkit configuration files were preserved as `.toolkit.yaml` references.
-- `subscriptionNames` became `subscriptions`.
-- Toolkit tokens such as `{#tokenName#}` became
-  `{#[TOKEN_NAME]#}`.
-- `apimServiceName` was removed because service selection is a CLI argument.
-- Existing developer-portal dependencies were retained while
-  `@azure-tools/apiops-cli` was added.
-- Existing dev/prod Entra applications now use GitHub environment-scoped OIDC.
-- The three legacy Toolkit workflows are disabled; developer-portal workflows
-  remain active.
-
-Show the package migration:
-
-```bash
-cat package.json
-```
-
-Show the translated filter and overrides:
-
-```bash
-cat configuration.extractor.yaml
-grep -Fn '{#[' configuration.dev.yaml configuration.prod.yaml
-```
-
-Show the new active workflows and disabled Toolkit workflows:
-
-```bash
-gh workflow list --all
-```
-
-### Validated migration result
-
-The full existing Toolkit artifact set was tested locally with APIOps CLI
-1.0.4:
+APIOps CLI workflow variables:
 
 ```text
-135 creates/updates
-0 patches
-0 deletes
-2 skipped subscriptions
+RESOURCE_GROUP_NAME
+APIM_INSTANCE_NAME
 ```
 
-That APIOps CLI 1.0.4 run skipped two product subscriptions whose resource
-names are 24-character hexadecimal IDs. APIOps CLI 1.0.5 adds native support
-for publishing those subscriptions. The repository now pins version 1.0.5 and
-uses the normal override file to publish the managed subscription keys loaded
-from Key Vault. The temporary post-publish APIM REST workaround has been
-removed.
+No Azure client secret is required by the APIOps CLI extractor or publisher.
 
-A safeguarded full-artifact GitHub Actions dry-run with APIOps CLI 1.0.5
-confirmed:
+## Workflow safety
 
-```text
-150 creates/updates
-169 patches
-0 deletes
-0 skipped subscriptions
-```
+The publisher always runs a dry-run before a real publish.
 
-Both hexadecimal subscription resources were planned as native `PUT`
-operations. Both real publish steps remained skipped.
+Manual workflow behavior:
 
-### Live-demo safety and fallback
+| `DRY_RUN_ONLY` | Result |
+|---|---|
+| `true` | Validate only; real publish steps are skipped |
+| `false` | Validate first, then publish |
 
-- Do not perform a real publish unless the target baseline has been confirmed.
-- Keep `DRY_RUN_ONLY=true` for manual publisher runs.
-- The first execution of the newly merged publisher currently requires
-  one-time approval in GitHub because malicious-workflow protection flagged the
-  new workflow file.
-- If workflow approval is not completed during the presentation, show PR #79,
-  the workflow file, and the validated local dry-run summary instead.
-- Do not run `npm audit fix --force`.
+Push-triggered behavior:
+
+| `ENABLE_AUTOMATIC_PUBLISH` | Result |
+|---|---|
+| Missing or not `true` | Validate only |
+| `true` | Validate, then publish |
+
+Additional rules:
+
 - Do not use `--delete-unmatched` during the demo.
+- Use `publish-all-artifacts-in-repo` for full migration validation.
+- Use the incremental option only when the last commit contains the intended
+  artifact changes.
+- Do not run `npm audit fix --force` as part of the demo.
+- Never expose Key Vault values in logs or documentation.
 
-### Reset commands
+## Verified migration outcome
 
-Greenfield rehearsal:
+The reference migration uses APIOps CLI 1.0.5.
+
+The full-artifact dev dry-run produced:
+
+```text
+150 PUT
+169 PATCH
+0 DELETE
+0 SKIP
+```
+
+Both 24-character hexadecimal product subscriptions were planned as native
+`PUT` operations.
+
+The controlled full-artifact dev publish then completed successfully. Both
+subscriptions were published through the normal APIOps CLI operation; no
+post-publish REST workaround was required.
+
+## Presentation sequence
+
+1. Explain the extract, Git, review, and publish operating model.
+2. Run or summarize Part 1 from the greenfield baseline.
+3. Run Part 2 from the Toolkit baseline.
+4. Compare the preserved Toolkit files with the generated CLI files.
+5. Highlight the schema and token translations.
+6. Show OIDC, Key Vault token handling, and publisher safety controls.
+7. Show the extractor-generated artifact pull request.
+8. Show the successful full dry-run and controlled dev publish.
+9. Reset by creating a new disposable branch from the appropriate baseline
+   tag.
+
+## Reset commands
+
+Greenfield:
 
 ```bash
 cd <path-to-apiops-cli-demo>
 git switch main
-git switch -c demo/rehearsal-YYYYMMDD demo-part1-start
+git pull --ff-only
+git switch -c demo/live-YYYYMMDD-HHMM demo-part1-start
 ```
 
-Migration rehearsal:
+Toolkit migration:
 
 ```bash
 cd <path-to-apiops-demo>
 git switch main
-git switch -c demo/migration-rehearsal-YYYYMMDD demo-part2-start
+git pull --ff-only
+git switch -c demo/migration-YYYYMMDD-HHMM demo-part2-start
 ```
 
-The tags preserve the original repository states. OIDC applications, GitHub
-environments, and Azure RBAC are reusable prerequisites and do not need to be
-deleted between demonstrations.
-
-## Completed preparation
-
-### 1. Create the greenfield repository
-
-```bash
-cd <parent-directory-for-demo-repositories>
-gh repo create <github-owner>/apiops-cli-demo \
-  --public \
-  --add-readme \
-  --description "Repeatable APIOps CLI greenfield and migration demo" \
-  --clone
-```
-
-### 2. Preserve the empty starting state
-
-```bash
-cd <path-to-apiops-cli-demo>
-git tag demo-part1-start
-git push origin demo-part1-start
-git switch -c demo/rehearsal
-```
-
-The `demo-part1-start` tag provides a stable starting point for future
-rehearsals. The `demo/rehearsal` branch contains disposable rehearsal work.
-
-### 3. Inspect the initialization command
-
-```bash
-npx -y @azure-tools/apiops-cli@latest init --help
-```
-
-Important options:
-
-- `--ci github-actions` generates GitHub Actions workflows.
-- `--artifact-dir ./apim-artifacts` selects the artifact directory.
-- `--environments dev,prod` creates configuration for both environments.
-- `--non-interactive` uses the supplied options without prompting.
-
-### 4. Initialize the repository
-
-Interactive command used during the hands-on rehearsal:
-
-```bash
-cd <path-to-apiops-cli-demo>
-npx -y @azure-tools/apiops-cli@latest init
-```
-
-Interactive selections:
-
-- CI/CD provider: `GitHub Actions`
-- Artifact directory: accepted `./apim-artifacts`
-- Environments: `dev, prod`
-
-The equivalent repeatable non-interactive command is:
-
-```bash
-npx -y @azure-tools/apiops-cli@latest init \
-  --ci github-actions \
-  --artifact-dir ./apim-artifacts \
-  --environments dev,prod \
-  --non-interactive
-```
-
-The command generated:
-
-- `.github/workflows/run-apiops-extractor.yml`
-- `.github/workflows/run-apiops-publisher.yml`
-- `.github/prompts/` Copilot prompt files
-- `APIOPS-WORKFLOW-IDENTITY-SETUP.md`
-- `configuration.extractor.yaml`
-- `configuration.dev.yaml`
-- `configuration.prod.yaml`
-- `package.json`
-- `apim-artifacts/`
-
-The generated `package.json` intentionally uses the latest APIOps CLI package.
-
-### Understanding the generated Markdown files
-
-The Markdown files do not run in GitHub Actions and are not required by the
-`apiops` executable. They are checked-in guidance that makes configuration
-repeatable for repository contributors.
-
-#### `APIOPS-WORKFLOW-IDENTITY-SETUP.md`
-
-This is the human-readable manual setup guide. It explains:
-
-- Creating an Entra application and service principal.
-- Assigning least-privilege Azure RBAC.
-- Creating GitHub OIDC federated credentials.
-- Creating GitHub environments.
-- Adding repository and environment secrets.
-- Verifying the extractor workflow and pull-request permissions.
-
-#### `.github/prompts/apiops-setup-workflow-identity.prompt.md`
-
-This is a Copilot prompt file for performing the same identity setup
-interactively. Its front matter declares Agent mode, and its instructions force
-the agent to proceed one step at a time, confirm values, stop on errors, and
-avoid using a stored client secret.
-
-#### `.github/prompts/apiops-configure-filter.prompt.md`
-
-This prompt helps build `configuration.extractor.yaml` from the live APIM
-resource inventory. It reinforces these important filter semantics:
-
-- An omitted resource type means extract all resources of that type.
-- An empty array means extract none of that type.
-- A list means extract only matching names or patterns.
-- Referenced dependencies can be included transitively.
-
-#### `.github/prompts/apiops-configure-overrides.prompt.md`
-
-This prompt helps build `configuration.{environment}.yaml` files. It guides the
-user through:
-
-- Discovering values that differ between environments.
-- Choosing literals, pipeline tokens, or Key Vault references.
-- Preserving the same artifact set across environments.
-- Validating token names and override structure.
-
-These prompt files can be opened in VS Code and invoked through GitHub Copilot
-Agent mode. They can also serve as readable process documentation even when
-Copilot is not used.
-
-In VS Code, generated prompt files are exposed as reusable Copilot Chat prompt
-commands, such as `/apiops-configure-filter` and
-`/apiops-configure-overrides`. The assistant follows the checked-in prompt's
-step-by-step rules, asks for confirmation, inspects the repository or live
-Azure resources, and edits the actual YAML configuration. The APIOps CLI and
-GitHub Actions workflows never execute the prompt files.
-
-### 4a. Configure the greenfield extraction filter
-
-The live source APIM inventory was queried rather than relying on old local
-artifacts:
-
-```bash
-az apim api list \
-  --subscription <dev-subscription-id> \
-  --resource-group <dev-resource-group> \
-  --service-name <dev-apim-service> \
-  --query '[].{name:name,displayName:displayName,path:path}' \
-  -o table
-```
-
-`echo-api` was selected for the focused demo. The active filter is:
-
-```yaml
-# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/apiops-cli/main/schemas/v1/extractor-config.schema.json
-
-apis:
-  - echo-api
-backends: []
-namedValues: []
-products: []
-tags: []
-versionSets: []
-loggers: []
-diagnostics: []
-groups: []
-policyFragments: []
-gateways: []
-schemas: []
-subscriptions: []
-policies: []
-policyRestrictions: []
-documentations: []
-workspaces: []
-```
-
-Filter behavior to explain during the demo:
-
-- Omitted key: include all resources of that type.
-- Empty array: directly select none of that type.
-- Named list: directly select matching resources.
-- Transitive dependency resolution can still include a referenced resource even
-  when its top-level type is an empty array.
-- `--no-transitive` disables transitive dependency inclusion.
-
-### 4b. Configure the production override
-
-Artifact inspection found that the `echo-api` policy references the transitive
-named value `environment`. The extracted development value is
-`https://www.bing-dev.com`. The production value is a safe, non-secret literal,
-so it is committed directly instead of using a pipeline token:
-
-```yaml
-# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/apiops-cli/main/schemas/v1/override-config.schema.json
-
-namedValues:
-  - name: environment
-    properties:
-      displayName: environment
-      value: "https://www.bing.com"
-```
-
-The API service URL is shared by both environments, so it does not require an
-override. The generated development override template remains unchanged.
-
-During rehearsal, the generated development template caused a publisher
-failure because its commented example contained `{#[DB_Connection_String]#}`.
-The generated workflow's token scanner matched the token inside the comment and
-reported a missing secret. Because dev needs no overrides, the file was reduced
-to:
-
-```yaml
-# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/apiops-cli/main/schemas/v1/override-config.schema.json
-```
-
-### 4c. Generated workflow corrections
-
-Two scaffold behaviors were found during rehearsal:
-
-1. The publisher path filter used `'./apim-artifacts/**'`, which did not match
-   the artifact paths in the extraction PR. It was corrected to:
-
-   ```yaml
-   paths:
-     - 'apim-artifacts/**'
-     - 'configuration.*.yaml'
-   ```
-
-2. The token validation step scans commented examples in override files. Remove
-   unused example tokens from generated configuration files, or replace an
-   unused override file with only its schema declaration.
-
-After the artifact PR merged, the publisher was run manually for dev with:
-
-- `COMMIT_ID_CHOICE=publish-all-artifacts-in-repo`
-- `ENVIRONMENT=dev`
-
-The workflow completed successfully after the unused example token was removed.
-
-### 5. Configure secretless GitHub authentication
-
-An Entra application named `<greenfield-oidc-app>` was created with federated
-credentials for these GitHub environments:
-
-- `dev`
-- `prod`
-
-No Azure client secret was created or stored.
-
-The service principal has:
-
-- `Reader` on each demo resource group.
-- `API Management Service Contributor` on the development APIM service.
-- `API Management Service Contributor` on the production APIM service.
-
-The GitHub repository contains:
-
-- Repository secrets: `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`
-- `dev` environment secrets:
-  - `AZURE_SUBSCRIPTION_ID`
-  - `APIM_RESOURCE_GROUP_DEV`
-  - `APIM_SERVICE_NAME_DEV`
-- `prod` environment secrets:
-  - `AZURE_SUBSCRIPTION_ID`
-  - `APIM_RESOURCE_GROUP_PROD`
-  - `APIM_SERVICE_NAME_PROD`
-
-## Current state
-
-- `main` still represents the original empty repository.
-- `demo-part1-start` identifies the reusable greenfield baseline.
-- `demo/rehearsal` contains a committed, pushed reference copy of the generated
-  APIOps CLI scaffold.
-- `demo/hands-on` was created from `demo-part1-start`.
-- The interactive `apiops init` command has been completed on `demo/hands-on`;
-  its generated files are currently uncommitted.
-- No APIM configuration has been extracted or published by the new repository.
-- The legacy `apiops-demo` repository has not yet been modified.
-
-## Planned greenfield walkthrough
-
-1. Review every file produced by `apiops init`.
-2. Configure a narrow extraction filter for one demo API.
-3. Run `apiops extract` locally and inspect the artifact layout.
-4. Commit the initialized repository and extracted artifacts.
-5. exercise the generated extractor workflow and pull-request flow.
-6. Run `apiops publish --dry-run` against the target APIM service.
-7. Publish a controlled change and verify it in APIM.
-8. Restore the target and repository to their baseline state.
-
-## Toolkit migration walkthrough
-
-### 1. Preserve the Toolkit baseline
-
-The original Toolkit implementation remains on `main`. A tag and disposable
-branch isolate each migration rehearsal:
-
-```bash
-git switch main
-git tag demo-part2-start
-git push origin demo-part2-start
-git switch -c demo/migration-rehearsal
-```
-
-For another rehearsal, create a fresh branch from the same tag:
-
-```bash
-git switch main
-git branch -D demo/migration-rehearsal
-git switch -c demo/migration-rehearsal demo-part2-start
-```
-
-### 2. Generate the CLI scaffold beside the Toolkit files
-
-`apiops init` fails when configuration files already exist. Do not use
-`--force` directly against a Toolkit repository because it replaces meaningful
-configuration and package files. Rename the Toolkit configuration files first,
-then generate clean CLI files for comparison:
-
-```bash
-mv configuration.extractor.yaml configuration.extractor.toolkit.yaml
-mv configuration.dev.yaml configuration.dev.toolkit.yaml
-mv configuration.prod.yaml configuration.prod.toolkit.yaml
-cp package.json package.toolkit.json
-cp package-lock.json package-lock.toolkit.json
-
-npx -y @azure-tools/apiops-cli@latest init \
-  --ci github-actions \
-  --artifact-dir ./apimartifacts \
-  --environments dev,prod \
-  --non-interactive
-```
-
-Keep the existing `apimartifacts/` directory. The APIOps CLI publisher is
-designed to consume the existing Toolkit artifact format.
-
-### 3. Translate the extraction filter
-
-The Toolkit field `subscriptionNames` was renamed to `subscriptions`:
-
-```yaml
-# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/apiops-cli/main/schemas/v1/extractor-config.schema.json
-
-subscriptions:
-  - <managed-subscription-resource-name>
-```
-
-### 4. Translate environment overrides
-
-Apply these changes while comparing each generated file with its `.toolkit`
-copy:
-
-- Remove `apimServiceName`; the CLI receives the service through
-  `--service-name`.
-- Change Toolkit tokens from `{#tokenName#}` to `{#[TOKEN_NAME]#}`.
-- Add `properties: {}` to API entries that contain only nested diagnostics.
-  The current CLI override schema requires an active `properties` object.
-- Validate both files against the APIOps CLI override schema before publishing.
-
-The migrated files use GitHub secret names directly, including
-`AZURE_SUBSCRIPTION_ID`, `APIM_RESOURCE_GROUP_DEV`,
-`APIM_RESOURCE_GROUP_PROD`, `APIM_SERVICE_NAME_DEV`, and
-`APIM_SERVICE_NAME_PROD`.
-
-### 5. Preserve Key Vault subscription-key replacement
-
-The production subscription override retains tokens rather than storing keys:
-
-```yaml
-primaryKey: "{#[UNLIMITED_SUBSCRIPTION_PRIMARY_KEY]#}"
-secondaryKey: "{#[UNLIMITED_SUBSCRIPTION_SECONDARY_KEY]#}"
-```
-
-After `azure/login`, the publisher retrieves
-`APIM-Unlimited-Subscription-Primary-Key` and
-`APIM-Unlimited-Subscription-Secondary-Key` from the environment's Key Vault.
-The workflow masks the values and maps them to:
-
-- `UNLIMITED_SUBSCRIPTION_PRIMARY_KEY`
-- `UNLIMITED_SUBSCRIPTION_SECONDARY_KEY`
-
-Token validation first checks GitHub environment secrets and then checks values
-loaded into the runtime environment. Key Vault retrieval runs for both
-environments so future environment-specific secrets do not require a workflow
-structure change.
-
-APIOps CLI 1.0.5 supports product-scoped subscriptions whose resource names
-are 24-character hexadecimal IDs. Keep the original hexadecimal artifact and
-override names so extraction remains stable. The publisher substitutes the
-masked Key Vault values into the environment override file, and the CLI
-publishes the subscription and its primary and secondary keys through its
-normal publish operation.
-
-The temporary post-publish `az rest` workaround used with version 1.0.4 is no
-longer present. Full-artifact dry-run `38279598436` confirmed that both
-hexadecimal subscriptions are planned as native `PUT` operations with no
-skipped subscriptions. Both real publish steps remained skipped.
-
-### 6. Merge package dependencies
-
-The generated package must not replace the existing developer-portal package.
-Restore the baseline package files, then add the CLI:
-
-```bash
-git show HEAD:package.json > package.json
-git show HEAD:package-lock.json > package-lock.json
-npm install @azure-tools/apiops-cli@latest --save
-npm pkg set 'dependencies.@azure-tools/apiops-cli=latest'
-npm install
-```
-
-The final package retains `@azure/storage-blob`, `mime`, and `yargs`, and adds
-`@azure-tools/apiops-cli` with the manifest value `latest`. The lock file pins
-the resolved release used by the rehearsal. `npm audit --omit=dev` reported no
-runtime dependency vulnerabilities; do not run `npm audit fix --force` during
-the demo because it can make unrelated dependency changes.
-
-Add `node_modules/` to `.gitignore`.
-
-### 7. Correct the generated publisher trigger
-
-As in the greenfield scaffold, remove the leading `./` from the artifact path:
-
-```yaml
-paths:
-  - 'apimartifacts/**'
-  - 'configuration.*.yaml'
-```
-
-### 8. Replace client-secret authentication with GitHub OIDC
-
-Reuse the existing environment-specific registrations so their Azure RBAC
-assignments remain unchanged:
-
-| Environment | App registration | Client ID | Service-principal object ID |
-|---|---|---|---|
-| dev | `<dev-oidc-app>` | Stored in the `dev` GitHub environment | Managed in Entra ID |
-| prod | `<prod-oidc-app>` | Stored in the `prod` GitHub environment | Managed in Entra ID |
-
-Add one environment-scoped GitHub federated credential to each registration:
-
-- Dev subject:
-  `repo:<github-owner>/apiops-demo:environment:dev`
-- Prod subject:
-  `repo:<github-owner>/apiops-demo:environment:prod`
-- Issuer: `https://token.actions.githubusercontent.com`
-- Audience: `api://AzureADTokenExchange`
-
-The generated CLI workflows use `azure/login@v3` with `AZURE_CLIENT_ID`,
-`AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. They do not use
-`AZURE_CLIENT_SECRET`. Keep that secret temporarily because the legacy
-workflows still use it during the side-by-side migration.
-
-### 9. Reuse existing GitHub environment variables
-
-The `dev` and `prod` GitHub environments already define:
-
-- `RESOURCE_GROUP_NAME`
-- `APIM_INSTANCE_NAME`
-
-Do not create duplicate resource-group or service-name secrets. The extractor
-maps these variables to `APIM_RESOURCE_GROUP` and `APIM_SERVICE_NAME`. The
-publisher exposes them as job environment values and also maps
-`TEST_SECRET_VALUE` to `RESOURCE_GROUP_NAME`, preserving the legacy workflow's
-replacement behavior.
-
-The migrated override tokens use the reusable names:
-
-- `{#[RESOURCE_GROUP_NAME]#}`
-- `{#[APIM_INSTANCE_NAME]#}`
-- `{#[TEST_SECRET_VALUE]#}`
-- Existing GitHub secret names for Azure IDs, App Insights, and allowed IP
-- Runtime values loaded from Key Vault for the subscription keys
-
-### Remaining migration validation
-
-1. Perform a controlled publish and verify the managed subscription keys.
-2. Recreate the branch from `demo-part2-start` to verify the reset procedure.
-
-Automatic publishing from a push to `main` is opt-in. Unless the repository
-variable `ENABLE_AUTOMATIC_PUBLISH` is set to `true`, push-triggered publisher
-runs perform validation only. Manual runs publish only when
-`DRY_RUN_ONLY=false`.
-
-The extractor's pull-request job removes the checked-out `apimartifacts/`
-directory before downloading the extraction artifact. This preserves
-`--remove-stale` deletions in generated pull requests.
-
-The local full-artifact CLI dry-run completed successfully against dev:
-
-- 135 creates or updates
-- 0 patches
-- 0 deletes
-- 2 skipped auto-generated product subscriptions
-
-The skip result is expected until the upstream behavior changes; the explicit
-post-publish REST step handles the one subscription whose keys are managed.
-
-## Reset strategy
-
-### Greenfield repository
-
-The repository can be returned to the starting content by creating a new
-rehearsal branch from `demo-part1-start`. Do not remove the OIDC identity or
-GitHub environments between demonstrations; they contain no client secret and
-are reusable prerequisites.
-
-```bash
-git switch main
-git switch -c demo/rehearsal-YYYYMMDD demo-part1-start
-```
-
-### Migration repository
-
-All migration work must remain on a dedicated branch. The `main` branch remains
-the legacy Toolkit baseline, so a new migration branch can be created for every
-rehearsal.
-
-### Azure API Management
-
-Before a real publish, capture or confirm the target baseline. Use dry-run
-first. After the rehearsal, republish the baseline artifacts or reverse the
-single controlled demo change. Do not use `--delete-unmatched` during the demo
-unless its dry-run output has been explicitly reviewed.
+The tags reset repository content only. Keep GitHub environments, Entra
+applications, federated credentials, Key Vault secrets, and Azure RBAC
+assignments as reusable prerequisites.
