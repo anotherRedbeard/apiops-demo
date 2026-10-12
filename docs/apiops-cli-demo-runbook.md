@@ -154,17 +154,15 @@ The full existing Toolkit artifact set was tested locally with APIOps CLI
 2 skipped subscriptions
 ```
 
-The two skips are product subscriptions whose resource names are 24-character
-hexadecimal IDs. APIOps CLI classifies those names as APIM-generated. The
-existing Unlimited subscription is intentionally managed, so the migrated
-publisher performs a post-publish APIM REST update that:
+That APIOps CLI 1.0.4 run skipped two product subscriptions whose resource
+names are 24-character hexadecimal IDs. APIOps CLI 1.0.5 adds native support
+for publishing those subscriptions. The repository now pins version 1.0.5 and
+uses the normal override file to publish the managed subscription keys loaded
+from Key Vault. The temporary post-publish APIM REST workaround has been
+removed.
 
-1. Reads the existing subscription.
-2. Preserves its display name, scope, owner, state, and tracing setting.
-3. Replaces only its primary and secondary keys with masked Key Vault values.
-
-This behavior should be reported upstream as a false-positive subscription
-classification in `Azure/apiops-cli`.
+A new full-artifact dry-run must confirm that the managed subscriptions are
+planned rather than skipped before a live publish.
 
 ### Live-demo safety and fallback
 
@@ -581,23 +579,16 @@ loaded into the runtime environment. Key Vault retrieval runs for both
 environments so future environment-specific secrets do not require a workflow
 structure change.
 
-APIOps CLI 1.0.4 treats every product-scoped subscription with a 24-character
-hexadecimal resource name as an APIM-generated subscription and skips it during
-publish. The existing managed subscription
-`<managed-subscription-resource-name>` matches that heuristic even though the repository
-explicitly manages its primary and secondary keys.
+APIOps CLI 1.0.5 supports product-scoped subscriptions whose resource names
+are 24-character hexadecimal IDs. Keep the original hexadecimal artifact and
+override names so extraction remains stable. The publisher substitutes the
+masked Key Vault values into the environment override file, and the CLI
+publishes the subscription and its primary and secondary keys through its
+normal publish operation.
 
-Keep the original hexadecimal artifact and override names so extraction remains
-stable. After a successful CLI publish, the workflow performs an explicit
-`az rest` update against that existing subscription. It uses the already
-masked Key Vault values, reads the existing target subscription, and preserves
-its display name, scope, owner, state, and tracing setting while replacing only
-the primary and secondary keys. A dry-run-only workflow execution verifies
-that the target subscription exists but does not update its keys.
-
-This is a compatibility workaround for the CLI's false-positive
-auto-generated-subscription detection. File an upstream issue against
-`Azure/apiops-cli` when GitHub organization SAML authorization is available.
+The temporary post-publish `az rest` workaround used with version 1.0.4 is no
+longer present. Before a live publish, run a full-artifact dry-run and confirm
+that the managed subscriptions are planned rather than skipped.
 
 ### 6. Merge package dependencies
 
@@ -677,11 +668,11 @@ The migrated override tokens use the reusable names:
 
 ### Remaining migration validation
 
-1. Commit and push the publisher safety and subscription-key workaround.
-2. Run the safeguarded GitHub Actions dry-run after the workflow is available
-   on the default branch.
-3. Perform a controlled publish and verify the managed subscription keys.
-4. Test extraction with the translated `subscriptions` filter.
+1. Commit and push the APIOps CLI 1.0.5 upgrade and removal of the temporary
+   subscription-key REST workaround.
+2. Run a safeguarded full-artifact GitHub Actions dry-run.
+3. Confirm the managed subscriptions are planned rather than skipped.
+4. Perform a controlled publish and verify the managed subscription keys.
 5. Recreate the branch from `demo-part2-start` to verify the reset procedure.
 
 Automatic publishing from a push to `main` is opt-in. Unless the repository

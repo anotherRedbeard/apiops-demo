@@ -206,11 +206,15 @@ Talking point:
 > We changed the tooling and configuration schema, but the existing APIM
 > artifacts remained usable by the new CLI.
 
-Two product subscriptions with hexadecimal resource IDs were skipped because
-the CLI classified them as APIM-generated. The existing workflow handles the
-one explicitly managed subscription key separately with values retrieved from
-Key Vault. This does not affect the broader artifact compatibility
-demonstration.
+That APIOps CLI 1.0.4 run skipped two product subscriptions with hexadecimal
+resource IDs because it classified them as APIM-generated. APIOps CLI 1.0.5
+adds native support for publishing those subscriptions. The repository now
+pins version 1.0.5 and passes the managed subscription keys from Key Vault
+through the normal override file instead of using a separate REST update.
+
+Run a full-artifact dry-run after the upgrade and confirm the managed
+subscriptions are planned rather than skipped before performing a live
+publish.
 
 ## Switch from Toolkit to CLI workflows
 

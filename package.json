@@ -15,7 +15,7 @@
         "@azure/storage-blob": "12.13.0"
     },
     "dependencies": {
-        "@azure-tools/apiops-cli": "latest",
+        "@azure-tools/apiops-cli": "1.0.5",
         "mime": "^3.0.0",
         "yargs": "17.7.2"
     }
