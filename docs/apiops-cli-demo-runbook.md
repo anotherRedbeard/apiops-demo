@@ -684,6 +684,15 @@ The migrated override tokens use the reusable names:
 4. Test extraction with the translated `subscriptions` filter.
 5. Recreate the branch from `demo-part2-start` to verify the reset procedure.
 
+Automatic publishing from a push to `main` is opt-in. Unless the repository
+variable `ENABLE_AUTOMATIC_PUBLISH` is set to `true`, push-triggered publisher
+runs perform validation only. Manual runs publish only when
+`DRY_RUN_ONLY=false`.
+
+The extractor's pull-request job removes the checked-out `apimartifacts/`
+directory before downloading the extraction artifact. This preserves
+`--remove-stale` deletions in generated pull requests.
+
 The local full-artifact CLI dry-run completed successfully against dev:
 
 - 135 creates or updates

@@ -100,6 +100,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
 
+      - name: Remove existing artifact directory
+        run: rm -rf ./apimartifacts
+
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:

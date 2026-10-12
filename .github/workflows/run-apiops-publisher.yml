@@ -63,6 +63,7 @@ jobs:
       TEST_SECRET_VALUE: ${{ vars.RESOURCE_GROUP_NAME }}
       TARGET_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       MANAGED_SUBSCRIPTION_NAME: 66ce4b511f9b910053070002
+      SHOULD_PUBLISH: ${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.DRY_RUN_ONLY != 'true') || (github.event_name == 'push' && vars.ENABLE_AUTOMATIC_PUBLISH == 'true') }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -190,7 +191,7 @@ jobs:
             --dry-run
 
       - name: Publish (incremental - last commit only)
-        if: ${{ (github.event_name != 'workflow_dispatch' || github.event.inputs.DRY_RUN_ONLY != 'true') && github.event.inputs.COMMIT_ID_CHOICE != 'publish-all-artifacts-in-repo' }}
+        if: ${{ env.SHOULD_PUBLISH == 'true' && github.event.inputs.COMMIT_ID_CHOICE != 'publish-all-artifacts-in-repo' }}
         run: |
           npx apiops publish \
             --subscription-id ${{ secrets.AZURE_SUBSCRIPTION_ID }} \
@@ -201,7 +202,7 @@ jobs:
             --commit-id ${{ needs.get-commit.outputs.commit_id }}
 
       - name: Publish (all artifacts)
-        if: ${{ (github.event_name != 'workflow_dispatch' || github.event.inputs.DRY_RUN_ONLY != 'true') && github.event.inputs.COMMIT_ID_CHOICE == 'publish-all-artifacts-in-repo' }}
+        if: ${{ env.SHOULD_PUBLISH == 'true' && github.event.inputs.COMMIT_ID_CHOICE == 'publish-all-artifacts-in-repo' }}
         run: |
           npx apiops publish \
             --subscription-id ${{ secrets.AZURE_SUBSCRIPTION_ID }} \
@@ -211,7 +212,7 @@ jobs:
             --overrides configuration.${{ env.TARGET_ENV }}.yaml
 
       - name: Validate managed subscription key update
-        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.DRY_RUN_ONLY == 'true' }}
+        if: ${{ env.SHOULD_PUBLISH != 'true' }}
         run: |
           resource_url="https://management.azure.com/subscriptions/${TARGET_SUBSCRIPTION_ID}/resourceGroups/${RESOURCE_GROUP_NAME}/providers/Microsoft.ApiManagement/service/${APIM_INSTANCE_NAME}/subscriptions/${MANAGED_SUBSCRIPTION_NAME}?api-version=2024-05-01"
           az rest \
@@ -222,7 +223,7 @@ jobs:
           echo "[DRY RUN] Would update primary and secondary keys for subscription ${MANAGED_SUBSCRIPTION_NAME}"
 
       - name: Update managed subscription keys
-        if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.DRY_RUN_ONLY != 'true' }}
+        if: ${{ env.SHOULD_PUBLISH == 'true' }}
         run: |
           if [ -z "${UNLIMITED_SUBSCRIPTION_PRIMARY_KEY}" ] || [ -z "${UNLIMITED_SUBSCRIPTION_SECONDARY_KEY}" ]; then
             echo "::error::Managed subscription keys were not loaded from Key Vault"
