@@ -1,0 +1,190 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/new-foo/operations/listConversationItems",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "listConversationItems",
+  "properties": {
+    "displayName": "listConversationItems",
+    "method": "GET",
+    "urlTemplate": "/conversations/{conversation_id}/items",
+    "templateParameters": [
+      {
+        "name": "conversation_id",
+        "description": "The ID of the conversation to list items for.",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69cff21b3d594b058ca8620e",
+        "typeName": "Conversations-conversation_id-ItemsGetRequest"
+      }
+    ],
+    "description": "listConversationItems",
+    "request": {
+      "queryParameters": [
+        {
+          "name": "api-version",
+          "description": "The explicit Azure AI Foundry Models API version to use for this request.\n`v1` if not otherwise specified.",
+          "type": "string",
+          "values": [
+            "v1",
+            "preview"
+          ],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "AzureAIFoundryModelsApiVersion"
+        },
+        {
+          "name": "limit",
+          "description": "A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.",
+          "type": "integer",
+          "format": "int32",
+          "defaultValue": "20",
+          "values": [],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "Conversations-conversation_id-ItemsGetRequest-1"
+        },
+        {
+          "name": "order",
+          "description": "The order to return the input items in. Default is `desc`.",
+          "type": "string",
+          "values": [
+            "asc",
+            "desc"
+          ],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "Conversations-conversation_id-ItemsGetRequest-2"
+        },
+        {
+          "name": "after",
+          "description": "An item ID to list items after, used in pagination.",
+          "type": "string",
+          "values": [],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "Conversations-conversation_id-ItemsGetRequest-3"
+        },
+        {
+          "name": "include",
+          "description": "Specify additional output data to include in the model response.",
+          "type": "array",
+          "values": [],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "Conversations-conversation_id-ItemsGetRequest-4"
+        }
+      ],
+      "headers": [],
+      "representations": []
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "The request has succeeded.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "object": "list",
+                  "data": [
+                    {
+                      "type": {}
+                    }
+                  ],
+                  "has_more": true,
+                  "first_id": "string",
+                  "last_id": "string"
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "OpenAI.ConversationItemList",
+            "generatedSample": "{\r\n  \"object\": \"list\",\r\n  \"data\": [\r\n    {\r\n      \"type\": {}\r\n    }\r\n  ],\r\n  \"has_more\": true,\r\n  \"first_id\": \"string\",\r\n  \"last_id\": \"string\"\r\n}",
+            "sample": "{\r\n  \"object\": \"list\",\r\n  \"data\": [\r\n    {\r\n      \"type\": {}\r\n    }\r\n  ],\r\n  \"has_more\": true,\r\n  \"first_id\": \"string\",\r\n  \"last_id\": \"string\"\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Conversations-conversation_id-ItemsGet200apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 400,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Conversations-conversation_id-ItemsGet400apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 500,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Conversations-conversation_id-ItemsGet500apim-request-idResponseHeader"
+          }
+        ]
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

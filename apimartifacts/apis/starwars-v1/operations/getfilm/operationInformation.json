@@ -1,0 +1,41 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/starwars-v1/operations/getfilm",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "getfilm",
+  "properties": {
+    "displayName": "GetFilm",
+    "method": "GET",
+    "urlTemplate": "/films",
+    "templateParameters": [],
+    "description": "GetFilm",
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "count": 1,
+                  "films": [
+                    {
+                      "title": "A New Hope",
+                      "release-date": "1977-05-25T05:00:00Z"
+                    }
+                  ]
+                }
+              }
+            },
+            "generatedSample": "{\r\n  \"count\": 1,\r\n  \"films\": [\r\n    {\r\n      \"title\": \"A New Hope\",\r\n      \"release-date\": \"1977-05-25T05:00:00\"\r\n    }\r\n  ]\r\n}",
+            "sample": "{\r\n  \"count\": 1,\r\n  \"films\": [\r\n    {\r\n      \"title\": \"A New Hope\",\r\n      \"release-date\": \"1977-05-25T05:00:00\"\r\n    }\r\n  ]\r\n}"
+          }
+        ],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

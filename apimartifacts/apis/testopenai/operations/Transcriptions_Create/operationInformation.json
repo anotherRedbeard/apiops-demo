@@ -1,0 +1,112 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/testopenai/operations/Transcriptions_Create",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "Transcriptions_Create",
+  "properties": {
+    "displayName": "Transcribes audio into the input language.",
+    "method": "POST",
+    "urlTemplate": "/deployments/{deployment-id}/audio/transcriptions?api-version={api-version}",
+    "templateParameters": [
+      {
+        "name": "deployment-id",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69cff2243d594b058ca8621a",
+        "typeName": "Deployments-deployment-id-AudioTranscriptionsPostRequest"
+      },
+      {
+        "name": "api-version",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69cff2243d594b058ca8621a",
+        "typeName": "Deployments-deployment-id-AudioTranscriptionsPostRequest-1"
+      }
+    ],
+    "description": "Transcribes audio into the input language.",
+    "request": {
+      "queryParameters": [],
+      "headers": [],
+      "representations": [
+        {
+          "contentType": "multipart/form-data",
+          "formParameters": [
+            {
+              "name": "file",
+              "type": "string",
+              "format": "binary",
+              "values": []
+            },
+            {
+              "name": "prompt",
+              "type": "string",
+              "values": []
+            },
+            {
+              "name": "response_format",
+              "description": "AudioResponseFormat",
+              "type": "string",
+              "values": [
+                "json",
+                "text",
+                "srt",
+                "verbose_json",
+                "vtt"
+              ],
+              "schemaId": "audioResponseFormat"
+            },
+            {
+              "name": "temperature",
+              "type": "number",
+              "defaultValue": "0",
+              "values": []
+            },
+            {
+              "name": "language",
+              "type": "string",
+              "values": []
+            }
+          ]
+        }
+      ]
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "OK",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "text": "string"
+                }
+              }
+            },
+            "schemaId": "69cff2243d594b058ca8621a",
+            "typeName": "Deployments-deployment-id-AudioTranscriptionsPost200ApplicationJsonResponse",
+            "generatedSample": "{\r\n  \"text\": \"string\"\r\n}",
+            "sample": "{\r\n  \"text\": \"string\"\r\n}"
+          },
+          {
+            "contentType": "text/plain",
+            "examples": {
+              "default": {
+                "value": ""
+              }
+            },
+            "schemaId": "69cff2243d594b058ca8621a",
+            "typeName": "Deployments-deployment-id-AudioTranscriptionsPost200TextPlainResponse",
+            "generatedSample": "",
+            "sample": ""
+          }
+        ],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

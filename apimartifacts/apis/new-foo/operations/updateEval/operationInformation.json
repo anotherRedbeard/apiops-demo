@@ -1,0 +1,199 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/new-foo/operations/updateEval",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "updateEval",
+  "properties": {
+    "displayName": "updateEval",
+    "method": "POST",
+    "urlTemplate": "/evals/{eval_id}",
+    "templateParameters": [
+      {
+        "name": "eval_id",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69cff21b3d594b058ca8620e",
+        "typeName": "Evals-eval_id-PostRequest"
+      }
+    ],
+    "description": "Update select, mutable properties of a specified evaluation.\n\nNOTE: This Azure OpenAI API is in preview and subject to change.",
+    "request": {
+      "queryParameters": [
+        {
+          "name": "api-version",
+          "description": "The explicit Azure AI Foundry Models API version to use for this request.\n`v1` if not otherwise specified.",
+          "type": "string",
+          "values": [
+            "v1",
+            "preview"
+          ],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "AzureAIFoundryModelsApiVersion"
+        }
+      ],
+      "headers": [
+        {
+          "name": "aoai-evals",
+          "description": "Enables access to AOAI Evals, a preview feature.\nThis feature requires the 'aoai-evals' header to be set to 'preview'.",
+          "type": "string",
+          "required": true,
+          "values": [
+            "preview"
+          ],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "Evals-eval_id-PostRequest-1"
+        }
+      ],
+      "representations": [
+        {
+          "contentType": "application/json",
+          "examples": {
+            "default": {
+              "value": {
+                "name": "string",
+                "metadata": {}
+              }
+            }
+          },
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "Evals-eval_id-PostRequest-2",
+          "generatedSample": "{\r\n  \"name\": \"string\",\r\n  \"metadata\": {}\r\n}",
+          "sample": "{\r\n  \"name\": \"string\",\r\n  \"metadata\": {}\r\n}"
+        }
+      ]
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "The request has succeeded.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "object": "eval",
+                  "id": "string",
+                  "name": "string",
+                  "data_source_config": {
+                    "type": "custom",
+                    "schema": {}
+                  },
+                  "testing_criteria": [
+                    {
+                      "type": "label_model",
+                      "name": "string",
+                      "model": "string",
+                      "input": [
+                        {
+                          "role": "string",
+                          "content": "string"
+                        }
+                      ],
+                      "labels": [
+                        "string"
+                      ],
+                      "passing_labels": [
+                        "string"
+                      ]
+                    }
+                  ],
+                  "created_at": 0,
+                  "metadata": {}
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "OpenAI.Eval",
+            "generatedSample": "{\r\n  \"object\": \"eval\",\r\n  \"id\": \"string\",\r\n  \"name\": \"string\",\r\n  \"data_source_config\": {\r\n    \"type\": \"custom\",\r\n    \"schema\": {}\r\n  },\r\n  \"testing_criteria\": [\r\n    {\r\n      \"type\": \"label_model\",\r\n      \"name\": \"string\",\r\n      \"model\": \"string\",\r\n      \"input\": [\r\n        {\r\n          \"role\": \"string\",\r\n          \"content\": \"string\"\r\n        }\r\n      ],\r\n      \"labels\": [\r\n        \"string\"\r\n      ],\r\n      \"passing_labels\": [\r\n        \"string\"\r\n      ]\r\n    }\r\n  ],\r\n  \"created_at\": 0,\r\n  \"metadata\": {}\r\n}",
+            "sample": "{\r\n  \"object\": \"eval\",\r\n  \"id\": \"string\",\r\n  \"name\": \"string\",\r\n  \"data_source_config\": {\r\n    \"type\": \"custom\",\r\n    \"schema\": {}\r\n  },\r\n  \"testing_criteria\": [\r\n    {\r\n      \"type\": \"label_model\",\r\n      \"name\": \"string\",\r\n      \"model\": \"string\",\r\n      \"input\": [\r\n        {\r\n          \"role\": \"string\",\r\n          \"content\": \"string\"\r\n        }\r\n      ],\r\n      \"labels\": [\r\n        \"string\"\r\n      ],\r\n      \"passing_labels\": [\r\n        \"string\"\r\n      ]\r\n    }\r\n  ],\r\n  \"created_at\": 0,\r\n  \"metadata\": {}\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Evals-eval_id-Post200apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 400,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Evals-eval_id-Post400apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 500,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Evals-eval_id-Post500apim-request-idResponseHeader"
+          }
+        ]
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

@@ -1,17 +1,5 @@
 [
   {
-    "name": "testopenai"
-  },
-  {
-    "name": "basic-calculator"
-  },
-  {
-    "name": "color-api"
-  },
-  {
-    "name": "red-anyonecancode-web"
-  },
-  {
     "name": "echo-api"
   }
 ]

@@ -1,0 +1,268 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/new-foo/operations/createFineTuningJob",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "createFineTuningJob",
+  "properties": {
+    "displayName": "Creates a fine-tuning job which begins the process of creating a new model from a given dataset.\n\nResponse includes details of the enqueued job including job status and the name of the fine-tuned models once complete.\n\n[Learn more about fine-tuning](/docs/guides/fine-tuning)",
+    "method": "POST",
+    "urlTemplate": "/fine_tuning/jobs",
+    "templateParameters": [],
+    "description": "Creates a fine-tuning job which begins the process of creating a new model from a given dataset.\n\nResponse includes details of the enqueued job including job status and the name of the fine-tuned models once complete.\n\n[Learn more about fine-tuning](/docs/guides/fine-tuning)",
+    "request": {
+      "queryParameters": [
+        {
+          "name": "api-version",
+          "description": "The explicit Azure AI Foundry Models API version to use for this request.\n`v1` if not otherwise specified.",
+          "type": "string",
+          "values": [
+            "v1",
+            "preview"
+          ],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "AzureAIFoundryModelsApiVersion"
+        }
+      ],
+      "headers": [],
+      "representations": [
+        {
+          "contentType": "application/json",
+          "examples": {
+            "default": {
+              "value": {
+                "model": {},
+                "training_file": "string",
+                "hyperparameters": {
+                  "batch_size": "auto",
+                  "learning_rate_multiplier": {},
+                  "n_epochs": "auto"
+                },
+                "suffix": {},
+                "validation_file": {},
+                "integrations": {},
+                "seed": {},
+                "method": {
+                  "type": "supervised",
+                  "supervised": {
+                    "hyperparameters": {
+                      "batch_size": "auto",
+                      "learning_rate_multiplier": {},
+                      "n_epochs": "auto"
+                    }
+                  },
+                  "dpo": {
+                    "hyperparameters": {
+                      "beta": {},
+                      "batch_size": "auto",
+                      "learning_rate_multiplier": {},
+                      "n_epochs": "auto"
+                    }
+                  },
+                  "reinforcement": {
+                    "grader": {
+                      "type": "string_check",
+                      "name": "string",
+                      "input": "string",
+                      "reference": "string",
+                      "operation": "eq"
+                    },
+                    "response_format": {
+                      "type": "json_schema",
+                      "json_schema": {}
+                    },
+                    "hyperparameters": {
+                      "batch_size": "auto",
+                      "learning_rate_multiplier": {},
+                      "n_epochs": "auto",
+                      "reasoning_effort": "default",
+                      "compute_multiplier": {},
+                      "eval_interval": "auto",
+                      "eval_samples": "auto"
+                    }
+                  }
+                },
+                "metadata": {}
+              }
+            }
+          },
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "OpenAI.CreateFineTuningJobRequest",
+          "generatedSample": "{\r\n  \"model\": {},\r\n  \"training_file\": \"string\",\r\n  \"hyperparameters\": {\r\n    \"batch_size\": \"auto\",\r\n    \"learning_rate_multiplier\": {},\r\n    \"n_epochs\": \"auto\"\r\n  },\r\n  \"suffix\": {},\r\n  \"validation_file\": {},\r\n  \"integrations\": {},\r\n  \"seed\": {},\r\n  \"method\": {\r\n    \"type\": \"supervised\",\r\n    \"supervised\": {\r\n      \"hyperparameters\": {\r\n        \"batch_size\": \"auto\",\r\n        \"learning_rate_multiplier\": {},\r\n        \"n_epochs\": \"auto\"\r\n      }\r\n    },\r\n    \"dpo\": {\r\n      \"hyperparameters\": {\r\n        \"beta\": {},\r\n        \"batch_size\": \"auto\",\r\n        \"learning_rate_multiplier\": {},\r\n        \"n_epochs\": \"auto\"\r\n      }\r\n    },\r\n    \"reinforcement\": {\r\n      \"grader\": {\r\n        \"type\": \"string_check\",\r\n        \"name\": \"string\",\r\n        \"input\": \"string\",\r\n        \"reference\": \"string\",\r\n        \"operation\": \"eq\"\r\n      },\r\n      \"response_format\": {\r\n        \"type\": \"json_schema\",\r\n        \"json_schema\": {}\r\n      },\r\n      \"hyperparameters\": {\r\n        \"batch_size\": \"auto\",\r\n        \"learning_rate_multiplier\": {},\r\n        \"n_epochs\": \"auto\",\r\n        \"reasoning_effort\": \"default\",\r\n        \"compute_multiplier\": {},\r\n        \"eval_interval\": \"auto\",\r\n        \"eval_samples\": \"auto\"\r\n      }\r\n    }\r\n  },\r\n  \"metadata\": {}\r\n}",
+          "sample": "{\r\n  \"model\": {},\r\n  \"training_file\": \"string\",\r\n  \"hyperparameters\": {\r\n    \"batch_size\": \"auto\",\r\n    \"learning_rate_multiplier\": {},\r\n    \"n_epochs\": \"auto\"\r\n  },\r\n  \"suffix\": {},\r\n  \"validation_file\": {},\r\n  \"integrations\": {},\r\n  \"seed\": {},\r\n  \"method\": {\r\n    \"type\": \"supervised\",\r\n    \"supervised\": {\r\n      \"hyperparameters\": {\r\n        \"batch_size\": \"auto\",\r\n        \"learning_rate_multiplier\": {},\r\n        \"n_epochs\": \"auto\"\r\n      }\r\n    },\r\n    \"dpo\": {\r\n      \"hyperparameters\": {\r\n        \"beta\": {},\r\n        \"batch_size\": \"auto\",\r\n        \"learning_rate_multiplier\": {},\r\n        \"n_epochs\": \"auto\"\r\n      }\r\n    },\r\n    \"reinforcement\": {\r\n      \"grader\": {\r\n        \"type\": \"string_check\",\r\n        \"name\": \"string\",\r\n        \"input\": \"string\",\r\n        \"reference\": \"string\",\r\n        \"operation\": \"eq\"\r\n      },\r\n      \"response_format\": {\r\n        \"type\": \"json_schema\",\r\n        \"json_schema\": {}\r\n      },\r\n      \"hyperparameters\": {\r\n        \"batch_size\": \"auto\",\r\n        \"learning_rate_multiplier\": {},\r\n        \"n_epochs\": \"auto\",\r\n        \"reasoning_effort\": \"default\",\r\n        \"compute_multiplier\": {},\r\n        \"eval_interval\": \"auto\",\r\n        \"eval_samples\": \"auto\"\r\n      }\r\n    }\r\n  },\r\n  \"metadata\": {}\r\n}"
+        }
+      ]
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "The request has succeeded.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "id": "string",
+                  "created_at": 0,
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": {}
+                  },
+                  "fine_tuned_model": {},
+                  "finished_at": 0,
+                  "hyperparameters": {
+                    "batch_size": "auto",
+                    "learning_rate_multiplier": {},
+                    "n_epochs": "auto"
+                  },
+                  "model": "string",
+                  "object": "fine_tuning.job",
+                  "organization_id": "string",
+                  "result_files": [
+                    "string"
+                  ],
+                  "status": "validating_files",
+                  "trained_tokens": {},
+                  "training_file": "string",
+                  "validation_file": {},
+                  "integrations": {},
+                  "seed": 0,
+                  "estimated_finish": 0,
+                  "method": {
+                    "type": "supervised",
+                    "supervised": {
+                      "hyperparameters": {
+                        "batch_size": "auto",
+                        "learning_rate_multiplier": {},
+                        "n_epochs": "auto"
+                      }
+                    },
+                    "dpo": {
+                      "hyperparameters": {
+                        "beta": {},
+                        "batch_size": "auto",
+                        "learning_rate_multiplier": {},
+                        "n_epochs": "auto"
+                      }
+                    },
+                    "reinforcement": {
+                      "grader": {
+                        "type": "string_check",
+                        "name": "string",
+                        "input": "string",
+                        "reference": "string",
+                        "operation": "eq"
+                      },
+                      "response_format": {
+                        "type": "json_schema",
+                        "json_schema": {}
+                      },
+                      "hyperparameters": {
+                        "batch_size": "auto",
+                        "learning_rate_multiplier": {},
+                        "n_epochs": "auto",
+                        "reasoning_effort": "default",
+                        "compute_multiplier": {},
+                        "eval_interval": "auto",
+                        "eval_samples": "auto"
+                      }
+                    }
+                  },
+                  "metadata": {}
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "OpenAI.FineTuningJob",
+            "generatedSample": "{\r\n  \"id\": \"string\",\r\n  \"created_at\": 0,\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": {}\r\n  },\r\n  \"fine_tuned_model\": {},\r\n  \"finished_at\": 0,\r\n  \"hyperparameters\": {\r\n    \"batch_size\": \"auto\",\r\n    \"learning_rate_multiplier\": {},\r\n    \"n_epochs\": \"auto\"\r\n  },\r\n  \"model\": \"string\",\r\n  \"object\": \"fine_tuning.job\",\r\n  \"organization_id\": \"string\",\r\n  \"result_files\": [\r\n    \"string\"\r\n  ],\r\n  \"status\": \"validating_files\",\r\n  \"trained_tokens\": {},\r\n  \"training_file\": \"string\",\r\n  \"validation_file\": {},\r\n  \"integrations\": {},\r\n  \"seed\": 0,\r\n  \"estimated_finish\": 0,\r\n  \"method\": {\r\n    \"type\": \"supervised\",\r\n    \"supervised\": {\r\n      \"hyperparameters\": {\r\n        \"batch_size\": \"auto\",\r\n        \"learning_rate_multiplier\": {},\r\n        \"n_epochs\": \"auto\"\r\n      }\r\n    },\r\n    \"dpo\": {\r\n      \"hyperparameters\": {\r\n        \"beta\": {},\r\n        \"batch_size\": \"auto\",\r\n        \"learning_rate_multiplier\": {},\r\n        \"n_epochs\": \"auto\"\r\n      }\r\n    },\r\n    \"reinforcement\": {\r\n      \"grader\": {\r\n        \"type\": \"string_check\",\r\n        \"name\": \"string\",\r\n        \"input\": \"string\",\r\n        \"reference\": \"string\",\r\n        \"operation\": \"eq\"\r\n      },\r\n      \"response_format\": {\r\n        \"type\": \"json_schema\",\r\n        \"json_schema\": {}\r\n      },\r\n      \"hyperparameters\": {\r\n        \"batch_size\": \"auto\",\r\n        \"learning_rate_multiplier\": {},\r\n        \"n_epochs\": \"auto\",\r\n        \"reasoning_effort\": \"default\",\r\n        \"compute_multiplier\": {},\r\n        \"eval_interval\": \"auto\",\r\n        \"eval_samples\": \"auto\"\r\n      }\r\n    }\r\n  },\r\n  \"metadata\": {}\r\n}",
+            "sample": "{\r\n  \"id\": \"string\",\r\n  \"created_at\": 0,\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": {}\r\n  },\r\n  \"fine_tuned_model\": {},\r\n  \"finished_at\": 0,\r\n  \"hyperparameters\": {\r\n    \"batch_size\": \"auto\",\r\n    \"learning_rate_multiplier\": {},\r\n    \"n_epochs\": \"auto\"\r\n  },\r\n  \"model\": \"string\",\r\n  \"object\": \"fine_tuning.job\",\r\n  \"organization_id\": \"string\",\r\n  \"result_files\": [\r\n    \"string\"\r\n  ],\r\n  \"status\": \"validating_files\",\r\n  \"trained_tokens\": {},\r\n  \"training_file\": \"string\",\r\n  \"validation_file\": {},\r\n  \"integrations\": {},\r\n  \"seed\": 0,\r\n  \"estimated_finish\": 0,\r\n  \"method\": {\r\n    \"type\": \"supervised\",\r\n    \"supervised\": {\r\n      \"hyperparameters\": {\r\n        \"batch_size\": \"auto\",\r\n        \"learning_rate_multiplier\": {},\r\n        \"n_epochs\": \"auto\"\r\n      }\r\n    },\r\n    \"dpo\": {\r\n      \"hyperparameters\": {\r\n        \"beta\": {},\r\n        \"batch_size\": \"auto\",\r\n        \"learning_rate_multiplier\": {},\r\n        \"n_epochs\": \"auto\"\r\n      }\r\n    },\r\n    \"reinforcement\": {\r\n      \"grader\": {\r\n        \"type\": \"string_check\",\r\n        \"name\": \"string\",\r\n        \"input\": \"string\",\r\n        \"reference\": \"string\",\r\n        \"operation\": \"eq\"\r\n      },\r\n      \"response_format\": {\r\n        \"type\": \"json_schema\",\r\n        \"json_schema\": {}\r\n      },\r\n      \"hyperparameters\": {\r\n        \"batch_size\": \"auto\",\r\n        \"learning_rate_multiplier\": {},\r\n        \"n_epochs\": \"auto\",\r\n        \"reasoning_effort\": \"default\",\r\n        \"compute_multiplier\": {},\r\n        \"eval_interval\": \"auto\",\r\n        \"eval_samples\": \"auto\"\r\n      }\r\n    }\r\n  },\r\n  \"metadata\": {}\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Fine_tuningJobsPost200apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 400,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Fine_tuningJobsPost400apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 500,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Fine_tuningJobsPost500apim-request-idResponseHeader"
+          }
+        ]
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

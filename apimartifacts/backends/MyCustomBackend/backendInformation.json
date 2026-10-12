@@ -1,15 +1,19 @@
 {
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/backends/MyCustomBackend",
+  "type": "Microsoft.ApiManagement/service/backends",
+  "name": "MyCustomBackend",
   "properties": {
-    "credentials": {
-      "header": {},
-      "query": {}
-    },
+    "title": null,
     "description": "Testing out a custom backend",
+    "url": "https://mycustombackend-dev.azurewebsites.net",
     "protocol": "http",
+    "credentials": {
+      "query": {},
+      "header": {}
+    },
     "tls": {
       "validateCertificateChain": true,
       "validateCertificateName": true
-    },
-    "url": "https://mycustombackend-dev.azurewebsites.net"
+    }
   }
 }

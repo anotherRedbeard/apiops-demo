@@ -1,0 +1,12 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/swagger-petstore/tagDescriptions/user",
+  "type": "Microsoft.ApiManagement/service/apis/tagDescriptions",
+  "name": "user",
+  "properties": {
+    "tagId": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/tags/user",
+    "displayName": "user",
+    "description": "Operations about user",
+    "externalDocsDescription": "Find out more about our store",
+    "externalDocsUrl": "http://swagger.io"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/swagger-petstore/operations/updatePetWithForm",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "updatePetWithForm",
+  "properties": {
+    "displayName": "Updates a pet in the store with form data",
+    "method": "POST",
+    "urlTemplate": "/pet/{petId}",
+    "templateParameters": [
+      {
+        "name": "petId",
+        "description": "ID of pet that needs to be updated",
+        "type": "integer",
+        "format": "int64",
+        "required": true,
+        "values": [],
+        "schemaId": "69d026fc3d594b058ca86463",
+        "typeName": "Pet-petId-PostRequest"
+      }
+    ],
+    "description": "Updates a pet in the store with form data",
+    "request": {
+      "queryParameters": [],
+      "headers": [],
+      "representations": [
+        {
+          "contentType": "application/x-www-form-urlencoded",
+          "formParameters": [
+            {
+              "name": "name",
+              "description": "Updated name of the pet",
+              "type": "string",
+              "values": []
+            },
+            {
+              "name": "status",
+              "description": "Updated status of the pet",
+              "type": "string",
+              "values": []
+            }
+          ]
+        }
+      ]
+    },
+    "responses": [
+      {
+        "statusCode": 405,
+        "description": "Invalid input",
+        "representations": [
+          {
+            "contentType": "application/json"
+          },
+          {
+            "contentType": "application/xml"
+          }
+        ],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

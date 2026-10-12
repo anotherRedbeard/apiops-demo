@@ -1,0 +1,243 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/testopenai/operations/ImageGenerations_Create",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "ImageGenerations_Create",
+  "properties": {
+    "displayName": "Generates a batch of images from a text caption on a given DALLE model deployment",
+    "method": "POST",
+    "urlTemplate": "/deployments/{deployment-id}/images/generations?api-version={api-version}",
+    "templateParameters": [
+      {
+        "name": "deployment-id",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69cff2243d594b058ca8621a",
+        "typeName": "Deployments-deployment-id-ImagesGenerationsPostRequest"
+      },
+      {
+        "name": "api-version",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69cff2243d594b058ca8621a",
+        "typeName": "Deployments-deployment-id-ImagesGenerationsPostRequest-1"
+      }
+    ],
+    "description": "Generates a batch of images from a text caption on a given DALLE model deployment",
+    "request": {
+      "queryParameters": [],
+      "headers": [],
+      "representations": [
+        {
+          "contentType": "application/json",
+          "examples": {
+            "default": {
+              "value": {
+                "prompt": "a corgi in a field",
+                "n": 1,
+                "size": "1024x1024",
+                "response_format": "url",
+                "user": "user123456",
+                "quality": "standard",
+                "style": "vivid"
+              }
+            }
+          },
+          "schemaId": "69cff2243d594b058ca8621a",
+          "typeName": "imageGenerationsRequest",
+          "generatedSample": "{\r\n  \"prompt\": \"a corgi in a field\",\r\n  \"n\": 1,\r\n  \"size\": \"1024x1024\",\r\n  \"response_format\": \"url\",\r\n  \"user\": \"user123456\",\r\n  \"quality\": \"standard\",\r\n  \"style\": \"vivid\"\r\n}",
+          "sample": "{\r\n  \"prompt\": \"a corgi in a field\",\r\n  \"n\": 1,\r\n  \"size\": \"1024x1024\",\r\n  \"response_format\": \"url\",\r\n  \"user\": \"user123456\",\r\n  \"quality\": \"standard\",\r\n  \"style\": \"vivid\"\r\n}"
+        }
+      ]
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "Ok",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "created": "1676540381",
+                  "data": [
+                    {
+                      "url": "https://www.contoso.com",
+                      "b64_json": "string",
+                      "content_filter_results": {
+                        "sexual": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "violence": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "hate": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "self_harm": {
+                          "filtered": true,
+                          "severity": "safe"
+                        }
+                      },
+                      "revised_prompt": "string",
+                      "prompt_filter_results": {
+                        "sexual": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "violence": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "hate": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "self_harm": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "profanity": {
+                          "filtered": true,
+                          "detected": true
+                        },
+                        "jailbreak": {
+                          "filtered": true,
+                          "detected": true
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "schemaId": "69cff2243d594b058ca8621a",
+            "typeName": "generateImagesResponse",
+            "generatedSample": "{\r\n  \"created\": \"1676540381\",\r\n  \"data\": [\r\n    {\r\n      \"url\": \"https://www.contoso.com\",\r\n      \"b64_json\": \"string\",\r\n      \"content_filter_results\": {\r\n        \"sexual\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"violence\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"hate\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"self_harm\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        }\r\n      },\r\n      \"revised_prompt\": \"string\",\r\n      \"prompt_filter_results\": {\r\n        \"sexual\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"violence\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"hate\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"self_harm\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"profanity\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        },\r\n        \"jailbreak\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        }\r\n      }\r\n    }\r\n  ]\r\n}",
+            "sample": "{\r\n  \"created\": \"1676540381\",\r\n  \"data\": [\r\n    {\r\n      \"url\": \"https://www.contoso.com\",\r\n      \"b64_json\": \"string\",\r\n      \"content_filter_results\": {\r\n        \"sexual\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"violence\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"hate\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"self_harm\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        }\r\n      },\r\n      \"revised_prompt\": \"string\",\r\n      \"prompt_filter_results\": {\r\n        \"sexual\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"violence\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"hate\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"self_harm\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"profanity\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        },\r\n        \"jailbreak\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        }\r\n      }\r\n    }\r\n  ]\r\n}"
+          }
+        ],
+        "headers": []
+      },
+      {
+        "statusCode": 400,
+        "description": "An error occurred.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "param": "string",
+                    "type": "string",
+                    "inner_error": {
+                      "code": "ResponsibleAIPolicyViolation",
+                      "content_filter_results": {
+                        "sexual": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "violence": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "hate": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "self_harm": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "profanity": {
+                          "filtered": true,
+                          "detected": true
+                        },
+                        "jailbreak": {
+                          "filtered": true,
+                          "detected": true
+                        }
+                      },
+                      "revised_prompt": "string"
+                    },
+                    "code": "string",
+                    "message": "string"
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff2243d594b058ca8621a",
+            "typeName": "dalleErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"param\": \"string\",\r\n    \"type\": \"string\",\r\n    \"inner_error\": {\r\n      \"code\": \"ResponsibleAIPolicyViolation\",\r\n      \"content_filter_results\": {\r\n        \"sexual\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"violence\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"hate\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"self_harm\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"profanity\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        },\r\n        \"jailbreak\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        }\r\n      },\r\n      \"revised_prompt\": \"string\"\r\n    },\r\n    \"code\": \"string\",\r\n    \"message\": \"string\"\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"param\": \"string\",\r\n    \"type\": \"string\",\r\n    \"inner_error\": {\r\n      \"code\": \"ResponsibleAIPolicyViolation\",\r\n      \"content_filter_results\": {\r\n        \"sexual\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"violence\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"hate\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"self_harm\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"profanity\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        },\r\n        \"jailbreak\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        }\r\n      },\r\n      \"revised_prompt\": \"string\"\r\n    },\r\n    \"code\": \"string\",\r\n    \"message\": \"string\"\r\n  }\r\n}"
+          }
+        ],
+        "headers": []
+      },
+      {
+        "statusCode": 500,
+        "description": "An error occurred.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "param": "string",
+                    "type": "string",
+                    "inner_error": {
+                      "code": "ResponsibleAIPolicyViolation",
+                      "content_filter_results": {
+                        "sexual": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "violence": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "hate": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "self_harm": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "profanity": {
+                          "filtered": true,
+                          "detected": true
+                        },
+                        "jailbreak": {
+                          "filtered": true,
+                          "detected": true
+                        }
+                      },
+                      "revised_prompt": "string"
+                    },
+                    "code": "string",
+                    "message": "string"
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff2243d594b058ca8621a",
+            "typeName": "dalleErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"param\": \"string\",\r\n    \"type\": \"string\",\r\n    \"inner_error\": {\r\n      \"code\": \"ResponsibleAIPolicyViolation\",\r\n      \"content_filter_results\": {\r\n        \"sexual\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"violence\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"hate\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"self_harm\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"profanity\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        },\r\n        \"jailbreak\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        }\r\n      },\r\n      \"revised_prompt\": \"string\"\r\n    },\r\n    \"code\": \"string\",\r\n    \"message\": \"string\"\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"param\": \"string\",\r\n    \"type\": \"string\",\r\n    \"inner_error\": {\r\n      \"code\": \"ResponsibleAIPolicyViolation\",\r\n      \"content_filter_results\": {\r\n        \"sexual\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"violence\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"hate\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"self_harm\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"profanity\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        },\r\n        \"jailbreak\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        }\r\n      },\r\n      \"revised_prompt\": \"string\"\r\n    },\r\n    \"code\": \"string\",\r\n    \"message\": \"string\"\r\n  }\r\n}"
+          }
+        ],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

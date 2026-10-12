@@ -1,0 +1,42 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/echo-api/schemas/69cff2173d594b058ca86203",
+  "type": "Microsoft.ApiManagement/service/apis/schemas",
+  "name": "69cff2173d594b058ca86203",
+  "properties": {
+    "contentType": "application/vnd.oai.openapi.components+json",
+    "document": {
+      "components": {
+        "schemas": {
+          "ResourceGetRequest": {
+            "enum": [
+              "sample"
+            ],
+            "type": "string",
+            "default": "sample",
+            "x-apim-inline": true
+          },
+          "ResourceGetRequest-1": {
+            "type": "number",
+            "x-apim-inline": true
+          },
+          "ResourceGetRequest-2": {
+            "type": "number",
+            "x-apim-inline": true
+          },
+          "Resource-cachedGetRequest": {
+            "enum": [
+              "sample"
+            ],
+            "type": "string",
+            "default": "sample",
+            "x-apim-inline": true
+          },
+          "Resource-cachedGetRequest-1": {
+            "type": "string",
+            "x-apim-inline": true
+          }
+        }
+      }
+    }
+  }
+}

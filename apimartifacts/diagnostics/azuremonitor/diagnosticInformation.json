@@ -1,39 +1,51 @@
 {
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/diagnostics/azuremonitor",
+  "type": "Microsoft.ApiManagement/service/diagnostics",
+  "name": "azuremonitor",
   "properties": {
+    "alwaysLog": null,
+    "verbosity": "information",
+    "logClientIp": true,
     "loggerId": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/loggers/azuremonitor",
-    "backend": {
-      "request": {
-        "body": {
-          "bytes": 1234
-        },
-        "headers": []
-      },
-      "response": {
-        "body": {
-          "bytes": 1234
-        },
-        "headers": []
-      }
+    "sampling": {
+      "samplingType": "fixed",
+      "percentage": 100
     },
     "frontend": {
       "request": {
+        "headers": [],
         "body": {
-          "bytes": 1234
-        },
-        "headers": []
+          "bytes": 1234,
+          "sampling": null
+        }
       },
       "response": {
+        "headers": [],
         "body": {
-          "bytes": 1234
-        },
-        "headers": []
+          "bytes": 1234,
+          "sampling": null
+        }
       }
     },
-    "logClientIp": true,
-    "sampling": {
-      "percentage": 100,
-      "samplingType": "fixed"
+    "backend": {
+      "request": {
+        "headers": [],
+        "body": {
+          "bytes": 1234,
+          "sampling": null
+        }
+      },
+      "response": {
+        "headers": [],
+        "body": {
+          "bytes": 1234,
+          "sampling": null
+        }
+      }
     },
-    "verbosity": "information"
+    "largeLanguageModel": null,
+    "mcp": null,
+    "a2a": null,
+    "tags": null
   }
 }

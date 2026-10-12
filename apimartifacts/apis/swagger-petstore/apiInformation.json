@@ -1,0 +1,46 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/swagger-petstore",
+  "type": "Microsoft.ApiManagement/service/apis",
+  "name": "swagger-petstore",
+  "properties": {
+    "displayName": "Swagger Petstore",
+    "apiRevision": "1",
+    "description": "This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+    "subscriptionRequired": true,
+    "serviceUrl": "https://petstore.swagger.io/v2",
+    "backendId": null,
+    "path": "pet-store",
+    "protocols": [
+      "http",
+      "https"
+    ],
+    "mcpProperties": null,
+    "a2aProperties": null,
+    "isAgent": false,
+    "agent": null,
+    "jsonRpcProperties": null,
+    "authenticationSettings": {
+      "oAuth2": null,
+      "openid": null,
+      "oAuth2AuthenticationSettings": [],
+      "openidAuthenticationSettings": []
+    },
+    "subscriptionKeyParameterNames": {
+      "header": "Ocp-Apim-Subscription-Key",
+      "query": "subscription-key",
+      "bearer": null
+    },
+    "termsOfServiceUrl": "http://swagger.io/terms/",
+    "contact": {
+      "name": null,
+      "url": null,
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "isCurrent": true,
+    "effectivePath": null
+  }
+}

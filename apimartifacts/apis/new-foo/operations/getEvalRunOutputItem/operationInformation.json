@@ -1,0 +1,218 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/new-foo/operations/getEvalRunOutputItem",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "getEvalRunOutputItem",
+  "properties": {
+    "displayName": "getEvalRunOutputItem",
+    "method": "GET",
+    "urlTemplate": "/evals/{eval_id}/runs/{run_id}/output_items/{output_item_id}",
+    "templateParameters": [
+      {
+        "name": "eval_id",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69cff21b3d594b058ca8620e",
+        "typeName": "Evals-eval_id-Runs-run_id-Output_items-output_item_id-GetRequest"
+      },
+      {
+        "name": "run_id",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69cff21b3d594b058ca8620e",
+        "typeName": "Evals-eval_id-Runs-run_id-Output_items-output_item_id-GetRequest-1"
+      },
+      {
+        "name": "output_item_id",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69cff21b3d594b058ca8620e",
+        "typeName": "Evals-eval_id-Runs-run_id-Output_items-output_item_id-GetRequest-2"
+      }
+    ],
+    "description": "Retrieve a specific output item from an evaluation run by its ID.\n\nNOTE: This Azure OpenAI API is in preview and subject to change.",
+    "request": {
+      "queryParameters": [
+        {
+          "name": "api-version",
+          "description": "The explicit Azure AI Foundry Models API version to use for this request.\n`v1` if not otherwise specified.",
+          "type": "string",
+          "values": [
+            "v1",
+            "preview"
+          ],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "AzureAIFoundryModelsApiVersion"
+        }
+      ],
+      "headers": [
+        {
+          "name": "aoai-evals",
+          "description": "Enables access to AOAI Evals, a preview feature.\nThis feature requires the 'aoai-evals' header to be set to 'preview'.",
+          "type": "string",
+          "required": true,
+          "values": [
+            "preview"
+          ],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "Evals-eval_id-Runs-run_id-Output_items-output_item_id-GetRequest-3"
+        }
+      ],
+      "representations": []
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "The request has succeeded.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "object": "eval.run.output_item",
+                  "id": "string",
+                  "run_id": "string",
+                  "eval_id": "string",
+                  "created_at": 0,
+                  "status": "string",
+                  "datasource_item_id": 0,
+                  "datasource_item": {},
+                  "results": [
+                    {
+                      "name": "string",
+                      "type": "string",
+                      "score": 0,
+                      "passed": true,
+                      "sample": {}
+                    }
+                  ],
+                  "sample": {
+                    "input": [
+                      {
+                        "role": "string",
+                        "content": "string"
+                      }
+                    ],
+                    "output": [
+                      {
+                        "role": "string",
+                        "content": "string"
+                      }
+                    ],
+                    "finish_reason": "string",
+                    "model": "string",
+                    "usage": {
+                      "total_tokens": 0,
+                      "completion_tokens": 0,
+                      "prompt_tokens": 0,
+                      "cached_tokens": 0
+                    },
+                    "error": {
+                      "code": "string",
+                      "message": "string"
+                    },
+                    "temperature": 0,
+                    "max_completion_tokens": 0,
+                    "top_p": 0,
+                    "seed": 0
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "OpenAI.EvalRunOutputItem",
+            "generatedSample": "{\r\n  \"object\": \"eval.run.output_item\",\r\n  \"id\": \"string\",\r\n  \"run_id\": \"string\",\r\n  \"eval_id\": \"string\",\r\n  \"created_at\": 0,\r\n  \"status\": \"string\",\r\n  \"datasource_item_id\": 0,\r\n  \"datasource_item\": {},\r\n  \"results\": [\r\n    {\r\n      \"name\": \"string\",\r\n      \"type\": \"string\",\r\n      \"score\": 0,\r\n      \"passed\": true,\r\n      \"sample\": {}\r\n    }\r\n  ],\r\n  \"sample\": {\r\n    \"input\": [\r\n      {\r\n        \"role\": \"string\",\r\n        \"content\": \"string\"\r\n      }\r\n    ],\r\n    \"output\": [\r\n      {\r\n        \"role\": \"string\",\r\n        \"content\": \"string\"\r\n      }\r\n    ],\r\n    \"finish_reason\": \"string\",\r\n    \"model\": \"string\",\r\n    \"usage\": {\r\n      \"total_tokens\": 0,\r\n      \"completion_tokens\": 0,\r\n      \"prompt_tokens\": 0,\r\n      \"cached_tokens\": 0\r\n    },\r\n    \"error\": {\r\n      \"code\": \"string\",\r\n      \"message\": \"string\"\r\n    },\r\n    \"temperature\": 0,\r\n    \"max_completion_tokens\": 0,\r\n    \"top_p\": 0,\r\n    \"seed\": 0\r\n  }\r\n}",
+            "sample": "{\r\n  \"object\": \"eval.run.output_item\",\r\n  \"id\": \"string\",\r\n  \"run_id\": \"string\",\r\n  \"eval_id\": \"string\",\r\n  \"created_at\": 0,\r\n  \"status\": \"string\",\r\n  \"datasource_item_id\": 0,\r\n  \"datasource_item\": {},\r\n  \"results\": [\r\n    {\r\n      \"name\": \"string\",\r\n      \"type\": \"string\",\r\n      \"score\": 0,\r\n      \"passed\": true,\r\n      \"sample\": {}\r\n    }\r\n  ],\r\n  \"sample\": {\r\n    \"input\": [\r\n      {\r\n        \"role\": \"string\",\r\n        \"content\": \"string\"\r\n      }\r\n    ],\r\n    \"output\": [\r\n      {\r\n        \"role\": \"string\",\r\n        \"content\": \"string\"\r\n      }\r\n    ],\r\n    \"finish_reason\": \"string\",\r\n    \"model\": \"string\",\r\n    \"usage\": {\r\n      \"total_tokens\": 0,\r\n      \"completion_tokens\": 0,\r\n      \"prompt_tokens\": 0,\r\n      \"cached_tokens\": 0\r\n    },\r\n    \"error\": {\r\n      \"code\": \"string\",\r\n      \"message\": \"string\"\r\n    },\r\n    \"temperature\": 0,\r\n    \"max_completion_tokens\": 0,\r\n    \"top_p\": 0,\r\n    \"seed\": 0\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Evals-eval_id-Runs-run_id-Output_items-output_item_id-Get200apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 400,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Evals-eval_id-Runs-run_id-Output_items-output_item_id-Get400apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 500,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Evals-eval_id-Runs-run_id-Output_items-output_item_id-Get500apim-request-idResponseHeader"
+          }
+        ]
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

@@ -1,10 +1,19 @@
 {
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/products/starter",
+  "type": "Microsoft.ApiManagement/service/products",
+  "name": "starter",
   "properties": {
     "displayName": "Starter",
     "description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",
-    "approvalRequired": false,
-    "state": "published",
+    "terms": "",
     "subscriptionRequired": true,
-    "terms": ""
+    "approvalRequired": false,
+    "subscriptionsLimit": null,
+    "state": "published",
+    "groups": [],
+    "authenticationType": [
+      "subscription-key"
+    ],
+    "application": null
   }
 }

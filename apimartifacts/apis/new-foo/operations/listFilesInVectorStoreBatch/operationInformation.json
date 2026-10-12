@@ -1,0 +1,225 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/new-foo/operations/listFilesInVectorStoreBatch",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "listFilesInVectorStoreBatch",
+  "properties": {
+    "displayName": "Returns a list of vector store files in a batch.",
+    "method": "GET",
+    "urlTemplate": "/vector_stores/{vector_store_id}/file_batches/{batch_id}/files",
+    "templateParameters": [
+      {
+        "name": "vector_store_id",
+        "description": "The ID of the vector store that the file batch belongs to.",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69cff21b3d594b058ca8620e",
+        "typeName": "Vector_stores-vector_store_id-File_batches-batch_id-FilesGetRequest"
+      },
+      {
+        "name": "batch_id",
+        "description": "The ID of the file batch that the files belong to.",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69cff21b3d594b058ca8620e",
+        "typeName": "Vector_stores-vector_store_id-File_batches-batch_id-FilesGetRequest-1"
+      }
+    ],
+    "description": "Returns a list of vector store files in a batch.",
+    "request": {
+      "queryParameters": [
+        {
+          "name": "api-version",
+          "description": "The explicit Azure AI Foundry Models API version to use for this request.\n`v1` if not otherwise specified.",
+          "type": "string",
+          "values": [
+            "v1",
+            "preview"
+          ],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "AzureAIFoundryModelsApiVersion"
+        },
+        {
+          "name": "limit",
+          "description": "A limit on the number of objects to be returned. Limit can range between 1 and 100, and the\ndefault is 20.",
+          "type": "integer",
+          "format": "int32",
+          "defaultValue": "20",
+          "values": [],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "Vector_stores-vector_store_id-File_batches-batch_id-FilesGetRequest-2"
+        },
+        {
+          "name": "order",
+          "description": "Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and`desc`\nfor descending order.",
+          "type": "string",
+          "values": [
+            "asc",
+            "desc"
+          ],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "Vector_stores-vector_store_id-File_batches-batch_id-FilesGetRequest-3"
+        },
+        {
+          "name": "after",
+          "description": "A cursor for use in pagination. `after` is an object ID that defines your place in the list.\nFor instance, if you make a list request and receive 100 objects, ending with obj_foo, your\nsubsequent call can include after=obj_foo in order to fetch the next page of the list.",
+          "type": "string",
+          "values": [],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "Vector_stores-vector_store_id-File_batches-batch_id-FilesGetRequest-4"
+        },
+        {
+          "name": "before",
+          "description": "A cursor for use in pagination. `before` is an object ID that defines your place in the list.\nFor instance, if you make a list request and receive 100 objects, ending with obj_foo, your\nsubsequent call can include before=obj_foo in order to fetch the previous page of the list.",
+          "type": "string",
+          "values": [],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "Vector_stores-vector_store_id-File_batches-batch_id-FilesGetRequest-5"
+        },
+        {
+          "name": "filter",
+          "description": "Filter by file status. One of `in_progress`, `completed`, `failed`, `cancelled`.",
+          "type": "string",
+          "values": [
+            "in_progress",
+            "completed",
+            "failed",
+            "cancelled"
+          ],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "Vector_stores-vector_store_id-File_batches-batch_id-FilesGetRequest-6"
+        }
+      ],
+      "headers": [],
+      "representations": []
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "The request has succeeded.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "object": "string",
+                  "data": [
+                    {
+                      "id": "string",
+                      "object": "vector_store.file",
+                      "usage_bytes": 0,
+                      "created_at": 0,
+                      "vector_store_id": "string",
+                      "status": "in_progress",
+                      "last_error": {
+                        "code": "server_error",
+                        "message": "string"
+                      },
+                      "chunking_strategy": {
+                        "type": {}
+                      },
+                      "attributes": {}
+                    }
+                  ],
+                  "first_id": "string",
+                  "last_id": "string",
+                  "has_more": true
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "OpenAI.ListVectorStoreFilesResponse",
+            "generatedSample": "{\r\n  \"object\": \"string\",\r\n  \"data\": [\r\n    {\r\n      \"id\": \"string\",\r\n      \"object\": \"vector_store.file\",\r\n      \"usage_bytes\": 0,\r\n      \"created_at\": 0,\r\n      \"vector_store_id\": \"string\",\r\n      \"status\": \"in_progress\",\r\n      \"last_error\": {\r\n        \"code\": \"server_error\",\r\n        \"message\": \"string\"\r\n      },\r\n      \"chunking_strategy\": {\r\n        \"type\": {}\r\n      },\r\n      \"attributes\": {}\r\n    }\r\n  ],\r\n  \"first_id\": \"string\",\r\n  \"last_id\": \"string\",\r\n  \"has_more\": true\r\n}",
+            "sample": "{\r\n  \"object\": \"string\",\r\n  \"data\": [\r\n    {\r\n      \"id\": \"string\",\r\n      \"object\": \"vector_store.file\",\r\n      \"usage_bytes\": 0,\r\n      \"created_at\": 0,\r\n      \"vector_store_id\": \"string\",\r\n      \"status\": \"in_progress\",\r\n      \"last_error\": {\r\n        \"code\": \"server_error\",\r\n        \"message\": \"string\"\r\n      },\r\n      \"chunking_strategy\": {\r\n        \"type\": {}\r\n      },\r\n      \"attributes\": {}\r\n    }\r\n  ],\r\n  \"first_id\": \"string\",\r\n  \"last_id\": \"string\",\r\n  \"has_more\": true\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Vector_stores-vector_store_id-File_batches-batch_id-FilesGet200apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 400,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Vector_stores-vector_store_id-File_batches-batch_id-FilesGet400apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 500,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Vector_stores-vector_store_id-File_batches-batch_id-FilesGet500apim-request-idResponseHeader"
+          }
+        ]
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/swagger-petstore/operations/getInventory",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "getInventory",
+  "properties": {
+    "displayName": "Returns pet inventories by status",
+    "method": "GET",
+    "urlTemplate": "/store/inventory",
+    "templateParameters": [],
+    "description": "Returns a map of status codes to quantities",
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "successful operation",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {}
+              }
+            },
+            "schemaId": "69d026fc3d594b058ca86463",
+            "typeName": "StoreInventoryGet200ApplicationJsonResponse",
+            "generatedSample": "{}",
+            "sample": "{}"
+          }
+        ],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

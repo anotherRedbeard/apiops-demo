@@ -1,0 +1,12 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/new-foo/tagDescriptions/Realtime",
+  "type": "Microsoft.ApiManagement/service/apis/tagDescriptions",
+  "name": "Realtime",
+  "properties": {
+    "tagId": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/tags/Realtime",
+    "displayName": "Realtime",
+    "description": null,
+    "externalDocsDescription": null,
+    "externalDocsUrl": null
+  }
+}

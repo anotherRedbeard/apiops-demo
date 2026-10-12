@@ -1,0 +1,175 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/new-foo/operations/runGrader",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "runGrader",
+  "properties": {
+    "displayName": "Run a grader.",
+    "method": "POST",
+    "urlTemplate": "/fine_tuning/alpha/graders/run",
+    "templateParameters": [],
+    "description": "Run a grader.",
+    "request": {
+      "queryParameters": [
+        {
+          "name": "api-version",
+          "description": "The explicit Azure AI Foundry Models API version to use for this request.\n`v1` if not otherwise specified.",
+          "type": "string",
+          "values": [
+            "v1",
+            "preview"
+          ],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "AzureAIFoundryModelsApiVersion"
+        }
+      ],
+      "headers": [],
+      "representations": [
+        {
+          "contentType": "application/json",
+          "examples": {
+            "default": {
+              "value": {
+                "grader": {
+                  "type": "string_check",
+                  "name": "string",
+                  "input": "string",
+                  "reference": "string",
+                  "operation": "eq"
+                },
+                "item": {},
+                "model_sample": "string"
+              }
+            }
+          },
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "OpenAI.RunGraderRequest",
+          "generatedSample": "{\r\n  \"grader\": {\r\n    \"type\": \"string_check\",\r\n    \"name\": \"string\",\r\n    \"input\": \"string\",\r\n    \"reference\": \"string\",\r\n    \"operation\": \"eq\"\r\n  },\r\n  \"item\": {},\r\n  \"model_sample\": \"string\"\r\n}",
+          "sample": "{\r\n  \"grader\": {\r\n    \"type\": \"string_check\",\r\n    \"name\": \"string\",\r\n    \"input\": \"string\",\r\n    \"reference\": \"string\",\r\n    \"operation\": \"eq\"\r\n  },\r\n  \"item\": {},\r\n  \"model_sample\": \"string\"\r\n}"
+        }
+      ]
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "The request has succeeded.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "reward": 0,
+                  "metadata": {
+                    "name": "string",
+                    "type": "string",
+                    "errors": {
+                      "formula_parse_error": true,
+                      "sample_parse_error": true,
+                      "truncated_observation_error": true,
+                      "unresponsive_reward_error": true,
+                      "invalid_variable_error": true,
+                      "other_error": true,
+                      "python_grader_server_error": true,
+                      "python_grader_server_error_type": {},
+                      "python_grader_runtime_error": true,
+                      "python_grader_runtime_error_details": {},
+                      "model_grader_server_error": true,
+                      "model_grader_refusal_error": true,
+                      "model_grader_parse_error": true,
+                      "model_grader_server_error_details": {}
+                    },
+                    "execution_time": 0,
+                    "scores": {},
+                    "token_usage": {},
+                    "sampled_model_name": {}
+                  },
+                  "sub_rewards": {},
+                  "model_grader_token_usage_per_model": {}
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "OpenAI.RunGraderResponse",
+            "generatedSample": "{\r\n  \"reward\": 0,\r\n  \"metadata\": {\r\n    \"name\": \"string\",\r\n    \"type\": \"string\",\r\n    \"errors\": {\r\n      \"formula_parse_error\": true,\r\n      \"sample_parse_error\": true,\r\n      \"truncated_observation_error\": true,\r\n      \"unresponsive_reward_error\": true,\r\n      \"invalid_variable_error\": true,\r\n      \"other_error\": true,\r\n      \"python_grader_server_error\": true,\r\n      \"python_grader_server_error_type\": {},\r\n      \"python_grader_runtime_error\": true,\r\n      \"python_grader_runtime_error_details\": {},\r\n      \"model_grader_server_error\": true,\r\n      \"model_grader_refusal_error\": true,\r\n      \"model_grader_parse_error\": true,\r\n      \"model_grader_server_error_details\": {}\r\n    },\r\n    \"execution_time\": 0,\r\n    \"scores\": {},\r\n    \"token_usage\": {},\r\n    \"sampled_model_name\": {}\r\n  },\r\n  \"sub_rewards\": {},\r\n  \"model_grader_token_usage_per_model\": {}\r\n}",
+            "sample": "{\r\n  \"reward\": 0,\r\n  \"metadata\": {\r\n    \"name\": \"string\",\r\n    \"type\": \"string\",\r\n    \"errors\": {\r\n      \"formula_parse_error\": true,\r\n      \"sample_parse_error\": true,\r\n      \"truncated_observation_error\": true,\r\n      \"unresponsive_reward_error\": true,\r\n      \"invalid_variable_error\": true,\r\n      \"other_error\": true,\r\n      \"python_grader_server_error\": true,\r\n      \"python_grader_server_error_type\": {},\r\n      \"python_grader_runtime_error\": true,\r\n      \"python_grader_runtime_error_details\": {},\r\n      \"model_grader_server_error\": true,\r\n      \"model_grader_refusal_error\": true,\r\n      \"model_grader_parse_error\": true,\r\n      \"model_grader_server_error_details\": {}\r\n    },\r\n    \"execution_time\": 0,\r\n    \"scores\": {},\r\n    \"token_usage\": {},\r\n    \"sampled_model_name\": {}\r\n  },\r\n  \"sub_rewards\": {},\r\n  \"model_grader_token_usage_per_model\": {}\r\n}"
+          }
+        ],
+        "headers": []
+      },
+      {
+        "statusCode": 400,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Fine_tuningAlphaGradersRunPost400apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 500,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Fine_tuningAlphaGradersRunPost500apim-request-idResponseHeader"
+          }
+        ]
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

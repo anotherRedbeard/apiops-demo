@@ -1,0 +1,11 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/basic-calculator-v1/releases/68af5a728238f24534d08115",
+  "type": "Microsoft.ApiManagement/service/apis/releases",
+  "name": "68af5a728238f24534d08115",
+  "properties": {
+    "apiId": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/basic-calculator-v1",
+    "createdDateTime": "2025-08-27T19:20:18.667Z",
+    "updatedDateTime": "2025-08-27T19:20:18.667Z",
+    "notes": "version 3 to current"
+  }
+}
