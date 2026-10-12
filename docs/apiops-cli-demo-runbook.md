@@ -9,15 +9,15 @@ This runbook documents the repeatable two-part APIOps demonstration:
 
 | Part | Repository | Local path |
 |---|---|---|
-| Greenfield APIOps CLI | `anotherRedbeard/apiops-cli-demo` | `/Users/andrewredman/src/apiops/apiops-cli-demo` |
-| Toolkit migration | `anotherRedbeard/apiops-demo` | `/Users/andrewredman/src/apiops/apiops-demo` |
+| Greenfield APIOps CLI | `<github-owner>/apiops-cli-demo` | `<path-to-apiops-cli-demo>` |
+| Toolkit migration | `<github-owner>/apiops-demo` | `<path-to-apiops-demo>` |
 
 ## Azure demo environments
 
 | Environment | Subscription | Resource group | APIM service |
 |---|---|---|---|
-| Development/source | `ME-MngEnvMCAP811683-andrewredman-1` | `red-scus-apiopsdemo-rg-dev` | `red-apim-dev` |
-| Production/target | `ME-MngEnvMCAP811683-andrewredman-2` | `red-scus-apiopsdemo-rg-prd` | `red-apim-prd` |
+| Development/source | `<dev-subscription>` | `<dev-resource-group>` | `<dev-apim-service>` |
+| Production/target | `<prod-subscription>` | `<prod-resource-group>` | `<prod-apim-service>` |
 
 ## Live demo operator script
 
@@ -43,10 +43,10 @@ apiops extract -> pull request -> apiops publish
 
 ### Part 1: Greenfield APIOps CLI
 
-Repository: `anotherRedbeard/apiops-cli-demo`
+Repository: `<github-owner>/apiops-cli-demo`
 
 ```bash
-cd /Users/andrewredman/src/apiops/apiops-cli-demo
+cd <path-to-apiops-cli-demo>
 git status --short
 npx apiops --version
 ```
@@ -90,8 +90,8 @@ Show the completed GitHub flow rather than changing Azure during the
 presentation:
 
 ```bash
-gh pr view 2 --repo anotherRedbeard/apiops-cli-demo --web
-gh run list --repo anotherRedbeard/apiops-cli-demo --limit 10
+gh pr view 2 --repo <github-owner>/apiops-cli-demo --web
+gh run list --repo <github-owner>/apiops-cli-demo --limit 10
 ```
 
 Explain that the extraction workflow created PR #2, the PR was reviewed and
@@ -99,10 +99,10 @@ merged, and the generated publisher was validated against both dev and prod.
 
 ### Part 2: Toolkit-to-CLI migration
 
-Repository: `anotherRedbeard/apiops-demo`
+Repository: `<github-owner>/apiops-demo`
 
 ```bash
-cd /Users/andrewredman/src/apiops/apiops-demo
+cd <path-to-apiops-demo>
 git status --short
 git tag --list 'demo-part2-start'
 gh pr view 79 --web
@@ -183,7 +183,7 @@ classification in `Azure/apiops-cli`.
 Greenfield rehearsal:
 
 ```bash
-cd /Users/andrewredman/src/apiops/apiops-cli-demo
+cd <path-to-apiops-cli-demo>
 git switch main
 git switch -c demo/rehearsal-YYYYMMDD demo-part1-start
 ```
@@ -191,7 +191,7 @@ git switch -c demo/rehearsal-YYYYMMDD demo-part1-start
 Migration rehearsal:
 
 ```bash
-cd /Users/andrewredman/src/apiops/apiops-demo
+cd <path-to-apiops-demo>
 git switch main
 git switch -c demo/migration-rehearsal-YYYYMMDD demo-part2-start
 ```
@@ -205,8 +205,8 @@ deleted between demonstrations.
 ### 1. Create the greenfield repository
 
 ```bash
-cd /Users/andrewredman/src/apiops
-gh repo create anotherRedbeard/apiops-cli-demo \
+cd <parent-directory-for-demo-repositories>
+gh repo create <github-owner>/apiops-cli-demo \
   --public \
   --add-readme \
   --description "Repeatable APIOps CLI greenfield and migration demo" \
@@ -216,7 +216,7 @@ gh repo create anotherRedbeard/apiops-cli-demo \
 ### 2. Preserve the empty starting state
 
 ```bash
-cd /Users/andrewredman/src/apiops/apiops-cli-demo
+cd <path-to-apiops-cli-demo>
 git tag demo-part1-start
 git push origin demo-part1-start
 git switch -c demo/rehearsal
@@ -243,7 +243,7 @@ Important options:
 Interactive command used during the hands-on rehearsal:
 
 ```bash
-cd /Users/andrewredman/src/apiops/apiops-cli-demo
+cd <path-to-apiops-cli-demo>
 npx -y @azure-tools/apiops-cli@latest init
 ```
 
@@ -339,9 +339,9 @@ artifacts:
 
 ```bash
 az apim api list \
-  --subscription 0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8 \
-  --resource-group red-scus-apiopsdemo-rg-dev \
-  --service-name red-apim-dev \
+  --subscription <dev-subscription-id> \
+  --resource-group <dev-resource-group> \
+  --service-name <dev-apim-service> \
   --query '[].{name:name,displayName:displayName,path:path}' \
   -o table
 ```
@@ -436,7 +436,7 @@ The workflow completed successfully after the unused example token was removed.
 
 ### 5. Configure secretless GitHub authentication
 
-An Entra application named `apiops-cli-demo-github` was created with federated
+An Entra application named `<greenfield-oidc-app>` was created with federated
 credentials for these GitHub environments:
 
 - `dev`
@@ -447,8 +447,8 @@ No Azure client secret was created or stored.
 The service principal has:
 
 - `Reader` on each demo resource group.
-- `API Management Service Contributor` on `red-apim-dev`.
-- `API Management Service Contributor` on `red-apim-prd`.
+- `API Management Service Contributor` on the development APIM service.
+- `API Management Service Contributor` on the production APIM service.
 
 The GitHub repository contains:
 
@@ -539,7 +539,7 @@ The Toolkit field `subscriptionNames` was renamed to `subscriptions`:
 # yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/apiops-cli/main/schemas/v1/extractor-config.schema.json
 
 subscriptions:
-  - 66ce4b511f9b910053070002
+  - <managed-subscription-resource-name>
 ```
 
 ### 4. Translate environment overrides
@@ -584,7 +584,7 @@ structure change.
 APIOps CLI 1.0.4 treats every product-scoped subscription with a 24-character
 hexadecimal resource name as an APIM-generated subscription and skips it during
 publish. The existing managed subscription
-`66ce4b511f9b910053070002` matches that heuristic even though the repository
+`<managed-subscription-resource-name>` matches that heuristic even though the repository
 explicitly manages its primary and secondary keys.
 
 Keep the original hexadecimal artifact and override names so extraction remains
@@ -637,15 +637,15 @@ assignments remain unchanged:
 
 | Environment | App registration | Client ID | Service-principal object ID |
 |---|---|---|---|
-| dev | `spAPIOpsDemoDev` | `733d9303-bfc0-4463-a6c6-519fa26ce397` | `72d8523b-27b1-4706-b3b9-5b9c2f36c63b` |
-| prod | `spAPIOpsDemoPrd` | `84c9ad8f-123c-4af8-8741-ab1ebce74dc7` | `404b4201-2ae4-4637-995e-6f4fb72af2fe` |
+| dev | `<dev-oidc-app>` | Stored in the `dev` GitHub environment | Managed in Entra ID |
+| prod | `<prod-oidc-app>` | Stored in the `prod` GitHub environment | Managed in Entra ID |
 
 Add one environment-scoped GitHub federated credential to each registration:
 
 - Dev subject:
-  `repo:anotherRedbeard@34103220/apiops-demo@601646614:environment:dev`
+  `repo:<github-owner>/apiops-demo:environment:dev`
 - Prod subject:
-  `repo:anotherRedbeard@34103220/apiops-demo@601646614:environment:prod`
+  `repo:<github-owner>/apiops-demo:environment:prod`
 - Issuer: `https://token.actions.githubusercontent.com`
 - Audience: `api://AzureADTokenExchange`
 

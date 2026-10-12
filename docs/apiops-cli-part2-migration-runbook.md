@@ -16,7 +16,7 @@ Show that an existing Toolkit implementation can be modernized by:
 Repository:
 
 ```text
-anotherRedbeard/apiops-demo
+<github-owner>/apiops-demo
 ```
 
 Legacy starting point:
@@ -28,7 +28,7 @@ demo-part2-start
 ## Start from the Toolkit implementation
 
 ```bash
-cd /Users/andrewredman/src/apiops/apiops-demo
+cd <path-to-apiops-demo>
 git switch -c demo/migration-live-YYYYMMDD demo-part2-start
 git status
 ```
@@ -253,7 +253,7 @@ of the APIOps operating model.
 ## Reset for another rehearsal
 
 ```bash
-cd /Users/andrewredman/src/apiops/apiops-demo
+cd <path-to-apiops-demo>
 git switch main
 git switch -c demo/migration-live-YYYYMMDD-HHMM demo-part2-start
 ```
