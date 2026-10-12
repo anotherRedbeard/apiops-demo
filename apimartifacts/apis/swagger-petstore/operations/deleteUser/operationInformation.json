@@ -1,0 +1,52 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/swagger-petstore/operations/deleteUser",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "deleteUser",
+  "properties": {
+    "displayName": "Delete user",
+    "method": "DELETE",
+    "urlTemplate": "/user/{username}",
+    "templateParameters": [
+      {
+        "name": "username",
+        "description": "The name that needs to be deleted",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69d026fc3d594b058ca86463",
+        "typeName": "User-username-DeleteRequest"
+      }
+    ],
+    "description": "This can only be done by the logged in user.",
+    "responses": [
+      {
+        "statusCode": 400,
+        "description": "Invalid username supplied",
+        "representations": [
+          {
+            "contentType": "application/json"
+          },
+          {
+            "contentType": "application/xml"
+          }
+        ],
+        "headers": []
+      },
+      {
+        "statusCode": 404,
+        "description": "User not found",
+        "representations": [
+          {
+            "contentType": "application/json"
+          },
+          {
+            "contentType": "application/xml"
+          }
+        ],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

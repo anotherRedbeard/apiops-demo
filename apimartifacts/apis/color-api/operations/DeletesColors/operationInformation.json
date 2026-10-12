@@ -1,0 +1,67 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/color-api/operations/DeletesColors",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "DeletesColors",
+  "properties": {
+    "displayName": "Delete colors",
+    "method": "DELETE",
+    "urlTemplate": "/colors",
+    "templateParameters": [],
+    "description": "Deletes all colors.",
+    "responses": [
+      {
+        "statusCode": 204,
+        "description": "Success - all colors deleted",
+        "representations": [
+          {
+            "contentType": "text/plain",
+            "examples": {
+              "default": {
+                "value": ""
+              }
+            },
+            "schemaId": "69cff2173d594b058ca861ff",
+            "typeName": "ColorsItem",
+            "generatedSample": "",
+            "sample": ""
+          },
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "id": 0,
+                  "name": "string",
+                  "data": "string"
+                }
+              }
+            },
+            "schemaId": "69cff2173d594b058ca861ff",
+            "typeName": "ColorsItem",
+            "generatedSample": "{\r\n  \"id\": 0,\r\n  \"name\": \"string\",\r\n  \"data\": \"string\"\r\n}",
+            "sample": "{\r\n  \"id\": 0,\r\n  \"name\": \"string\",\r\n  \"data\": \"string\"\r\n}"
+          },
+          {
+            "contentType": "text/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "id": 0,
+                  "name": "string",
+                  "data": "string"
+                }
+              }
+            },
+            "schemaId": "69cff2173d594b058ca861ff",
+            "typeName": "ColorsItem",
+            "generatedSample": "{\r\n  \"id\": 0,\r\n  \"name\": \"string\",\r\n  \"data\": \"string\"\r\n}",
+            "sample": "{\r\n  \"id\": 0,\r\n  \"name\": \"string\",\r\n  \"data\": \"string\"\r\n}"
+          }
+        ],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

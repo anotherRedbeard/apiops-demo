@@ -1,0 +1,96 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/swagger-petstore/operations/loginUser",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "loginUser",
+  "properties": {
+    "displayName": "Logs user into the system",
+    "method": "GET",
+    "urlTemplate": "/user/login?username={username}&password={password}",
+    "templateParameters": [
+      {
+        "name": "username",
+        "description": "The user name for login",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69d026fc3d594b058ca86463",
+        "typeName": "UserLoginGetRequest"
+      },
+      {
+        "name": "password",
+        "description": "The password for login in clear text",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69d026fc3d594b058ca86463",
+        "typeName": "UserLoginGetRequest-1"
+      }
+    ],
+    "description": "Logs user into the system",
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "successful operation",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": "string"
+              }
+            },
+            "schemaId": "69d026fc3d594b058ca86463",
+            "typeName": "UserLoginGet200ApplicationJsonResponse",
+            "generatedSample": "string",
+            "sample": "string"
+          },
+          {
+            "contentType": "application/xml",
+            "examples": {
+              "default": {
+                "value": "<UserLoginGet200ApplicationXmlResponse>string</UserLoginGet200ApplicationXmlResponse>"
+              }
+            },
+            "schemaId": "69d026fc3d594b058ca86463",
+            "typeName": "UserLoginGet200ApplicationXmlResponse",
+            "generatedSample": "<UserLoginGet200ApplicationXmlResponse>string</UserLoginGet200ApplicationXmlResponse>",
+            "sample": "<UserLoginGet200ApplicationXmlResponse>string</UserLoginGet200ApplicationXmlResponse>"
+          }
+        ],
+        "headers": [
+          {
+            "name": "X-Expires-After",
+            "description": "date in UTC when token expires",
+            "type": "string",
+            "values": [],
+            "schemaId": "69d026fc3d594b058ca86463",
+            "typeName": "UserLoginGet200X-Expires-AfterResponseHeader"
+          },
+          {
+            "name": "X-Rate-Limit",
+            "description": "calls per hour allowed by the user",
+            "type": "integer",
+            "values": [],
+            "schemaId": "69d026fc3d594b058ca86463",
+            "typeName": "UserLoginGet200X-Rate-LimitResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 400,
+        "description": "Invalid username/password supplied",
+        "representations": [
+          {
+            "contentType": "application/json"
+          },
+          {
+            "contentType": "application/xml"
+          }
+        ],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

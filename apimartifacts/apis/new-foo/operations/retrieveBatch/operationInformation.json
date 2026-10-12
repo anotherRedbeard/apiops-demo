@@ -1,0 +1,201 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/new-foo/operations/retrieveBatch",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "retrieveBatch",
+  "properties": {
+    "displayName": "Retrieves a batch.",
+    "method": "GET",
+    "urlTemplate": "/batches/{batch_id}",
+    "templateParameters": [
+      {
+        "name": "batch_id",
+        "description": "The ID of the batch to retrieve.",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69cff21b3d594b058ca8620e",
+        "typeName": "Batches-batch_id-GetRequest"
+      }
+    ],
+    "description": "Retrieves a batch.",
+    "request": {
+      "queryParameters": [
+        {
+          "name": "api-version",
+          "description": "The explicit Azure AI Foundry Models API version to use for this request.\n`v1` if not otherwise specified.",
+          "type": "string",
+          "values": [
+            "v1",
+            "preview"
+          ],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "AzureAIFoundryModelsApiVersion"
+        }
+      ],
+      "headers": [
+        {
+          "name": "accept",
+          "type": "string",
+          "required": true,
+          "values": [
+            "application/json"
+          ],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "Batches-batch_id-GetRequest-1"
+        }
+      ],
+      "representations": []
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "The request has succeeded.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "id": "string",
+                  "object": "batch",
+                  "endpoint": "string",
+                  "model": "string",
+                  "errors": {
+                    "object": "string",
+                    "data": [
+                      {
+                        "code": "string",
+                        "message": "string",
+                        "param": {},
+                        "line": {}
+                      }
+                    ]
+                  },
+                  "completion_window": "string",
+                  "status": "validating",
+                  "output_file_id": "string",
+                  "error_file_id": "string",
+                  "created_at": 0,
+                  "in_progress_at": 0,
+                  "expires_at": 0,
+                  "finalizing_at": 0,
+                  "completed_at": 0,
+                  "failed_at": 0,
+                  "expired_at": 0,
+                  "cancelling_at": 0,
+                  "cancelled_at": 0,
+                  "request_counts": {
+                    "total": 0,
+                    "completed": 0,
+                    "failed": 0
+                  },
+                  "usage": {
+                    "input_tokens": 0,
+                    "input_tokens_details": {
+                      "cached_tokens": 0
+                    },
+                    "output_tokens": 0,
+                    "output_tokens_details": {
+                      "reasoning_tokens": 0
+                    },
+                    "total_tokens": 0
+                  },
+                  "metadata": {},
+                  "input_file_id": {}
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Batches-batch_id-Get200ApplicationJsonResponse",
+            "generatedSample": "{\r\n  \"id\": \"string\",\r\n  \"object\": \"batch\",\r\n  \"endpoint\": \"string\",\r\n  \"model\": \"string\",\r\n  \"errors\": {\r\n    \"object\": \"string\",\r\n    \"data\": [\r\n      {\r\n        \"code\": \"string\",\r\n        \"message\": \"string\",\r\n        \"param\": {},\r\n        \"line\": {}\r\n      }\r\n    ]\r\n  },\r\n  \"completion_window\": \"string\",\r\n  \"status\": \"validating\",\r\n  \"output_file_id\": \"string\",\r\n  \"error_file_id\": \"string\",\r\n  \"created_at\": 0,\r\n  \"in_progress_at\": 0,\r\n  \"expires_at\": 0,\r\n  \"finalizing_at\": 0,\r\n  \"completed_at\": 0,\r\n  \"failed_at\": 0,\r\n  \"expired_at\": 0,\r\n  \"cancelling_at\": 0,\r\n  \"cancelled_at\": 0,\r\n  \"request_counts\": {\r\n    \"total\": 0,\r\n    \"completed\": 0,\r\n    \"failed\": 0\r\n  },\r\n  \"usage\": {\r\n    \"input_tokens\": 0,\r\n    \"input_tokens_details\": {\r\n      \"cached_tokens\": 0\r\n    },\r\n    \"output_tokens\": 0,\r\n    \"output_tokens_details\": {\r\n      \"reasoning_tokens\": 0\r\n    },\r\n    \"total_tokens\": 0\r\n  },\r\n  \"metadata\": {},\r\n  \"input_file_id\": {}\r\n}",
+            "sample": "{\r\n  \"id\": \"string\",\r\n  \"object\": \"batch\",\r\n  \"endpoint\": \"string\",\r\n  \"model\": \"string\",\r\n  \"errors\": {\r\n    \"object\": \"string\",\r\n    \"data\": [\r\n      {\r\n        \"code\": \"string\",\r\n        \"message\": \"string\",\r\n        \"param\": {},\r\n        \"line\": {}\r\n      }\r\n    ]\r\n  },\r\n  \"completion_window\": \"string\",\r\n  \"status\": \"validating\",\r\n  \"output_file_id\": \"string\",\r\n  \"error_file_id\": \"string\",\r\n  \"created_at\": 0,\r\n  \"in_progress_at\": 0,\r\n  \"expires_at\": 0,\r\n  \"finalizing_at\": 0,\r\n  \"completed_at\": 0,\r\n  \"failed_at\": 0,\r\n  \"expired_at\": 0,\r\n  \"cancelling_at\": 0,\r\n  \"cancelled_at\": 0,\r\n  \"request_counts\": {\r\n    \"total\": 0,\r\n    \"completed\": 0,\r\n    \"failed\": 0\r\n  },\r\n  \"usage\": {\r\n    \"input_tokens\": 0,\r\n    \"input_tokens_details\": {\r\n      \"cached_tokens\": 0\r\n    },\r\n    \"output_tokens\": 0,\r\n    \"output_tokens_details\": {\r\n      \"reasoning_tokens\": 0\r\n    },\r\n    \"total_tokens\": 0\r\n  },\r\n  \"metadata\": {},\r\n  \"input_file_id\": {}\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Batches-batch_id-Get200apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 400,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Batches-batch_id-Get400apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 500,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Batches-batch_id-Get500apim-request-idResponseHeader"
+          }
+        ]
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

@@ -1,0 +1,295 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/swagger-petstore/schemas/69d026fc3d594b058ca86463",
+  "type": "Microsoft.ApiManagement/service/apis/schemas",
+  "name": "69d026fc3d594b058ca86463",
+  "properties": {
+    "contentType": "application/vnd.oai.openapi.components+json",
+    "document": {
+      "components": {
+        "schemas": {
+          "ApiResponse": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "type": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            }
+          },
+          "Category": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "xml": {
+              "name": "Category"
+            }
+          },
+          "Pet": {
+            "required": [
+              "name",
+              "photoUrls"
+            ],
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "category": {
+                "$ref": "#/components/schemas/Category"
+              },
+              "name": {
+                "type": "string",
+                "example": "doggie"
+              },
+              "photoUrls": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "xml": {
+                    "name": "photoUrl"
+                  }
+                },
+                "xml": {
+                  "wrapped": true
+                }
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Tag"
+                },
+                "xml": {
+                  "wrapped": true
+                }
+              },
+              "status": {
+                "enum": [
+                  "available",
+                  "pending",
+                  "sold"
+                ],
+                "type": "string",
+                "description": "pet status in the store"
+              }
+            },
+            "xml": {
+              "name": "Pet"
+            }
+          },
+          "Tag": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "xml": {
+              "name": "Tag"
+            }
+          },
+          "Order": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "petId": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "quantity": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "shipDate": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "status": {
+                "enum": [
+                  "placed",
+                  "approved",
+                  "delivered"
+                ],
+                "type": "string",
+                "description": "Order Status"
+              },
+              "complete": {
+                "type": "boolean"
+              }
+            },
+            "xml": {
+              "name": "Order"
+            }
+          },
+          "User": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "username": {
+                "type": "string"
+              },
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "userStatus": {
+                "type": "integer",
+                "description": "User Status",
+                "format": "int32"
+              }
+            },
+            "xml": {
+              "name": "User"
+            }
+          },
+          "PetArray": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Pet"
+            }
+          },
+          "StoreInventoryGet200ApplicationJsonResponse": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "UserArray": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/User"
+            }
+          },
+          "UserLoginGet200ApplicationJsonResponse": {
+            "type": "string"
+          },
+          "UserLoginGet200ApplicationXmlResponse": {
+            "type": "string"
+          },
+          "Pet-petId-UploadImagePostRequest": {
+            "type": "integer",
+            "format": "int64",
+            "x-apim-inline": true
+          },
+          "PetFindByStatusGetRequest": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "available",
+                "pending",
+                "sold"
+              ],
+              "type": "string",
+              "default": "available"
+            },
+            "x-apim-inline": true
+          },
+          "PetFindByTagsGetRequest": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "x-apim-inline": true
+          },
+          "Pet-petId-GetRequest": {
+            "type": "integer",
+            "format": "int64",
+            "x-apim-inline": true
+          },
+          "Pet-petId-PostRequest": {
+            "type": "integer",
+            "format": "int64",
+            "x-apim-inline": true
+          },
+          "Pet-petId-DeleteRequest": {
+            "type": "integer",
+            "format": "int64",
+            "x-apim-inline": true
+          },
+          "Pet-petId-DeleteRequest-1": {
+            "type": "string",
+            "x-apim-inline": true
+          },
+          "StoreOrder-orderId-GetRequest": {
+            "maximum": 10,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int64",
+            "x-apim-inline": true
+          },
+          "StoreOrder-orderId-DeleteRequest": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int64",
+            "x-apim-inline": true
+          },
+          "User-username-GetRequest": {
+            "type": "string",
+            "x-apim-inline": true
+          },
+          "User-username-PutRequest": {
+            "type": "string",
+            "x-apim-inline": true
+          },
+          "User-username-DeleteRequest": {
+            "type": "string",
+            "x-apim-inline": true
+          },
+          "UserLoginGetRequest": {
+            "type": "string",
+            "x-apim-inline": true
+          },
+          "UserLoginGetRequest-1": {
+            "type": "string",
+            "x-apim-inline": true
+          },
+          "UserLoginGet200X-Expires-AfterResponseHeader": {
+            "type": "string",
+            "format": "date-time",
+            "x-apim-inline": true
+          },
+          "UserLoginGet200X-Rate-LimitResponseHeader": {
+            "type": "integer",
+            "format": "int32",
+            "x-apim-inline": true
+          }
+        }
+      }
+    }
+  }
+}

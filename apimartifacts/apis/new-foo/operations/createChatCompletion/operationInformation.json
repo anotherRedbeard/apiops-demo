@@ -1,0 +1,424 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/new-foo/operations/createChatCompletion",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "createChatCompletion",
+  "properties": {
+    "displayName": "createChatCompletion",
+    "method": "POST",
+    "urlTemplate": "/chat/completions",
+    "templateParameters": [],
+    "description": "Creates a chat completion.",
+    "request": {
+      "queryParameters": [
+        {
+          "name": "api-version",
+          "description": "The explicit Azure AI Foundry Models API version to use for this request.\n`v1` if not otherwise specified.",
+          "type": "string",
+          "values": [
+            "v1",
+            "preview"
+          ],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "AzureAIFoundryModelsApiVersion"
+        }
+      ],
+      "headers": [],
+      "representations": [
+        {
+          "contentType": "application/json",
+          "examples": {
+            "default": {
+              "value": {
+                "metadata": {},
+                "top_logprobs": {},
+                "temperature": 1,
+                "top_p": 1,
+                "user": "string",
+                "safety_identifier": "string",
+                "prompt_cache_key": "string",
+                "prompt_cache_retention": {},
+                "messages": [
+                  {
+                    "role": {}
+                  }
+                ],
+                "model": "string",
+                "modalities": {},
+                "verbosity": {},
+                "reasoning_effort": {},
+                "max_completion_tokens": {},
+                "frequency_penalty": {},
+                "presence_penalty": {},
+                "response_format": {
+                  "type": {}
+                },
+                "audio": {
+                  "voice": {},
+                  "format": "wav"
+                },
+                "store": {},
+                "stream": {},
+                "stop": {},
+                "logit_bias": {},
+                "logprobs": {},
+                "max_tokens": {},
+                "n": 1,
+                "prediction": {
+                  "type": "content",
+                  "content": {}
+                },
+                "seed": {},
+                "stream_options": {
+                  "include_usage": true,
+                  "include_obfuscation": true
+                },
+                "tools": [
+                  {
+                    "type": "function",
+                    "function": {
+                      "description": "string",
+                      "name": "string",
+                      "parameters": {},
+                      "strict": {}
+                    }
+                  }
+                ],
+                "tool_choice": {},
+                "parallel_tool_calls": true,
+                "function_call": {},
+                "functions": [
+                  {
+                    "description": "string",
+                    "name": "string",
+                    "parameters": {}
+                  }
+                ],
+                "user_security_context": {
+                  "application_name": "string",
+                  "end_user_id": "string",
+                  "end_user_tenant_id": "string",
+                  "source_ip": "string"
+                }
+              }
+            }
+          },
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "ChatCompletionsPostRequest",
+          "generatedSample": "{\r\n  \"metadata\": {},\r\n  \"top_logprobs\": {},\r\n  \"temperature\": 1,\r\n  \"top_p\": 1,\r\n  \"user\": \"string\",\r\n  \"safety_identifier\": \"string\",\r\n  \"prompt_cache_key\": \"string\",\r\n  \"prompt_cache_retention\": {},\r\n  \"messages\": [\r\n    {\r\n      \"role\": {}\r\n    }\r\n  ],\r\n  \"model\": \"string\",\r\n  \"modalities\": {},\r\n  \"verbosity\": {},\r\n  \"reasoning_effort\": {},\r\n  \"max_completion_tokens\": {},\r\n  \"frequency_penalty\": {},\r\n  \"presence_penalty\": {},\r\n  \"response_format\": {\r\n    \"type\": {}\r\n  },\r\n  \"audio\": {\r\n    \"voice\": {},\r\n    \"format\": \"wav\"\r\n  },\r\n  \"store\": {},\r\n  \"stream\": {},\r\n  \"stop\": {},\r\n  \"logit_bias\": {},\r\n  \"logprobs\": {},\r\n  \"max_tokens\": {},\r\n  \"n\": 1,\r\n  \"prediction\": {\r\n    \"type\": \"content\",\r\n    \"content\": {}\r\n  },\r\n  \"seed\": {},\r\n  \"stream_options\": {\r\n    \"include_usage\": true,\r\n    \"include_obfuscation\": true\r\n  },\r\n  \"tools\": [\r\n    {\r\n      \"type\": \"function\",\r\n      \"function\": {\r\n        \"description\": \"string\",\r\n        \"name\": \"string\",\r\n        \"parameters\": {},\r\n        \"strict\": {}\r\n      }\r\n    }\r\n  ],\r\n  \"tool_choice\": {},\r\n  \"parallel_tool_calls\": true,\r\n  \"function_call\": {},\r\n  \"functions\": [\r\n    {\r\n      \"description\": \"string\",\r\n      \"name\": \"string\",\r\n      \"parameters\": {}\r\n    }\r\n  ],\r\n  \"user_security_context\": {\r\n    \"application_name\": \"string\",\r\n    \"end_user_id\": \"string\",\r\n    \"end_user_tenant_id\": \"string\",\r\n    \"source_ip\": \"string\"\r\n  }\r\n}",
+          "sample": "{\r\n  \"metadata\": {},\r\n  \"top_logprobs\": {},\r\n  \"temperature\": 1,\r\n  \"top_p\": 1,\r\n  \"user\": \"string\",\r\n  \"safety_identifier\": \"string\",\r\n  \"prompt_cache_key\": \"string\",\r\n  \"prompt_cache_retention\": {},\r\n  \"messages\": [\r\n    {\r\n      \"role\": {}\r\n    }\r\n  ],\r\n  \"model\": \"string\",\r\n  \"modalities\": {},\r\n  \"verbosity\": {},\r\n  \"reasoning_effort\": {},\r\n  \"max_completion_tokens\": {},\r\n  \"frequency_penalty\": {},\r\n  \"presence_penalty\": {},\r\n  \"response_format\": {\r\n    \"type\": {}\r\n  },\r\n  \"audio\": {\r\n    \"voice\": {},\r\n    \"format\": \"wav\"\r\n  },\r\n  \"store\": {},\r\n  \"stream\": {},\r\n  \"stop\": {},\r\n  \"logit_bias\": {},\r\n  \"logprobs\": {},\r\n  \"max_tokens\": {},\r\n  \"n\": 1,\r\n  \"prediction\": {\r\n    \"type\": \"content\",\r\n    \"content\": {}\r\n  },\r\n  \"seed\": {},\r\n  \"stream_options\": {\r\n    \"include_usage\": true,\r\n    \"include_obfuscation\": true\r\n  },\r\n  \"tools\": [\r\n    {\r\n      \"type\": \"function\",\r\n      \"function\": {\r\n        \"description\": \"string\",\r\n        \"name\": \"string\",\r\n        \"parameters\": {},\r\n        \"strict\": {}\r\n      }\r\n    }\r\n  ],\r\n  \"tool_choice\": {},\r\n  \"parallel_tool_calls\": true,\r\n  \"function_call\": {},\r\n  \"functions\": [\r\n    {\r\n      \"description\": \"string\",\r\n      \"name\": \"string\",\r\n      \"parameters\": {}\r\n    }\r\n  ],\r\n  \"user_security_context\": {\r\n    \"application_name\": \"string\",\r\n    \"end_user_id\": \"string\",\r\n    \"end_user_tenant_id\": \"string\",\r\n    \"source_ip\": \"string\"\r\n  }\r\n}"
+        }
+      ]
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "The request has succeeded.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "id": "string",
+                  "choices": [
+                    {
+                      "finish_reason": "stop",
+                      "index": 0,
+                      "message": {
+                        "content": {},
+                        "refusal": {},
+                        "tool_calls": [
+                          {
+                            "id": "string",
+                            "type": "function",
+                            "function": {
+                              "name": "string",
+                              "arguments": "string"
+                            }
+                          }
+                        ],
+                        "annotations": [
+                          {
+                            "type": "url_citation",
+                            "url_citation": {
+                              "end_index": 0,
+                              "start_index": 0,
+                              "url": "string",
+                              "title": "string"
+                            }
+                          }
+                        ],
+                        "role": "assistant",
+                        "function_call": {
+                          "arguments": "string",
+                          "name": "string"
+                        },
+                        "audio": {
+                          "id": "string",
+                          "expires_at": 0,
+                          "data": "string",
+                          "transcript": "string"
+                        },
+                        "reasoning_content": "string"
+                      },
+                      "logprobs": {
+                        "content": {},
+                        "refusal": {}
+                      },
+                      "content_filter_results": {
+                        "sexual": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "hate": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "violence": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "self_harm": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "profanity": {
+                          "filtered": true,
+                          "detected": true
+                        },
+                        "custom_blocklists": {
+                          "filtered": true,
+                          "details": [
+                            {
+                              "filtered": true,
+                              "id": "string"
+                            }
+                          ]
+                        },
+                        "custom_topics": {
+                          "filtered": true,
+                          "details": [
+                            {
+                              "detected": true,
+                              "id": "string"
+                            }
+                          ]
+                        },
+                        "error": {
+                          "code": 0,
+                          "message": "string"
+                        },
+                        "protected_material_text": {
+                          "filtered": true,
+                          "detected": true
+                        },
+                        "protected_material_code": {
+                          "filtered": true,
+                          "detected": true,
+                          "citation": {
+                            "license": "string",
+                            "URL": "string"
+                          }
+                        },
+                        "ungrounded_material": {
+                          "filtered": true,
+                          "detected": true,
+                          "details": [
+                            {
+                              "completion_start_offset": 0,
+                              "completion_end_offset": 0
+                            }
+                          ]
+                        },
+                        "personally_identifiable_information": {
+                          "redacted_text": "string",
+                          "sub_categories": [
+                            {
+                              "sub_category": "string",
+                              "filtered": true,
+                              "detected": true,
+                              "redacted": true
+                            }
+                          ],
+                          "filtered": true,
+                          "detected": true
+                        }
+                      }
+                    }
+                  ],
+                  "created": 0,
+                  "model": "string",
+                  "system_fingerprint": "string",
+                  "object": "chat.completion",
+                  "usage": {
+                    "completion_tokens": 0,
+                    "prompt_tokens": 0,
+                    "total_tokens": 0,
+                    "completion_tokens_details": {
+                      "accepted_prediction_tokens": 0,
+                      "audio_tokens": 0,
+                      "reasoning_tokens": 0,
+                      "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                      "audio_tokens": 0,
+                      "cached_tokens": 0
+                    }
+                  },
+                  "prompt_filter_results": [
+                    {
+                      "prompt_index": 0,
+                      "content_filter_results": {
+                        "prompt_index": 0,
+                        "content_filter_results": {
+                          "sexual": {
+                            "filtered": true,
+                            "severity": "safe"
+                          },
+                          "hate": {
+                            "filtered": true,
+                            "severity": "safe"
+                          },
+                          "violence": {
+                            "filtered": true,
+                            "severity": "safe"
+                          },
+                          "self_harm": {
+                            "filtered": true,
+                            "severity": "safe"
+                          },
+                          "profanity": {
+                            "filtered": true,
+                            "detected": true
+                          },
+                          "custom_blocklists": {
+                            "filtered": true,
+                            "details": [
+                              {
+                                "filtered": true,
+                                "id": "string"
+                              }
+                            ]
+                          },
+                          "custom_topics": {
+                            "filtered": true,
+                            "details": [
+                              {
+                                "detected": true,
+                                "id": "string"
+                              }
+                            ]
+                          },
+                          "error": {
+                            "code": 0,
+                            "message": "string"
+                          },
+                          "jailbreak": {
+                            "filtered": true,
+                            "detected": true
+                          },
+                          "indirect_attack": {
+                            "filtered": true,
+                            "detected": true
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "ChatCompletionsPost200ApplicationJsonResponse",
+            "generatedSample": "{\r\n  \"id\": \"string\",\r\n  \"choices\": [\r\n    {\r\n      \"finish_reason\": \"stop\",\r\n      \"index\": 0,\r\n      \"message\": {\r\n        \"content\": {},\r\n        \"refusal\": {},\r\n        \"tool_calls\": [\r\n          {\r\n            \"id\": \"string\",\r\n            \"type\": \"function\",\r\n            \"function\": {\r\n              \"name\": \"string\",\r\n              \"arguments\": \"string\"\r\n            }\r\n          }\r\n        ],\r\n        \"annotations\": [\r\n          {\r\n            \"type\": \"url_citation\",\r\n            \"url_citation\": {\r\n              \"end_index\": 0,\r\n              \"start_index\": 0,\r\n              \"url\": \"string\",\r\n              \"title\": \"string\"\r\n            }\r\n          }\r\n        ],\r\n        \"role\": \"assistant\",\r\n        \"function_call\": {\r\n          \"arguments\": \"string\",\r\n          \"name\": \"string\"\r\n        },\r\n        \"audio\": {\r\n          \"id\": \"string\",\r\n          \"expires_at\": 0,\r\n          \"data\": \"string\",\r\n          \"transcript\": \"string\"\r\n        },\r\n        \"reasoning_content\": \"string\"\r\n      },\r\n      \"logprobs\": {\r\n        \"content\": {},\r\n        \"refusal\": {}\r\n      },\r\n      \"content_filter_results\": {\r\n        \"sexual\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"hate\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"violence\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"self_harm\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"profanity\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        },\r\n        \"custom_blocklists\": {\r\n          \"filtered\": true,\r\n          \"details\": [\r\n            {\r\n              \"filtered\": true,\r\n              \"id\": \"string\"\r\n            }\r\n          ]\r\n        },\r\n        \"custom_topics\": {\r\n          \"filtered\": true,\r\n          \"details\": [\r\n            {\r\n              \"detected\": true,\r\n              \"id\": \"string\"\r\n            }\r\n          ]\r\n        },\r\n        \"error\": {\r\n          \"code\": 0,\r\n          \"message\": \"string\"\r\n        },\r\n        \"protected_material_text\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        },\r\n        \"protected_material_code\": {\r\n          \"filtered\": true,\r\n          \"detected\": true,\r\n          \"citation\": {\r\n            \"license\": \"string\",\r\n            \"URL\": \"string\"\r\n          }\r\n        },\r\n        \"ungrounded_material\": {\r\n          \"filtered\": true,\r\n          \"detected\": true,\r\n          \"details\": [\r\n            {\r\n              \"completion_start_offset\": 0,\r\n              \"completion_end_offset\": 0\r\n            }\r\n          ]\r\n        },\r\n        \"personally_identifiable_information\": {\r\n          \"redacted_text\": \"string\",\r\n          \"sub_categories\": [\r\n            {\r\n              \"sub_category\": \"string\",\r\n              \"filtered\": true,\r\n              \"detected\": true,\r\n              \"redacted\": true\r\n            }\r\n          ],\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        }\r\n      }\r\n    }\r\n  ],\r\n  \"created\": 0,\r\n  \"model\": \"string\",\r\n  \"system_fingerprint\": \"string\",\r\n  \"object\": \"chat.completion\",\r\n  \"usage\": {\r\n    \"completion_tokens\": 0,\r\n    \"prompt_tokens\": 0,\r\n    \"total_tokens\": 0,\r\n    \"completion_tokens_details\": {\r\n      \"accepted_prediction_tokens\": 0,\r\n      \"audio_tokens\": 0,\r\n      \"reasoning_tokens\": 0,\r\n      \"rejected_prediction_tokens\": 0\r\n    },\r\n    \"prompt_tokens_details\": {\r\n      \"audio_tokens\": 0,\r\n      \"cached_tokens\": 0\r\n    }\r\n  },\r\n  \"prompt_filter_results\": [\r\n    {\r\n      \"prompt_index\": 0,\r\n      \"content_filter_results\": {\r\n        \"prompt_index\": 0,\r\n        \"content_filter_results\": {\r\n          \"sexual\": {\r\n            \"filtered\": true,\r\n            \"severity\": \"safe\"\r\n          },\r\n          \"hate\": {\r\n            \"filtered\": true,\r\n            \"severity\": \"safe\"\r\n          },\r\n          \"violence\": {\r\n            \"filtered\": true,\r\n            \"severity\": \"safe\"\r\n          },\r\n          \"self_harm\": {\r\n            \"filtered\": true,\r\n            \"severity\": \"safe\"\r\n          },\r\n          \"profanity\": {\r\n            \"filtered\": true,\r\n            \"detected\": true\r\n          },\r\n          \"custom_blocklists\": {\r\n            \"filtered\": true,\r\n            \"details\": [\r\n              {\r\n                \"filtered\": true,\r\n                \"id\": \"string\"\r\n              }\r\n            ]\r\n          },\r\n          \"custom_topics\": {\r\n            \"filtered\": true,\r\n            \"details\": [\r\n              {\r\n                \"detected\": true,\r\n                \"id\": \"string\"\r\n              }\r\n            ]\r\n          },\r\n          \"error\": {\r\n            \"code\": 0,\r\n            \"message\": \"string\"\r\n          },\r\n          \"jailbreak\": {\r\n            \"filtered\": true,\r\n            \"detected\": true\r\n          },\r\n          \"indirect_attack\": {\r\n            \"filtered\": true,\r\n            \"detected\": true\r\n          }\r\n        }\r\n      }\r\n    }\r\n  ]\r\n}",
+            "sample": "{\r\n  \"id\": \"string\",\r\n  \"choices\": [\r\n    {\r\n      \"finish_reason\": \"stop\",\r\n      \"index\": 0,\r\n      \"message\": {\r\n        \"content\": {},\r\n        \"refusal\": {},\r\n        \"tool_calls\": [\r\n          {\r\n            \"id\": \"string\",\r\n            \"type\": \"function\",\r\n            \"function\": {\r\n              \"name\": \"string\",\r\n              \"arguments\": \"string\"\r\n            }\r\n          }\r\n        ],\r\n        \"annotations\": [\r\n          {\r\n            \"type\": \"url_citation\",\r\n            \"url_citation\": {\r\n              \"end_index\": 0,\r\n              \"start_index\": 0,\r\n              \"url\": \"string\",\r\n              \"title\": \"string\"\r\n            }\r\n          }\r\n        ],\r\n        \"role\": \"assistant\",\r\n        \"function_call\": {\r\n          \"arguments\": \"string\",\r\n          \"name\": \"string\"\r\n        },\r\n        \"audio\": {\r\n          \"id\": \"string\",\r\n          \"expires_at\": 0,\r\n          \"data\": \"string\",\r\n          \"transcript\": \"string\"\r\n        },\r\n        \"reasoning_content\": \"string\"\r\n      },\r\n      \"logprobs\": {\r\n        \"content\": {},\r\n        \"refusal\": {}\r\n      },\r\n      \"content_filter_results\": {\r\n        \"sexual\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"hate\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"violence\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"self_harm\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"profanity\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        },\r\n        \"custom_blocklists\": {\r\n          \"filtered\": true,\r\n          \"details\": [\r\n            {\r\n              \"filtered\": true,\r\n              \"id\": \"string\"\r\n            }\r\n          ]\r\n        },\r\n        \"custom_topics\": {\r\n          \"filtered\": true,\r\n          \"details\": [\r\n            {\r\n              \"detected\": true,\r\n              \"id\": \"string\"\r\n            }\r\n          ]\r\n        },\r\n        \"error\": {\r\n          \"code\": 0,\r\n          \"message\": \"string\"\r\n        },\r\n        \"protected_material_text\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        },\r\n        \"protected_material_code\": {\r\n          \"filtered\": true,\r\n          \"detected\": true,\r\n          \"citation\": {\r\n            \"license\": \"string\",\r\n            \"URL\": \"string\"\r\n          }\r\n        },\r\n        \"ungrounded_material\": {\r\n          \"filtered\": true,\r\n          \"detected\": true,\r\n          \"details\": [\r\n            {\r\n              \"completion_start_offset\": 0,\r\n              \"completion_end_offset\": 0\r\n            }\r\n          ]\r\n        },\r\n        \"personally_identifiable_information\": {\r\n          \"redacted_text\": \"string\",\r\n          \"sub_categories\": [\r\n            {\r\n              \"sub_category\": \"string\",\r\n              \"filtered\": true,\r\n              \"detected\": true,\r\n              \"redacted\": true\r\n            }\r\n          ],\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        }\r\n      }\r\n    }\r\n  ],\r\n  \"created\": 0,\r\n  \"model\": \"string\",\r\n  \"system_fingerprint\": \"string\",\r\n  \"object\": \"chat.completion\",\r\n  \"usage\": {\r\n    \"completion_tokens\": 0,\r\n    \"prompt_tokens\": 0,\r\n    \"total_tokens\": 0,\r\n    \"completion_tokens_details\": {\r\n      \"accepted_prediction_tokens\": 0,\r\n      \"audio_tokens\": 0,\r\n      \"reasoning_tokens\": 0,\r\n      \"rejected_prediction_tokens\": 0\r\n    },\r\n    \"prompt_tokens_details\": {\r\n      \"audio_tokens\": 0,\r\n      \"cached_tokens\": 0\r\n    }\r\n  },\r\n  \"prompt_filter_results\": [\r\n    {\r\n      \"prompt_index\": 0,\r\n      \"content_filter_results\": {\r\n        \"prompt_index\": 0,\r\n        \"content_filter_results\": {\r\n          \"sexual\": {\r\n            \"filtered\": true,\r\n            \"severity\": \"safe\"\r\n          },\r\n          \"hate\": {\r\n            \"filtered\": true,\r\n            \"severity\": \"safe\"\r\n          },\r\n          \"violence\": {\r\n            \"filtered\": true,\r\n            \"severity\": \"safe\"\r\n          },\r\n          \"self_harm\": {\r\n            \"filtered\": true,\r\n            \"severity\": \"safe\"\r\n          },\r\n          \"profanity\": {\r\n            \"filtered\": true,\r\n            \"detected\": true\r\n          },\r\n          \"custom_blocklists\": {\r\n            \"filtered\": true,\r\n            \"details\": [\r\n              {\r\n                \"filtered\": true,\r\n                \"id\": \"string\"\r\n              }\r\n            ]\r\n          },\r\n          \"custom_topics\": {\r\n            \"filtered\": true,\r\n            \"details\": [\r\n              {\r\n                \"detected\": true,\r\n                \"id\": \"string\"\r\n              }\r\n            ]\r\n          },\r\n          \"error\": {\r\n            \"code\": 0,\r\n            \"message\": \"string\"\r\n          },\r\n          \"jailbreak\": {\r\n            \"filtered\": true,\r\n            \"detected\": true\r\n          },\r\n          \"indirect_attack\": {\r\n            \"filtered\": true,\r\n            \"detected\": true\r\n          }\r\n        }\r\n      }\r\n    }\r\n  ]\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "ChatCompletionsPost200apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 400,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "ChatCompletionsPost400apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 500,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "ChatCompletionsPost500apim-request-idResponseHeader"
+          }
+        ]
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

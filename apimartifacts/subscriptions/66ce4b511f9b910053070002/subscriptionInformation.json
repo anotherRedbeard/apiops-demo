@@ -1,9 +1,18 @@
 {
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/subscriptions/66ce4b511f9b910053070002",
+  "type": "Microsoft.ApiManagement/service/subscriptions",
+  "name": "66ce4b511f9b910053070002",
   "properties": {
-    "displayName": "test unlimited again",
-    "scope": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/products/unlimited",
-    "allowTracing": false,
     "ownerId": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/users/1",
-    "state": "active"
+    "scope": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/products/unlimited",
+    "displayName": "test unlimited again",
+    "state": "active",
+    "createdDate": "2024-08-27T21:55:29.82Z",
+    "startDate": null,
+    "expirationDate": null,
+    "endDate": null,
+    "notificationDate": null,
+    "stateComment": null,
+    "allowTracing": false
   }
 }

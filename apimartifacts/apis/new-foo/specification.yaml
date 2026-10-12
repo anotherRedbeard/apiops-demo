@@ -1655,6 +1655,7 @@ paths:
       tags:
         - Containers
       summary: listContainers
+      description: listContainers
       operationId: listContainers
       parameters:
         - name: api-version
@@ -1755,6 +1756,7 @@ paths:
       tags:
         - Containers
       summary: createContainer
+      description: createContainer
       operationId: createContainer
       parameters:
         - name: api-version
@@ -1839,6 +1841,7 @@ paths:
       tags:
         - Containers
       summary: retrieveContainer
+      description: retrieveContainer
       operationId: retrieveContainer
       parameters:
         - name: container_id
@@ -1915,6 +1918,7 @@ paths:
       tags:
         - Containers
       summary: deleteContainer
+      description: deleteContainer
       operationId: deleteContainer
       parameters:
         - name: container_id
@@ -1977,6 +1981,7 @@ paths:
       tags:
         - Containers
       summary: listContainerFiles
+      description: listContainerFiles
       operationId: listContainerFiles
       parameters:
         - name: container_id
@@ -2080,6 +2085,7 @@ paths:
       tags:
         - Containers
       summary: createContainerFile
+      description: createContainerFile
       operationId: createContainerFile
       parameters:
         - name: container_id
@@ -2165,6 +2171,7 @@ paths:
       tags:
         - Containers
       summary: retrieveContainerFile
+      description: retrieveContainerFile
       operationId: retrieveContainerFile
       parameters:
         - name: container_id
@@ -2244,6 +2251,7 @@ paths:
       tags:
         - Containers
       summary: deleteContainerFile
+      description: deleteContainerFile
       operationId: deleteContainerFile
       parameters:
         - name: container_id
@@ -2312,6 +2320,7 @@ paths:
       tags:
         - Containers
       summary: retrieveContainerFileContent
+      description: retrieveContainerFileContent
       operationId: retrieveContainerFileContent
       parameters:
         - name: container_id
@@ -2342,9 +2351,7 @@ paths:
           content:
             application/octet-stream:
               schema: { }
-              examples:
-                default:
-                  value: 
+              example: ''
         '400':
           description: An unexpected error response.
           headers:
@@ -2386,6 +2393,7 @@ paths:
       tags:
         - Conversations
       summary: createConversation
+      description: createConversation
       operationId: createConversation
       parameters:
         - name: api-version
@@ -2459,6 +2467,7 @@ paths:
       tags:
         - Conversations
       summary: retrieveConversation
+      description: retrieveConversation
       operationId: retrieveConversation
       parameters:
         - name: conversation_id
@@ -2529,6 +2538,7 @@ paths:
       tags:
         - Conversations
       summary: updateConversation
+      description: updateConversation
       operationId: updateConversation
       parameters:
         - name: conversation_id
@@ -2606,6 +2616,7 @@ paths:
       tags:
         - Conversations
       summary: deleteConversation
+      description: deleteConversation
       operationId: deleteConversation
       parameters:
         - name: conversation_id
@@ -2676,6 +2687,7 @@ paths:
       tags:
         - Conversations
       summary: listConversationItems
+      description: listConversationItems
       operationId: listConversationItems
       parameters:
         - name: conversation_id
@@ -2775,6 +2787,7 @@ paths:
       tags:
         - Conversations
       summary: createConversationItems
+      description: createConversationItems
       operationId: createConversationItems
       parameters:
         - name: conversation_id
@@ -2863,6 +2876,7 @@ paths:
       tags:
         - Conversations
       summary: retrieveConversationItem
+      description: retrieveConversationItem
       operationId: retrieveConversationItem
       parameters:
         - name: conversation_id
@@ -2943,6 +2957,7 @@ paths:
       tags:
         - Conversations
       summary: deleteConversationItem
+      description: deleteConversationItem
       operationId: deleteConversationItem
       parameters:
         - name: conversation_id
@@ -4518,6 +4533,7 @@ paths:
       tags:
         - Files
       summary: createFile
+      description: createFile
       operationId: createFile
       parameters:
         - name: api-version
@@ -4665,6 +4681,7 @@ paths:
       tags:
         - Files
       summary: listFiles
+      description: listFiles
       operationId: listFiles
       parameters:
         - name: api-version
@@ -4759,6 +4776,7 @@ paths:
       tags:
         - Files
       summary: retrieveFile
+      description: retrieveFile
       operationId: retrieveFile
       parameters:
         - name: file_id
@@ -4890,6 +4908,7 @@ paths:
       tags:
         - Files
       summary: deleteFile
+      description: deleteFile
       operationId: deleteFile
       parameters:
         - name: file_id
@@ -4960,6 +4979,7 @@ paths:
       tags:
         - Files
       summary: downloadFile
+      description: downloadFile
       operationId: downloadFile
       parameters:
         - name: file_id
@@ -4984,9 +5004,7 @@ paths:
           content:
             application/octet-stream:
               schema: { }
-              examples:
-                default:
-                  value: 
+              example: ''
         '400':
           description: An unexpected error response.
           headers:
@@ -6891,9 +6909,7 @@ paths:
             application/sdp:
               schema:
                 type: string
-              examples:
-                default:
-                  value: 
+              example: ''
         '400':
           description: An unexpected error response.
           headers:
@@ -7892,9 +7908,7 @@ paths:
             text/event-stream:
               schema:
                 $ref: '#/components/schemas/OpenAI.ResponseStreamEvent'
-              examples:
-                default:
-                  value: 
+              example: ''
         '400':
           description: An unexpected error response.
           headers:
@@ -8823,6 +8837,7 @@ paths:
       tags:
         - Threads
       summary: createThread
+      description: createThread
       operationId: createThread
       parameters:
         - name: api-version
@@ -8912,6 +8927,7 @@ paths:
       tags:
         - Threads
       summary: createThreadAndRun
+      description: createThreadAndRun
       operationId: createThreadAndRun
       parameters:
         - name: api-version
@@ -9054,6 +9070,7 @@ paths:
       tags:
         - Threads
       summary: deleteThread
+      description: deleteThread
       operationId: deleteThread
       parameters:
         - name: thread_id
@@ -9122,6 +9139,7 @@ paths:
       tags:
         - Threads
       summary: retrieveThread
+      description: retrieveThread
       operationId: retrieveThread
       parameters:
         - name: thread_id
@@ -9198,6 +9216,7 @@ paths:
       tags:
         - Threads
       summary: modifyThread
+      description: modifyThread
       operationId: modifyThread
       parameters:
         - name: thread_id
@@ -9289,6 +9308,7 @@ paths:
       tags:
         - Threads
       summary: listMessages
+      description: listMessages
       operationId: listMessages
       parameters:
         - name: thread_id
@@ -9400,6 +9420,7 @@ paths:
       tags:
         - Threads
       summary: createMessage
+      description: createMessage
       operationId: createMessage
       parameters:
         - name: thread_id
@@ -9492,6 +9513,7 @@ paths:
       tags:
         - Threads
       summary: deleteMessage
+      description: deleteMessage
       operationId: deleteMessage
       parameters:
         - name: thread_id
@@ -9565,6 +9587,7 @@ paths:
       tags:
         - Threads
       summary: retrieveMessage
+      description: retrieveMessage
       operationId: retrieveMessage
       parameters:
         - name: thread_id
@@ -9651,6 +9674,7 @@ paths:
       tags:
         - Threads
       summary: modifyMessage
+      description: modifyMessage
       operationId: modifyMessage
       parameters:
         - name: thread_id
@@ -9745,6 +9769,7 @@ paths:
       tags:
         - Threads
       summary: createRun
+      description: createRun
       operationId: createRun
       parameters:
         - name: thread_id
@@ -9875,6 +9900,7 @@ paths:
       tags:
         - Threads
       summary: listRuns
+      description: listRuns
       operationId: listRuns
       parameters:
         - name: thread_id
@@ -10006,6 +10032,7 @@ paths:
       tags:
         - Threads
       summary: retrieveRun
+      description: retrieveRun
       operationId: retrieveRun
       parameters:
         - name: thread_id
@@ -10115,6 +10142,7 @@ paths:
       tags:
         - Threads
       summary: modifyRun
+      description: modifyRun
       operationId: modifyRun
       parameters:
         - name: thread_id
@@ -10232,6 +10260,7 @@ paths:
       tags:
         - Threads
       summary: cancelRun
+      description: cancelRun
       operationId: cancelRun
       parameters:
         - name: thread_id
@@ -10342,6 +10371,7 @@ paths:
       tags:
         - Threads
       summary: listRunSteps
+      description: listRunSteps
       operationId: listRunSteps
       parameters:
         - name: thread_id
@@ -10458,6 +10488,7 @@ paths:
       tags:
         - Threads
       summary: getRunStep
+      description: getRunStep
       operationId: getRunStep
       parameters:
         - name: thread_id
@@ -10553,6 +10584,7 @@ paths:
       tags:
         - Threads
       summary: submitToolOutputsToRun
+      description: submitToolOutputsToRun
       operationId: submitToolOutputsToRun
       parameters:
         - name: thread_id
@@ -11815,6 +11847,7 @@ paths:
       tags:
         - Vector Stores
       summary: updateVectorStoreFileAttributes
+      description: updateVectorStoreFileAttributes
       operationId: updateVectorStoreFileAttributes
       parameters:
         - name: vector_store_id

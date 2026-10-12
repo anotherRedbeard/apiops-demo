@@ -1,0 +1,185 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/new-foo/operations/listFineTuningJobCheckpoints",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "listFineTuningJobCheckpoints",
+  "properties": {
+    "displayName": "List the checkpoints for a fine-tuning job.",
+    "method": "GET",
+    "urlTemplate": "/fine_tuning/jobs/{fine_tuning_job_id}/checkpoints",
+    "templateParameters": [
+      {
+        "name": "fine_tuning_job_id",
+        "description": "The ID of the fine-tuning job to get checkpoints for.",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69cff21b3d594b058ca8620e",
+        "typeName": "Fine_tuningJobs-fine_tuning_job_id-CheckpointsGetRequest"
+      }
+    ],
+    "description": "List the checkpoints for a fine-tuning job.",
+    "request": {
+      "queryParameters": [
+        {
+          "name": "api-version",
+          "description": "The explicit Azure AI Foundry Models API version to use for this request.\n`v1` if not otherwise specified.",
+          "type": "string",
+          "values": [
+            "v1",
+            "preview"
+          ],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "AzureAIFoundryModelsApiVersion"
+        },
+        {
+          "name": "after",
+          "description": "Identifier for the last checkpoint ID from the previous pagination request.",
+          "type": "string",
+          "values": [],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "Fine_tuningJobs-fine_tuning_job_id-CheckpointsGetRequest-1"
+        },
+        {
+          "name": "limit",
+          "description": "Number of checkpoints to retrieve.",
+          "type": "integer",
+          "format": "int32",
+          "defaultValue": "10",
+          "values": [],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "Fine_tuningJobs-fine_tuning_job_id-CheckpointsGetRequest-2"
+        }
+      ],
+      "headers": [],
+      "representations": []
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "The request has succeeded.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "data": [
+                    {
+                      "id": "string",
+                      "created_at": 0,
+                      "fine_tuned_model_checkpoint": "string",
+                      "step_number": 0,
+                      "metrics": {
+                        "step": 0,
+                        "train_loss": 0,
+                        "train_mean_token_accuracy": 0,
+                        "valid_loss": 0,
+                        "valid_mean_token_accuracy": 0,
+                        "full_valid_loss": 0,
+                        "full_valid_mean_token_accuracy": 0
+                      },
+                      "fine_tuning_job_id": "string",
+                      "object": "fine_tuning.job.checkpoint"
+                    }
+                  ],
+                  "object": "list",
+                  "first_id": {},
+                  "last_id": {},
+                  "has_more": true
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "OpenAI.ListFineTuningJobCheckpointsResponse",
+            "generatedSample": "{\r\n  \"data\": [\r\n    {\r\n      \"id\": \"string\",\r\n      \"created_at\": 0,\r\n      \"fine_tuned_model_checkpoint\": \"string\",\r\n      \"step_number\": 0,\r\n      \"metrics\": {\r\n        \"step\": 0,\r\n        \"train_loss\": 0,\r\n        \"train_mean_token_accuracy\": 0,\r\n        \"valid_loss\": 0,\r\n        \"valid_mean_token_accuracy\": 0,\r\n        \"full_valid_loss\": 0,\r\n        \"full_valid_mean_token_accuracy\": 0\r\n      },\r\n      \"fine_tuning_job_id\": \"string\",\r\n      \"object\": \"fine_tuning.job.checkpoint\"\r\n    }\r\n  ],\r\n  \"object\": \"list\",\r\n  \"first_id\": {},\r\n  \"last_id\": {},\r\n  \"has_more\": true\r\n}",
+            "sample": "{\r\n  \"data\": [\r\n    {\r\n      \"id\": \"string\",\r\n      \"created_at\": 0,\r\n      \"fine_tuned_model_checkpoint\": \"string\",\r\n      \"step_number\": 0,\r\n      \"metrics\": {\r\n        \"step\": 0,\r\n        \"train_loss\": 0,\r\n        \"train_mean_token_accuracy\": 0,\r\n        \"valid_loss\": 0,\r\n        \"valid_mean_token_accuracy\": 0,\r\n        \"full_valid_loss\": 0,\r\n        \"full_valid_mean_token_accuracy\": 0\r\n      },\r\n      \"fine_tuning_job_id\": \"string\",\r\n      \"object\": \"fine_tuning.job.checkpoint\"\r\n    }\r\n  ],\r\n  \"object\": \"list\",\r\n  \"first_id\": {},\r\n  \"last_id\": {},\r\n  \"has_more\": true\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Fine_tuningJobs-fine_tuning_job_id-CheckpointsGet200apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 400,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Fine_tuningJobs-fine_tuning_job_id-CheckpointsGet400apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 500,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Fine_tuningJobs-fine_tuning_job_id-CheckpointsGet500apim-request-idResponseHeader"
+          }
+        ]
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

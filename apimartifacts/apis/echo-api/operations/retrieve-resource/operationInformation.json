@@ -1,0 +1,58 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/echo-api/operations/retrieve-resource",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "retrieve-resource",
+  "properties": {
+    "displayName": "Retrieve resource",
+    "method": "GET",
+    "urlTemplate": "/resource?param1={param1}",
+    "templateParameters": [
+      {
+        "name": "param1",
+        "description": "A sample parameter that is required and has a default value of \"sample\".",
+        "type": "string",
+        "defaultValue": "sample",
+        "required": true,
+        "values": [
+          "sample"
+        ],
+        "schemaId": "69cff2173d594b058ca86203",
+        "typeName": "ResourceGetRequest"
+      }
+    ],
+    "description": "A demonstration of a GET call on a sample resource. It is handled by an \"echo\" backend which returns a response equal to the request (the supplied headers and body are being returned as received).",
+    "request": {
+      "queryParameters": [
+        {
+          "name": "param2",
+          "description": "Another sample parameter, set to not required.",
+          "type": "number",
+          "values": [],
+          "schemaId": "69cff2173d594b058ca86203",
+          "typeName": "ResourceGetRequest-1"
+        }
+      ],
+      "headers": [
+        {
+          "name": "X-Request-ID",
+          "type": "number",
+          "required": true,
+          "values": [],
+          "schemaId": "69cff2173d594b058ca86203",
+          "typeName": "ResourceGetRequest-2"
+        }
+      ],
+      "representations": []
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "Returned in all cases.",
+        "representations": [],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

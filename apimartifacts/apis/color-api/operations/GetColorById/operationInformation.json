@@ -1,0 +1,188 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/color-api/operations/GetColorById",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "GetColorById",
+  "properties": {
+    "displayName": "Get color by id",
+    "method": "GET",
+    "urlTemplate": "/colors/{colorId}",
+    "templateParameters": [
+      {
+        "name": "colorId",
+        "description": "Format - int32. Id of Color to return",
+        "type": "integer",
+        "format": "int32",
+        "required": true,
+        "values": [],
+        "schemaId": "69cff2173d594b058ca861ff",
+        "typeName": "Colors-colorId-GetRequest"
+      }
+    ],
+    "description": "Returns color specified by {colorId} (must be between 1 and 1000).",
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "Success - returns color",
+        "representations": [
+          {
+            "contentType": "text/plain",
+            "examples": {
+              "default": {
+                "value": ""
+              }
+            },
+            "schemaId": "69cff2173d594b058ca861ff",
+            "typeName": "ColorsItem",
+            "generatedSample": "",
+            "sample": ""
+          },
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "id": 0,
+                  "name": "string",
+                  "data": "string"
+                }
+              }
+            },
+            "schemaId": "69cff2173d594b058ca861ff",
+            "typeName": "ColorsItem",
+            "generatedSample": "{\r\n  \"id\": 0,\r\n  \"name\": \"string\",\r\n  \"data\": \"string\"\r\n}",
+            "sample": "{\r\n  \"id\": 0,\r\n  \"name\": \"string\",\r\n  \"data\": \"string\"\r\n}"
+          },
+          {
+            "contentType": "text/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "id": 0,
+                  "name": "string",
+                  "data": "string"
+                }
+              }
+            },
+            "schemaId": "69cff2173d594b058ca861ff",
+            "typeName": "ColorsItem",
+            "generatedSample": "{\r\n  \"id\": 0,\r\n  \"name\": \"string\",\r\n  \"data\": \"string\"\r\n}",
+            "sample": "{\r\n  \"id\": 0,\r\n  \"name\": \"string\",\r\n  \"data\": \"string\"\r\n}"
+          }
+        ],
+        "headers": []
+      },
+      {
+        "statusCode": 404,
+        "description": "Not Found",
+        "representations": [
+          {
+            "contentType": "text/plain",
+            "examples": {
+              "default": {
+                "value": ""
+              }
+            },
+            "schemaId": "69cff2173d594b058ca861ff",
+            "typeName": "ProblemDetails",
+            "generatedSample": "",
+            "sample": ""
+          },
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "type": "string",
+                  "title": "string",
+                  "status": 0,
+                  "detail": "string",
+                  "instance": "string"
+                }
+              }
+            },
+            "schemaId": "69cff2173d594b058ca861ff",
+            "typeName": "ProblemDetails",
+            "generatedSample": "{\r\n  \"type\": \"string\",\r\n  \"title\": \"string\",\r\n  \"status\": 0,\r\n  \"detail\": \"string\",\r\n  \"instance\": \"string\"\r\n}",
+            "sample": "{\r\n  \"type\": \"string\",\r\n  \"title\": \"string\",\r\n  \"status\": 0,\r\n  \"detail\": \"string\",\r\n  \"instance\": \"string\"\r\n}"
+          },
+          {
+            "contentType": "text/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "type": "string",
+                  "title": "string",
+                  "status": 0,
+                  "detail": "string",
+                  "instance": "string"
+                }
+              }
+            },
+            "schemaId": "69cff2173d594b058ca861ff",
+            "typeName": "ProblemDetails",
+            "generatedSample": "{\r\n  \"type\": \"string\",\r\n  \"title\": \"string\",\r\n  \"status\": 0,\r\n  \"detail\": \"string\",\r\n  \"instance\": \"string\"\r\n}",
+            "sample": "{\r\n  \"type\": \"string\",\r\n  \"title\": \"string\",\r\n  \"status\": 0,\r\n  \"detail\": \"string\",\r\n  \"instance\": \"string\"\r\n}"
+          }
+        ],
+        "headers": []
+      },
+      {
+        "statusCode": 422,
+        "description": "Unprocessable Entity",
+        "representations": [
+          {
+            "contentType": "text/plain",
+            "examples": {
+              "default": {
+                "value": ""
+              }
+            },
+            "schemaId": "69cff2173d594b058ca861ff",
+            "typeName": "ProblemDetails",
+            "generatedSample": "",
+            "sample": ""
+          },
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "type": "string",
+                  "title": "string",
+                  "status": 0,
+                  "detail": "string",
+                  "instance": "string"
+                }
+              }
+            },
+            "schemaId": "69cff2173d594b058ca861ff",
+            "typeName": "ProblemDetails",
+            "generatedSample": "{\r\n  \"type\": \"string\",\r\n  \"title\": \"string\",\r\n  \"status\": 0,\r\n  \"detail\": \"string\",\r\n  \"instance\": \"string\"\r\n}",
+            "sample": "{\r\n  \"type\": \"string\",\r\n  \"title\": \"string\",\r\n  \"status\": 0,\r\n  \"detail\": \"string\",\r\n  \"instance\": \"string\"\r\n}"
+          },
+          {
+            "contentType": "text/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "type": "string",
+                  "title": "string",
+                  "status": 0,
+                  "detail": "string",
+                  "instance": "string"
+                }
+              }
+            },
+            "schemaId": "69cff2173d594b058ca861ff",
+            "typeName": "ProblemDetails",
+            "generatedSample": "{\r\n  \"type\": \"string\",\r\n  \"title\": \"string\",\r\n  \"status\": 0,\r\n  \"detail\": \"string\",\r\n  \"instance\": \"string\"\r\n}",
+            "sample": "{\r\n  \"type\": \"string\",\r\n  \"title\": \"string\",\r\n  \"status\": 0,\r\n  \"detail\": \"string\",\r\n  \"instance\": \"string\"\r\n}"
+          }
+        ],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/new-foo/operations/createVectorStore",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "createVectorStore",
+  "properties": {
+    "displayName": "Creates a vector store.",
+    "method": "POST",
+    "urlTemplate": "/vector_stores",
+    "templateParameters": [],
+    "description": "Creates a vector store.",
+    "request": {
+      "queryParameters": [
+        {
+          "name": "api-version",
+          "description": "The explicit Azure AI Foundry Models API version to use for this request.\n`v1` if not otherwise specified.",
+          "type": "string",
+          "values": [
+            "v1",
+            "preview"
+          ],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "AzureAIFoundryModelsApiVersion"
+        }
+      ],
+      "headers": [],
+      "representations": [
+        {
+          "contentType": "application/json",
+          "examples": {
+            "default": {
+              "value": {
+                "file_ids": [
+                  "string"
+                ],
+                "name": "string",
+                "description": "string",
+                "expires_after": {
+                  "anchor": "last_active_at",
+                  "days": 0
+                },
+                "chunking_strategy": {
+                  "type": {}
+                },
+                "metadata": {}
+              }
+            }
+          },
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "OpenAI.CreateVectorStoreRequest",
+          "generatedSample": "{\r\n  \"file_ids\": [\r\n    \"string\"\r\n  ],\r\n  \"name\": \"string\",\r\n  \"description\": \"string\",\r\n  \"expires_after\": {\r\n    \"anchor\": \"last_active_at\",\r\n    \"days\": 0\r\n  },\r\n  \"chunking_strategy\": {\r\n    \"type\": {}\r\n  },\r\n  \"metadata\": {}\r\n}",
+          "sample": "{\r\n  \"file_ids\": [\r\n    \"string\"\r\n  ],\r\n  \"name\": \"string\",\r\n  \"description\": \"string\",\r\n  \"expires_after\": {\r\n    \"anchor\": \"last_active_at\",\r\n    \"days\": 0\r\n  },\r\n  \"chunking_strategy\": {\r\n    \"type\": {}\r\n  },\r\n  \"metadata\": {}\r\n}"
+        }
+      ]
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "The request has succeeded.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "id": "string",
+                  "object": "vector_store",
+                  "created_at": 0,
+                  "name": "string",
+                  "usage_bytes": 0,
+                  "file_counts": {
+                    "in_progress": 0,
+                    "completed": 0,
+                    "failed": 0,
+                    "cancelled": 0,
+                    "total": 0
+                  },
+                  "status": "expired",
+                  "expires_after": {
+                    "anchor": "last_active_at",
+                    "days": 0
+                  },
+                  "expires_at": 0,
+                  "last_active_at": 0,
+                  "metadata": {}
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "OpenAI.VectorStoreObject",
+            "generatedSample": "{\r\n  \"id\": \"string\",\r\n  \"object\": \"vector_store\",\r\n  \"created_at\": 0,\r\n  \"name\": \"string\",\r\n  \"usage_bytes\": 0,\r\n  \"file_counts\": {\r\n    \"in_progress\": 0,\r\n    \"completed\": 0,\r\n    \"failed\": 0,\r\n    \"cancelled\": 0,\r\n    \"total\": 0\r\n  },\r\n  \"status\": \"expired\",\r\n  \"expires_after\": {\r\n    \"anchor\": \"last_active_at\",\r\n    \"days\": 0\r\n  },\r\n  \"expires_at\": 0,\r\n  \"last_active_at\": 0,\r\n  \"metadata\": {}\r\n}",
+            "sample": "{\r\n  \"id\": \"string\",\r\n  \"object\": \"vector_store\",\r\n  \"created_at\": 0,\r\n  \"name\": \"string\",\r\n  \"usage_bytes\": 0,\r\n  \"file_counts\": {\r\n    \"in_progress\": 0,\r\n    \"completed\": 0,\r\n    \"failed\": 0,\r\n    \"cancelled\": 0,\r\n    \"total\": 0\r\n  },\r\n  \"status\": \"expired\",\r\n  \"expires_after\": {\r\n    \"anchor\": \"last_active_at\",\r\n    \"days\": 0\r\n  },\r\n  \"expires_at\": 0,\r\n  \"last_active_at\": 0,\r\n  \"metadata\": {}\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Vector_storesPost200apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 400,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Vector_storesPost400apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 500,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Vector_storesPost500apim-request-idResponseHeader"
+          }
+        ]
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/new-foo/operations/listFiles",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "listFiles",
+  "properties": {
+    "displayName": "listFiles",
+    "method": "GET",
+    "urlTemplate": "/files",
+    "templateParameters": [],
+    "description": "listFiles",
+    "request": {
+      "queryParameters": [
+        {
+          "name": "api-version",
+          "description": "The explicit Azure AI Foundry Models API version to use for this request.\n`v1` if not otherwise specified.",
+          "type": "string",
+          "values": [
+            "v1",
+            "preview"
+          ],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "AzureAIFoundryModelsApiVersion"
+        },
+        {
+          "name": "purpose",
+          "type": "string",
+          "values": [],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "FilesGetRequest"
+        },
+        {
+          "name": "limit",
+          "type": "integer",
+          "values": [],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "FilesGetRequest-1"
+        },
+        {
+          "name": "order",
+          "type": "string",
+          "values": [
+            "asc",
+            "desc"
+          ],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "FilesGetRequest-2"
+        },
+        {
+          "name": "after",
+          "type": "string",
+          "values": [],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "FilesGetRequest-3"
+        }
+      ],
+      "headers": [],
+      "representations": []
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "The request has succeeded.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "object": "string",
+                  "data": [
+                    {
+                      "id": "string",
+                      "bytes": 0,
+                      "created_at": 0,
+                      "expires_at": 0,
+                      "filename": "string",
+                      "object": "file",
+                      "status_details": "string",
+                      "purpose": "assistants",
+                      "status": "uploaded"
+                    }
+                  ],
+                  "first_id": "string",
+                  "last_id": "string",
+                  "has_more": true
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "OpenAI.ListFilesResponse",
+            "generatedSample": "{\r\n  \"object\": \"string\",\r\n  \"data\": [\r\n    {\r\n      \"id\": \"string\",\r\n      \"bytes\": 0,\r\n      \"created_at\": 0,\r\n      \"expires_at\": 0,\r\n      \"filename\": \"string\",\r\n      \"object\": \"file\",\r\n      \"status_details\": \"string\",\r\n      \"purpose\": \"assistants\",\r\n      \"status\": \"uploaded\"\r\n    }\r\n  ],\r\n  \"first_id\": \"string\",\r\n  \"last_id\": \"string\",\r\n  \"has_more\": true\r\n}",
+            "sample": "{\r\n  \"object\": \"string\",\r\n  \"data\": [\r\n    {\r\n      \"id\": \"string\",\r\n      \"bytes\": 0,\r\n      \"created_at\": 0,\r\n      \"expires_at\": 0,\r\n      \"filename\": \"string\",\r\n      \"object\": \"file\",\r\n      \"status_details\": \"string\",\r\n      \"purpose\": \"assistants\",\r\n      \"status\": \"uploaded\"\r\n    }\r\n  ],\r\n  \"first_id\": \"string\",\r\n  \"last_id\": \"string\",\r\n  \"has_more\": true\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "FilesGet200apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 400,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "FilesGet400apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 500,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "FilesGet500apim-request-idResponseHeader"
+          }
+        ]
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/swagger-petstore/operations/updatePet",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "updatePet",
+  "properties": {
+    "displayName": "Update an existing pet",
+    "method": "PUT",
+    "urlTemplate": "/pet",
+    "templateParameters": [],
+    "description": "Update an existing pet",
+    "request": {
+      "description": "Pet object that needs to be added to the store",
+      "queryParameters": [],
+      "headers": [],
+      "representations": [
+        {
+          "contentType": "application/json",
+          "examples": {
+            "default": {
+              "value": {
+                "id": 0,
+                "category": {
+                  "id": 0,
+                  "name": "string"
+                },
+                "name": "doggie",
+                "photoUrls": [
+                  "string"
+                ],
+                "tags": [
+                  {
+                    "id": 0,
+                    "name": "string"
+                  }
+                ],
+                "status": "available"
+              }
+            }
+          },
+          "schemaId": "69d026fc3d594b058ca86463",
+          "typeName": "Pet",
+          "generatedSample": "{\r\n  \"id\": 0,\r\n  \"category\": {\r\n    \"id\": 0,\r\n    \"name\": \"string\"\r\n  },\r\n  \"name\": \"doggie\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+          "sample": "{\r\n  \"id\": 0,\r\n  \"category\": {\r\n    \"id\": 0,\r\n    \"name\": \"string\"\r\n  },\r\n  \"name\": \"doggie\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}"
+        },
+        {
+          "contentType": "application/xml",
+          "examples": {
+            "default": {
+              "value": "<Pet> <id>0</id> <Category> <id>0</id> <name>string</name> </Category> <name>doggie</name> <photoUrls> <photoUrl>string</photoUrl> </photoUrls> <tags> <Tag> <id>0</id> <name>string</name> </Tag> </tags> <status>available</status> </Pet>"
+            }
+          },
+          "schemaId": "69d026fc3d594b058ca86463",
+          "typeName": "Pet",
+          "generatedSample": "<Pet> <id>0</id> <Category> <id>0</id> <name>string</name> </Category> <name>doggie</name> <photoUrls> <photoUrl>string</photoUrl> </photoUrls> <tags> <Tag> <id>0</id> <name>string</name> </Tag> </tags> <status>available</status> </Pet>",
+          "sample": "<Pet> <id>0</id> <Category> <id>0</id> <name>string</name> </Category> <name>doggie</name> <photoUrls> <photoUrl>string</photoUrl> </photoUrls> <tags> <Tag> <id>0</id> <name>string</name> </Tag> </tags> <status>available</status> </Pet>"
+        }
+      ]
+    },
+    "responses": [
+      {
+        "statusCode": 400,
+        "description": "Invalid ID supplied",
+        "representations": [
+          {
+            "contentType": "application/json"
+          },
+          {
+            "contentType": "application/xml"
+          }
+        ],
+        "headers": []
+      },
+      {
+        "statusCode": 404,
+        "description": "Pet not found",
+        "representations": [
+          {
+            "contentType": "application/json"
+          },
+          {
+            "contentType": "application/xml"
+          }
+        ],
+        "headers": []
+      },
+      {
+        "statusCode": 405,
+        "description": "Validation exception",
+        "representations": [
+          {
+            "contentType": "application/json"
+          },
+          {
+            "contentType": "application/xml"
+          }
+        ],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

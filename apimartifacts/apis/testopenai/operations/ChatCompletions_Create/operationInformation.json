@@ -1,0 +1,379 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/testopenai/operations/ChatCompletions_Create",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "ChatCompletions_Create",
+  "properties": {
+    "displayName": "Creates a completion for the chat message",
+    "method": "POST",
+    "urlTemplate": "/deployments/{deployment-id}/chat/completions?api-version={api-version}",
+    "templateParameters": [
+      {
+        "name": "deployment-id",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69cff2243d594b058ca8621a",
+        "typeName": "Deployments-deployment-id-ChatCompletionsPostRequest"
+      },
+      {
+        "name": "api-version",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69cff2243d594b058ca8621a",
+        "typeName": "Deployments-deployment-id-ChatCompletionsPostRequest-1"
+      }
+    ],
+    "description": "Creates a completion for the chat message",
+    "request": {
+      "queryParameters": [],
+      "headers": [],
+      "representations": [
+        {
+          "contentType": "application/json",
+          "examples": {
+            "default": {
+              "value": {
+                "temperature": 1,
+                "top_p": 1,
+                "stream": false,
+                "stop": "",
+                "max_tokens": 4096,
+                "presence_penalty": 0,
+                "frequency_penalty": 0,
+                "logit_bias": {},
+                "user": "user-1234",
+                "messages": [
+                  {
+                    "role": "system"
+                  }
+                ],
+                "data_sources": [
+                  {
+                    "type": "azure_search"
+                  }
+                ],
+                "n": 1,
+                "seed": 0,
+                "response_format": {
+                  "type": "text"
+                },
+                "tools": [
+                  {
+                    "type": "function",
+                    "function": {
+                      "description": "string",
+                      "name": "string",
+                      "parameters": {}
+                    }
+                  }
+                ],
+                "tool_choice": {},
+                "functions": [
+                  {
+                    "name": "string",
+                    "description": "string",
+                    "parameters": {}
+                  }
+                ],
+                "function_call": {}
+              }
+            }
+          },
+          "schemaId": "69cff2243d594b058ca8621a",
+          "typeName": "createChatCompletionRequest",
+          "generatedSample": "{\r\n  \"temperature\": 1,\r\n  \"top_p\": 1,\r\n  \"stream\": false,\r\n  \"stop\": \"\",\r\n  \"max_tokens\": 4096,\r\n  \"presence_penalty\": 0,\r\n  \"frequency_penalty\": 0,\r\n  \"logit_bias\": {},\r\n  \"user\": \"user-1234\",\r\n  \"messages\": [\r\n    {\r\n      \"role\": \"system\"\r\n    }\r\n  ],\r\n  \"data_sources\": [\r\n    {\r\n      \"type\": \"azure_search\"\r\n    }\r\n  ],\r\n  \"n\": 1,\r\n  \"seed\": 0,\r\n  \"response_format\": {\r\n    \"type\": \"text\"\r\n  },\r\n  \"tools\": [\r\n    {\r\n      \"type\": \"function\",\r\n      \"function\": {\r\n        \"description\": \"string\",\r\n        \"name\": \"string\",\r\n        \"parameters\": {}\r\n      }\r\n    }\r\n  ],\r\n  \"tool_choice\": {},\r\n  \"functions\": [\r\n    {\r\n      \"name\": \"string\",\r\n      \"description\": \"string\",\r\n      \"parameters\": {}\r\n    }\r\n  ],\r\n  \"function_call\": {}\r\n}",
+          "sample": "{\r\n  \"temperature\": 1,\r\n  \"top_p\": 1,\r\n  \"stream\": false,\r\n  \"stop\": \"\",\r\n  \"max_tokens\": 4096,\r\n  \"presence_penalty\": 0,\r\n  \"frequency_penalty\": 0,\r\n  \"logit_bias\": {},\r\n  \"user\": \"user-1234\",\r\n  \"messages\": [\r\n    {\r\n      \"role\": \"system\"\r\n    }\r\n  ],\r\n  \"data_sources\": [\r\n    {\r\n      \"type\": \"azure_search\"\r\n    }\r\n  ],\r\n  \"n\": 1,\r\n  \"seed\": 0,\r\n  \"response_format\": {\r\n    \"type\": \"text\"\r\n  },\r\n  \"tools\": [\r\n    {\r\n      \"type\": \"function\",\r\n      \"function\": {\r\n        \"description\": \"string\",\r\n        \"name\": \"string\",\r\n        \"parameters\": {}\r\n      }\r\n    }\r\n  ],\r\n  \"tool_choice\": {},\r\n  \"functions\": [\r\n    {\r\n      \"name\": \"string\",\r\n      \"description\": \"string\",\r\n      \"parameters\": {}\r\n    }\r\n  ],\r\n  \"function_call\": {}\r\n}"
+        }
+      ]
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "OK",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "id": "string",
+                  "object": "chat.completion",
+                  "created": 0,
+                  "model": "string",
+                  "usage": {
+                    "prompt_tokens": 0,
+                    "completion_tokens": 0,
+                    "total_tokens": 0
+                  },
+                  "system_fingerprint": "string",
+                  "prompt_filter_results": [
+                    {
+                      "prompt_index": 0,
+                      "content_filter_results": {
+                        "sexual": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "violence": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "hate": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "self_harm": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "profanity": {
+                          "filtered": true,
+                          "detected": true
+                        },
+                        "error": {
+                          "code": "string",
+                          "message": "string"
+                        },
+                        "jailbreak": {
+                          "filtered": true,
+                          "detected": true
+                        }
+                      }
+                    }
+                  ],
+                  "choices": [
+                    {
+                      "index": 0,
+                      "finish_reason": "string",
+                      "message": {
+                        "role": "assistant",
+                        "content": "string",
+                        "tool_calls": [
+                          {
+                            "id": "string",
+                            "type": "function",
+                            "function": {
+                              "name": "string",
+                              "arguments": "string"
+                            }
+                          }
+                        ],
+                        "function_call": {
+                          "name": "string",
+                          "arguments": "string"
+                        },
+                        "context": {
+                          "citations": [
+                            {
+                              "content": "string",
+                              "title": "string",
+                              "url": "string",
+                              "filepath": "string",
+                              "chunk_id": "string"
+                            }
+                          ],
+                          "intent": "string"
+                        }
+                      },
+                      "content_filter_results": {
+                        "sexual": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "violence": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "hate": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "self_harm": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "profanity": {
+                          "filtered": true,
+                          "detected": true
+                        },
+                        "error": {
+                          "code": "string",
+                          "message": "string"
+                        },
+                        "protected_material_text": {
+                          "filtered": true,
+                          "detected": true
+                        },
+                        "protected_material_code": {
+                          "filtered": true,
+                          "detected": true,
+                          "citation": {
+                            "URL": "string",
+                            "license": "string"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "schemaId": "69cff2243d594b058ca8621a",
+            "typeName": "createChatCompletionResponse",
+            "generatedSample": "{\r\n  \"id\": \"string\",\r\n  \"object\": \"chat.completion\",\r\n  \"created\": 0,\r\n  \"model\": \"string\",\r\n  \"usage\": {\r\n    \"prompt_tokens\": 0,\r\n    \"completion_tokens\": 0,\r\n    \"total_tokens\": 0\r\n  },\r\n  \"system_fingerprint\": \"string\",\r\n  \"prompt_filter_results\": [\r\n    {\r\n      \"prompt_index\": 0,\r\n      \"content_filter_results\": {\r\n        \"sexual\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"violence\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"hate\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"self_harm\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"profanity\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        },\r\n        \"error\": {\r\n          \"code\": \"string\",\r\n          \"message\": \"string\"\r\n        },\r\n        \"jailbreak\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        }\r\n      }\r\n    }\r\n  ],\r\n  \"choices\": [\r\n    {\r\n      \"index\": 0,\r\n      \"finish_reason\": \"string\",\r\n      \"message\": {\r\n        \"role\": \"assistant\",\r\n        \"content\": \"string\",\r\n        \"tool_calls\": [\r\n          {\r\n            \"id\": \"string\",\r\n            \"type\": \"function\",\r\n            \"function\": {\r\n              \"name\": \"string\",\r\n              \"arguments\": \"string\"\r\n            }\r\n          }\r\n        ],\r\n        \"function_call\": {\r\n          \"name\": \"string\",\r\n          \"arguments\": \"string\"\r\n        },\r\n        \"context\": {\r\n          \"citations\": [\r\n            {\r\n              \"content\": \"string\",\r\n              \"title\": \"string\",\r\n              \"url\": \"string\",\r\n              \"filepath\": \"string\",\r\n              \"chunk_id\": \"string\"\r\n            }\r\n          ],\r\n          \"intent\": \"string\"\r\n        }\r\n      },\r\n      \"content_filter_results\": {\r\n        \"sexual\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"violence\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"hate\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"self_harm\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"profanity\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        },\r\n        \"error\": {\r\n          \"code\": \"string\",\r\n          \"message\": \"string\"\r\n        },\r\n        \"protected_material_text\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        },\r\n        \"protected_material_code\": {\r\n          \"filtered\": true,\r\n          \"detected\": true,\r\n          \"citation\": {\r\n            \"URL\": \"string\",\r\n            \"license\": \"string\"\r\n          }\r\n        }\r\n      }\r\n    }\r\n  ]\r\n}",
+            "sample": "{\r\n  \"id\": \"string\",\r\n  \"object\": \"chat.completion\",\r\n  \"created\": 0,\r\n  \"model\": \"string\",\r\n  \"usage\": {\r\n    \"prompt_tokens\": 0,\r\n    \"completion_tokens\": 0,\r\n    \"total_tokens\": 0\r\n  },\r\n  \"system_fingerprint\": \"string\",\r\n  \"prompt_filter_results\": [\r\n    {\r\n      \"prompt_index\": 0,\r\n      \"content_filter_results\": {\r\n        \"sexual\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"violence\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"hate\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"self_harm\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"profanity\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        },\r\n        \"error\": {\r\n          \"code\": \"string\",\r\n          \"message\": \"string\"\r\n        },\r\n        \"jailbreak\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        }\r\n      }\r\n    }\r\n  ],\r\n  \"choices\": [\r\n    {\r\n      \"index\": 0,\r\n      \"finish_reason\": \"string\",\r\n      \"message\": {\r\n        \"role\": \"assistant\",\r\n        \"content\": \"string\",\r\n        \"tool_calls\": [\r\n          {\r\n            \"id\": \"string\",\r\n            \"type\": \"function\",\r\n            \"function\": {\r\n              \"name\": \"string\",\r\n              \"arguments\": \"string\"\r\n            }\r\n          }\r\n        ],\r\n        \"function_call\": {\r\n          \"name\": \"string\",\r\n          \"arguments\": \"string\"\r\n        },\r\n        \"context\": {\r\n          \"citations\": [\r\n            {\r\n              \"content\": \"string\",\r\n              \"title\": \"string\",\r\n              \"url\": \"string\",\r\n              \"filepath\": \"string\",\r\n              \"chunk_id\": \"string\"\r\n            }\r\n          ],\r\n          \"intent\": \"string\"\r\n        }\r\n      },\r\n      \"content_filter_results\": {\r\n        \"sexual\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"violence\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"hate\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"self_harm\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"profanity\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        },\r\n        \"error\": {\r\n          \"code\": \"string\",\r\n          \"message\": \"string\"\r\n        },\r\n        \"protected_material_text\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        },\r\n        \"protected_material_code\": {\r\n          \"filtered\": true,\r\n          \"detected\": true,\r\n          \"citation\": {\r\n            \"URL\": \"string\",\r\n            \"license\": \"string\"\r\n          }\r\n        }\r\n      }\r\n    }\r\n  ]\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "Request ID for troubleshooting purposes",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff2243d594b058ca8621a",
+            "typeName": "Deployments-deployment-id-ChatCompletionsPost200apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 400,
+        "description": "Service unavailable",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "param": "string",
+                    "type": "string",
+                    "inner_error": {
+                      "code": "ResponsibleAIPolicyViolation",
+                      "content_filter_results": {
+                        "sexual": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "violence": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "hate": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "self_harm": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "profanity": {
+                          "filtered": true,
+                          "detected": true
+                        },
+                        "error": {
+                          "code": "string",
+                          "message": "string"
+                        },
+                        "jailbreak": {
+                          "filtered": true,
+                          "detected": true
+                        }
+                      }
+                    },
+                    "code": "string",
+                    "message": "string"
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff2243d594b058ca8621a",
+            "typeName": "errorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"param\": \"string\",\r\n    \"type\": \"string\",\r\n    \"inner_error\": {\r\n      \"code\": \"ResponsibleAIPolicyViolation\",\r\n      \"content_filter_results\": {\r\n        \"sexual\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"violence\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"hate\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"self_harm\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"profanity\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        },\r\n        \"error\": {\r\n          \"code\": \"string\",\r\n          \"message\": \"string\"\r\n        },\r\n        \"jailbreak\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        }\r\n      }\r\n    },\r\n    \"code\": \"string\",\r\n    \"message\": \"string\"\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"param\": \"string\",\r\n    \"type\": \"string\",\r\n    \"inner_error\": {\r\n      \"code\": \"ResponsibleAIPolicyViolation\",\r\n      \"content_filter_results\": {\r\n        \"sexual\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"violence\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"hate\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"self_harm\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"profanity\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        },\r\n        \"error\": {\r\n          \"code\": \"string\",\r\n          \"message\": \"string\"\r\n        },\r\n        \"jailbreak\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        }\r\n      }\r\n    },\r\n    \"code\": \"string\",\r\n    \"message\": \"string\"\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "Request ID for troubleshooting purposes",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff2243d594b058ca8621a",
+            "typeName": "Deployments-deployment-id-ChatCompletionsPost400apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 500,
+        "description": "Service unavailable",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "param": "string",
+                    "type": "string",
+                    "inner_error": {
+                      "code": "ResponsibleAIPolicyViolation",
+                      "content_filter_results": {
+                        "sexual": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "violence": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "hate": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "self_harm": {
+                          "filtered": true,
+                          "severity": "safe"
+                        },
+                        "profanity": {
+                          "filtered": true,
+                          "detected": true
+                        },
+                        "error": {
+                          "code": "string",
+                          "message": "string"
+                        },
+                        "jailbreak": {
+                          "filtered": true,
+                          "detected": true
+                        }
+                      }
+                    },
+                    "code": "string",
+                    "message": "string"
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff2243d594b058ca8621a",
+            "typeName": "errorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"param\": \"string\",\r\n    \"type\": \"string\",\r\n    \"inner_error\": {\r\n      \"code\": \"ResponsibleAIPolicyViolation\",\r\n      \"content_filter_results\": {\r\n        \"sexual\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"violence\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"hate\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"self_harm\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"profanity\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        },\r\n        \"error\": {\r\n          \"code\": \"string\",\r\n          \"message\": \"string\"\r\n        },\r\n        \"jailbreak\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        }\r\n      }\r\n    },\r\n    \"code\": \"string\",\r\n    \"message\": \"string\"\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"param\": \"string\",\r\n    \"type\": \"string\",\r\n    \"inner_error\": {\r\n      \"code\": \"ResponsibleAIPolicyViolation\",\r\n      \"content_filter_results\": {\r\n        \"sexual\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"violence\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"hate\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"self_harm\": {\r\n          \"filtered\": true,\r\n          \"severity\": \"safe\"\r\n        },\r\n        \"profanity\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        },\r\n        \"error\": {\r\n          \"code\": \"string\",\r\n          \"message\": \"string\"\r\n        },\r\n        \"jailbreak\": {\r\n          \"filtered\": true,\r\n          \"detected\": true\r\n        }\r\n      }\r\n    },\r\n    \"code\": \"string\",\r\n    \"message\": \"string\"\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "Request ID for troubleshooting purposes",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff2243d594b058ca8621a",
+            "typeName": "Deployments-deployment-id-ChatCompletionsPost500apim-request-idResponseHeader"
+          }
+        ]
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

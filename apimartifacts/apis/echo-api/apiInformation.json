@@ -1,19 +1,36 @@
 {
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/echo-api",
+  "type": "Microsoft.ApiManagement/service/apis",
+  "name": "echo-api",
   "properties": {
-    "path": "echo",
-    "apiRevision": "1",
-    "apiRevisionDescription": "Adding a new revision",
-    "authenticationSettings": {},
-    "isCurrent": true,
     "displayName": "The Echo API",
+    "apiRevision": "1",
+    "description": null,
+    "subscriptionRequired": true,
+    "serviceUrl": "https://echo.playground.azure-api.net/api",
+    "backendId": null,
+    "path": "echo",
     "protocols": [
       "https"
     ],
-    "serviceUrl": "https://echo.playground.azure-api.net/api",
+    "mcpProperties": null,
+    "a2aProperties": null,
+    "isAgent": false,
+    "agent": null,
+    "jsonRpcProperties": null,
+    "authenticationSettings": {
+      "oAuth2": null,
+      "openid": null,
+      "oAuth2AuthenticationSettings": [],
+      "openidAuthenticationSettings": []
+    },
     "subscriptionKeyParameterNames": {
       "header": "Ocp-Apim-Subscription-Key",
-      "query": "subscription-key"
+      "query": "subscription-key",
+      "bearer": null
     },
-    "subscriptionRequired": true
+    "isCurrent": true,
+    "apiRevisionDescription": "Adding a new revision",
+    "effectivePath": null
   }
 }

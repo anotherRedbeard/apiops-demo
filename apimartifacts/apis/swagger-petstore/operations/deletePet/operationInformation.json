@@ -1,0 +1,66 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/swagger-petstore/operations/deletePet",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "deletePet",
+  "properties": {
+    "displayName": "Deletes a pet",
+    "method": "DELETE",
+    "urlTemplate": "/pet/{petId}",
+    "templateParameters": [
+      {
+        "name": "petId",
+        "description": "Pet id to delete",
+        "type": "integer",
+        "format": "int64",
+        "required": true,
+        "values": [],
+        "schemaId": "69d026fc3d594b058ca86463",
+        "typeName": "Pet-petId-DeleteRequest"
+      }
+    ],
+    "description": "Deletes a pet",
+    "request": {
+      "queryParameters": [],
+      "headers": [
+        {
+          "name": "api_key",
+          "type": "string",
+          "values": [],
+          "schemaId": "69d026fc3d594b058ca86463",
+          "typeName": "Pet-petId-DeleteRequest-1"
+        }
+      ],
+      "representations": []
+    },
+    "responses": [
+      {
+        "statusCode": 400,
+        "description": "Invalid ID supplied",
+        "representations": [
+          {
+            "contentType": "application/json"
+          },
+          {
+            "contentType": "application/xml"
+          }
+        ],
+        "headers": []
+      },
+      {
+        "statusCode": 404,
+        "description": "Pet not found",
+        "representations": [
+          {
+            "contentType": "application/json"
+          },
+          {
+            "contentType": "application/xml"
+          }
+        ],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

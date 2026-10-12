@@ -1,0 +1,91 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/testopenai/operations/embeddings_create",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "embeddings_create",
+  "properties": {
+    "displayName": "Get a vector representation of a given input that can be easily consumed by machine learning models and algorithms.",
+    "method": "POST",
+    "urlTemplate": "/deployments/{deployment-id}/embeddings?api-version={api-version}",
+    "templateParameters": [
+      {
+        "name": "deployment-id",
+        "description": "The deployment id of the model which was deployed.",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69cff2243d594b058ca8621a",
+        "typeName": "Deployments-deployment-id-EmbeddingsPostRequest"
+      },
+      {
+        "name": "api-version",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69cff2243d594b058ca8621a",
+        "typeName": "Deployments-deployment-id-EmbeddingsPostRequest-1"
+      }
+    ],
+    "description": "Get a vector representation of a given input that can be easily consumed by machine learning models and algorithms.",
+    "request": {
+      "queryParameters": [],
+      "headers": [],
+      "representations": [
+        {
+          "contentType": "application/json",
+          "examples": {
+            "default": {
+              "value": {
+                "input": {},
+                "user": "string",
+                "input_type": "query"
+              }
+            }
+          },
+          "schemaId": "69cff2243d594b058ca8621a",
+          "typeName": "Deployments-deployment-id-EmbeddingsPostRequest-2",
+          "generatedSample": "{\r\n  \"input\": {},\r\n  \"user\": \"string\",\r\n  \"input_type\": \"query\"\r\n}",
+          "sample": "{\r\n  \"input\": {},\r\n  \"user\": \"string\",\r\n  \"input_type\": \"query\"\r\n}"
+        }
+      ]
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "OK",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "object": "string",
+                  "model": "string",
+                  "data": [
+                    {
+                      "index": 0,
+                      "object": "string",
+                      "embedding": [
+                        0
+                      ]
+                    }
+                  ],
+                  "usage": {
+                    "prompt_tokens": 0,
+                    "total_tokens": 0
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff2243d594b058ca8621a",
+            "typeName": "Deployments-deployment-id-EmbeddingsPost200ApplicationJsonResponse",
+            "generatedSample": "{\r\n  \"object\": \"string\",\r\n  \"model\": \"string\",\r\n  \"data\": [\r\n    {\r\n      \"index\": 0,\r\n      \"object\": \"string\",\r\n      \"embedding\": [\r\n        0.0\r\n      ]\r\n    }\r\n  ],\r\n  \"usage\": {\r\n    \"prompt_tokens\": 0,\r\n    \"total_tokens\": 0\r\n  }\r\n}",
+            "sample": "{\r\n  \"object\": \"string\",\r\n  \"model\": \"string\",\r\n  \"data\": [\r\n    {\r\n      \"index\": 0,\r\n      \"object\": \"string\",\r\n      \"embedding\": [\r\n        0.0\r\n      ]\r\n    }\r\n  ],\r\n  \"usage\": {\r\n    \"prompt_tokens\": 0,\r\n    \"total_tokens\": 0\r\n  }\r\n}"
+          }
+        ],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

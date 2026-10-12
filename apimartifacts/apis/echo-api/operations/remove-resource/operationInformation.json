@@ -1,0 +1,22 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/echo-api/operations/remove-resource",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "remove-resource",
+  "properties": {
+    "displayName": "Remove resource",
+    "method": "DELETE",
+    "urlTemplate": "/resource",
+    "templateParameters": [],
+    "description": "A demonstration of a DELETE call which traditionally deletes the resource. It is based on the same \"echo\" backend as in all other operations so nothing is actually deleted.",
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "",
+        "representations": [],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

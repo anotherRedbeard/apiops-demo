@@ -1,0 +1,168 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/new-foo/operations/createEmbedding",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "createEmbedding",
+  "properties": {
+    "displayName": "Creates an embedding vector representing the input text.",
+    "method": "POST",
+    "urlTemplate": "/embeddings",
+    "templateParameters": [],
+    "description": "Creates an embedding vector representing the input text.",
+    "request": {
+      "queryParameters": [
+        {
+          "name": "api-version",
+          "description": "The explicit Azure AI Foundry Models API version to use for this request.\n`v1` if not otherwise specified.",
+          "type": "string",
+          "values": [
+            "v1",
+            "preview"
+          ],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "AzureAIFoundryModelsApiVersion"
+        }
+      ],
+      "headers": [],
+      "representations": [
+        {
+          "contentType": "application/json",
+          "examples": {
+            "default": {
+              "value": {
+                "input": {},
+                "model": "string",
+                "encoding_format": "float",
+                "dimensions": 0,
+                "user": "string"
+              }
+            }
+          },
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "OpenAI.CreateEmbeddingRequest",
+          "generatedSample": "{\r\n  \"input\": {},\r\n  \"model\": \"string\",\r\n  \"encoding_format\": \"float\",\r\n  \"dimensions\": 0,\r\n  \"user\": \"string\"\r\n}",
+          "sample": "{\r\n  \"input\": {},\r\n  \"model\": \"string\",\r\n  \"encoding_format\": \"float\",\r\n  \"dimensions\": 0,\r\n  \"user\": \"string\"\r\n}"
+        }
+      ]
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "The request has succeeded.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "data": [
+                    {
+                      "index": 0,
+                      "embedding": [
+                        0
+                      ],
+                      "object": "embedding"
+                    }
+                  ],
+                  "model": "string",
+                  "object": "list",
+                  "usage": {
+                    "prompt_tokens": 0,
+                    "total_tokens": 0
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "OpenAI.CreateEmbeddingResponse",
+            "generatedSample": "{\r\n  \"data\": [\r\n    {\r\n      \"index\": 0,\r\n      \"embedding\": [\r\n        0\r\n      ],\r\n      \"object\": \"embedding\"\r\n    }\r\n  ],\r\n  \"model\": \"string\",\r\n  \"object\": \"list\",\r\n  \"usage\": {\r\n    \"prompt_tokens\": 0,\r\n    \"total_tokens\": 0\r\n  }\r\n}",
+            "sample": "{\r\n  \"data\": [\r\n    {\r\n      \"index\": 0,\r\n      \"embedding\": [\r\n        0\r\n      ],\r\n      \"object\": \"embedding\"\r\n    }\r\n  ],\r\n  \"model\": \"string\",\r\n  \"object\": \"list\",\r\n  \"usage\": {\r\n    \"prompt_tokens\": 0,\r\n    \"total_tokens\": 0\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "EmbeddingsPost200apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 400,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "EmbeddingsPost400apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 500,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "EmbeddingsPost500apim-request-idResponseHeader"
+          }
+        ]
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}
