@@ -329,7 +329,17 @@ development and production.
 
 ## 14. Reset after the demo
 
-The disposable branch can be abandoned. For another rehearsal:
+Check the current demo branch before switching:
+
+```bash
+git status --short
+```
+
+If the output is not clean, commit the work, preserve it with
+`git stash push --include-untracked`, or remove only the confirmed disposable
+generated files. Do not use a broad `git clean`.
+
+For another rehearsal:
 
 ```bash
 cd <path-to-apiops-cli-demo>

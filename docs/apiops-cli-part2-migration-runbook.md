@@ -363,7 +363,19 @@ Before using `prod`:
 ## 17. Reset for another rehearsal
 
 The repository baseline is immutable at `demo-part2-start`. Create a new
-disposable branch for each rehearsal:
+disposable branch for each rehearsal.
+
+First check the current branch:
+
+```bash
+git status --short
+```
+
+If the output is not clean, commit the work, preserve it with
+`git stash push --include-untracked`, or remove only the confirmed disposable
+generated files. Do not use a broad `git clean`.
+
+Then reset:
 
 ```bash
 cd <path-to-apiops-demo>

@@ -133,6 +133,16 @@ post-publish REST workaround was required.
 
 ## Reset commands
 
+Before switching branches, run:
+
+```bash
+git status --short
+```
+
+If the output is not clean, commit the work, preserve it with
+`git stash push --include-untracked`, or remove only the confirmed disposable
+generated files. Do not use a broad `git clean`.
+
 Greenfield:
 
 ```bash
