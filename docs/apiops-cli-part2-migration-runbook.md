@@ -170,6 +170,12 @@ Talking points:
 - Environment variables select the resource group and APIM service.
 - Key Vault values remain runtime values and are not committed.
 - The publisher performs a dry-run before a real deployment.
+- Push-triggered publishing remains dry-run-only unless the repository variable
+  `ENABLE_AUTOMATIC_PUBLISH` is explicitly set to `true`.
+
+The extraction workflow removes the checked-out `apimartifacts/` directory
+before downloading the newly extracted artifact set. This allows stale-file
+deletions produced by `--remove-stale` to appear in the generated pull request.
 
 Correct the generated artifact path trigger:
 
