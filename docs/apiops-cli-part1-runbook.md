@@ -334,6 +334,7 @@ The disposable branch can be abandoned. For another rehearsal:
 ```bash
 cd <path-to-apiops-cli-demo>
 git switch main
+rm -rf node_modules
 git switch -c demo/live-YYYYMMDD-HHMM demo-part1-start
 ```
 

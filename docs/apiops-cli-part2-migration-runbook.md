@@ -369,8 +369,13 @@ disposable branch for each rehearsal:
 cd <path-to-apiops-demo>
 git switch main
 git pull --ff-only
+rm -rf node_modules
 git switch -c demo/migration-YYYYMMDD-HHMM demo-part2-start
 ```
+
+Removing `node_modules/` before switching prevents dependencies installed on
+`main` from appearing as untracked files when the older baseline does not yet
+contain the current `.gitignore` rule.
 
 Do not delete the reusable GitHub environments, Entra applications, federated
 credentials, Key Vault secrets, or Azure RBAC assignments.

@@ -139,6 +139,7 @@ Greenfield:
 cd <path-to-apiops-cli-demo>
 git switch main
 git pull --ff-only
+rm -rf node_modules
 git switch -c demo/live-YYYYMMDD-HHMM demo-part1-start
 ```
 
@@ -148,9 +149,12 @@ Toolkit migration:
 cd <path-to-apiops-demo>
 git switch main
 git pull --ff-only
+rm -rf node_modules
 git switch -c demo/migration-YYYYMMDD-HHMM demo-part2-start
 ```
 
-The tags reset repository content only. Keep GitHub environments, Entra
-applications, federated credentials, Key Vault secrets, and Azure RBAC
-assignments as reusable prerequisites.
+Removing `node_modules/` prevents dependencies installed on `main` from
+appearing as untracked files when switching to an older baseline. The tags
+reset repository content only. Keep GitHub environments, Entra applications,
+federated credentials, Key Vault secrets, and Azure RBAC assignments as
+reusable prerequisites.
