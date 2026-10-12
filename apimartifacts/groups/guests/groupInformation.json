@@ -1,7 +1,12 @@
 {
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/groups/guests",
+  "type": "Microsoft.ApiManagement/service/groups",
+  "name": "guests",
   "properties": {
     "displayName": "Guests",
     "description": "Guests is a built-in group. Its membership is managed by the system. Unauthenticated users visiting the developer portal fall into this group.",
-    "type": "system"
+    "builtIn": true,
+    "type": "system",
+    "externalId": null
   }
 }

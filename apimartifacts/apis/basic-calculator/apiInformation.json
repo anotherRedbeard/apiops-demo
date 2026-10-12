@@ -1,20 +1,36 @@
 {
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/basic-calculator",
+  "type": "Microsoft.ApiManagement/service/apis",
+  "name": "basic-calculator",
   "properties": {
-    "path": "calc",
-    "apiRevision": "1",
-    "apiRevisionDescription": "revision 1",
-    "authenticationSettings": {},
-    "description": "Math is fun? Broken, who owns this api?addedagain",
-    "isCurrent": true,
     "displayName": "Basic Calculator Api",
+    "apiRevision": "1",
+    "description": "Math is fun? Broken, who owns this api?addedagain",
+    "subscriptionRequired": true,
+    "serviceUrl": "https://red-apim-dev.azure-api.net/calc",
+    "backendId": null,
+    "path": "calc",
     "protocols": [
       "https"
     ],
-    "serviceUrl": "https://red-apim-dev.azure-api.net/calc",
+    "mcpProperties": null,
+    "a2aProperties": null,
+    "isAgent": false,
+    "agent": null,
+    "jsonRpcProperties": null,
+    "authenticationSettings": {
+      "oAuth2": null,
+      "openid": null,
+      "oAuth2AuthenticationSettings": [],
+      "openidAuthenticationSettings": []
+    },
     "subscriptionKeyParameterNames": {
       "header": "Ocp-Apim-Subscription-Key",
-      "query": "subscription-key"
+      "query": "subscription-key",
+      "bearer": null
     },
-    "subscriptionRequired": true
+    "isCurrent": true,
+    "apiRevisionDescription": "revision 1",
+    "effectivePath": null
   }
 }

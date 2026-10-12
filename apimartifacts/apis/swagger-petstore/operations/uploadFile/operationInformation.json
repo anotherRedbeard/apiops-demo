@@ -1,0 +1,73 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/swagger-petstore/operations/uploadFile",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "uploadFile",
+  "properties": {
+    "displayName": "uploads an image",
+    "method": "POST",
+    "urlTemplate": "/pet/{petId}/uploadImage",
+    "templateParameters": [
+      {
+        "name": "petId",
+        "description": "ID of pet to update",
+        "type": "integer",
+        "format": "int64",
+        "required": true,
+        "values": [],
+        "schemaId": "69d026fc3d594b058ca86463",
+        "typeName": "Pet-petId-UploadImagePostRequest"
+      }
+    ],
+    "description": "uploads an image",
+    "request": {
+      "queryParameters": [],
+      "headers": [],
+      "representations": [
+        {
+          "contentType": "multipart/form-data",
+          "formParameters": [
+            {
+              "name": "additionalMetadata",
+              "description": "Additional data to pass to server",
+              "type": "string",
+              "values": []
+            },
+            {
+              "name": "file",
+              "description": "file to upload",
+              "type": "file",
+              "values": []
+            }
+          ]
+        }
+      ]
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "successful operation",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "code": 0,
+                  "type": "string",
+                  "message": "string"
+                }
+              }
+            },
+            "schemaId": "69d026fc3d594b058ca86463",
+            "typeName": "ApiResponse",
+            "generatedSample": "{\r\n  \"code\": 0,\r\n  \"type\": \"string\",\r\n  \"message\": \"string\"\r\n}",
+            "sample": "{\r\n  \"code\": 0,\r\n  \"type\": \"string\",\r\n  \"message\": \"string\"\r\n}"
+          }
+        ],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

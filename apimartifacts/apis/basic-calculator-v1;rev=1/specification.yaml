@@ -2,9 +2,9 @@ openapi: 3.0.1
 info:
   title: Basic Calculator Api
   description: 'Math is fun? Broken, who owns this api?addedagain'
-  version: v1
+  version: '1.0'
 servers:
-  - url: https://red-apim-dev.azure-api.net/calc/v1
+  - url: https://red-apim-dev.azure-api.net/calc
 paths:
   /minus:
     get:

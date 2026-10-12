@@ -1,0 +1,29 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/swagger-petstore/operations/logoutUser",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "logoutUser",
+  "properties": {
+    "displayName": "Logs out current logged in user session",
+    "method": "GET",
+    "urlTemplate": "/user/logout",
+    "templateParameters": [],
+    "description": "Logs out current logged in user session",
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "successful operation",
+        "representations": [
+          {
+            "contentType": "application/json"
+          },
+          {
+            "contentType": "application/xml"
+          }
+        ],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

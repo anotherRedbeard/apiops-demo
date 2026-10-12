@@ -1,0 +1,22 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/echo-api/operations/modify-resource",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "modify-resource",
+  "properties": {
+    "displayName": "Modify Resource",
+    "method": "PUT",
+    "urlTemplate": "/resource",
+    "templateParameters": [],
+    "description": "A demonstration of a PUT call handled by the same \"echo\" backend as above. You can now specify a request body in addition to headers and it will be returned as well.",
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "",
+        "representations": [],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

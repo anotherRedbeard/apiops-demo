@@ -1,0 +1,22 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/basic-calculator-v1/operations/multiply",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "multiply",
+  "properties": {
+    "displayName": "multiply",
+    "method": "POST",
+    "urlTemplate": "/times",
+    "templateParameters": [],
+    "description": "multiplication",
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "",
+        "representations": [],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

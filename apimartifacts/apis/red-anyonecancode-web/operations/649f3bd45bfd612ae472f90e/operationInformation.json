@@ -1,0 +1,22 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/red-anyonecancode-web/operations/649f3bd45bfd612ae472f90e",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "649f3bd45bfd612ae472f90e",
+  "properties": {
+    "displayName": "red-anyonecancode-web_HEAD",
+    "method": "HEAD",
+    "urlTemplate": "/*",
+    "templateParameters": [],
+    "description": "red-anyonecancode-web_HEAD",
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "",
+        "representations": [],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

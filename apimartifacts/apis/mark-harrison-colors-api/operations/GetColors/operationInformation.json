@@ -1,0 +1,71 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/mark-harrison-colors-api/operations/GetColors",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "GetColors",
+  "properties": {
+    "displayName": "Get colors",
+    "method": "GET",
+    "urlTemplate": "/colors",
+    "templateParameters": [],
+    "description": "Returns all colors.",
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "Success - returns list of colors",
+        "representations": [
+          {
+            "contentType": "text/plain",
+            "examples": {
+              "default": {
+                "value": ""
+              }
+            },
+            "schemaId": "69cff21f3d594b058ca86214",
+            "typeName": "ColorsGet200TextPlainResponse",
+            "generatedSample": "",
+            "sample": ""
+          },
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": [
+                  {
+                    "id": 0,
+                    "name": "string",
+                    "data": "string"
+                  }
+                ]
+              }
+            },
+            "schemaId": "69cff21f3d594b058ca86214",
+            "typeName": "ColorsGet200ApplicationJsonResponse",
+            "generatedSample": "[\r\n  {\r\n    \"id\": 0,\r\n    \"name\": \"string\",\r\n    \"data\": \"string\"\r\n  }\r\n]",
+            "sample": "[\r\n  {\r\n    \"id\": 0,\r\n    \"name\": \"string\",\r\n    \"data\": \"string\"\r\n  }\r\n]"
+          },
+          {
+            "contentType": "text/json",
+            "examples": {
+              "default": {
+                "value": [
+                  {
+                    "id": 0,
+                    "name": "string",
+                    "data": "string"
+                  }
+                ]
+              }
+            },
+            "schemaId": "69cff21f3d594b058ca86214",
+            "typeName": "ColorsGet200TextJsonResponse",
+            "generatedSample": "[\r\n  {\r\n    \"id\": 0,\r\n    \"name\": \"string\",\r\n    \"data\": \"string\"\r\n  }\r\n]",
+            "sample": "[\r\n  {\r\n    \"id\": 0,\r\n    \"name\": \"string\",\r\n    \"data\": \"string\"\r\n  }\r\n]"
+          }
+        ],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

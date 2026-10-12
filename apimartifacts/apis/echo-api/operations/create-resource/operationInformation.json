@@ -1,0 +1,43 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/echo-api/operations/create-resource",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "create-resource",
+  "properties": {
+    "displayName": "Create resource",
+    "method": "POST",
+    "urlTemplate": "/resource",
+    "templateParameters": [],
+    "description": "A demonstration of a POST call based on the echo backend above. The request body is expected to contain JSON-formatted data (see example below). A policy is used to automatically transform any request sent in JSON directly to XML. In a real-world scenario this could be used to enable modern clients to speak to a legacy backend.",
+    "request": {
+      "queryParameters": [],
+      "headers": [],
+      "representations": [
+        {
+          "contentType": "application/json",
+          "examples": {
+            "default": {
+              "value": {
+                "vehicleType": "train",
+                "maxSpeed": 125,
+                "avgSpeed": 90,
+                "speedUnit": "mph"
+              }
+            }
+          },
+          "generatedSample": "{\r\n  \"vehicleType\": \"train\",\r\n  \"maxSpeed\": 125,\r\n  \"avgSpeed\": 90,\r\n  \"speedUnit\": \"mph\"\r\n}",
+          "sample": "{\r\n  \"vehicleType\": \"train\",\r\n  \"maxSpeed\": 125,\r\n  \"avgSpeed\": 90,\r\n  \"speedUnit\": \"mph\"\r\n}"
+        }
+      ]
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "",
+        "representations": [],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

@@ -1,29 +1,45 @@
 {
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/mark-harrison-colors-api",
+  "type": "Microsoft.ApiManagement/service/apis",
+  "name": "mark-harrison-colors-api",
   "properties": {
-    "path": "",
+    "displayName": "Mark Harrison Colors API",
     "apiRevision": "1",
-    "authenticationSettings": {},
-    "contact": {
-      "email": "mark.colorsapi@harrison.ws",
-      "name": "Mark Harrison",
-      "url": "https://github.com/markharrison/ColorsAPI"
+    "description": "Colors API this one doesn't work, new for demo",
+    "subscriptionRequired": true,
+    "serviceUrl": "https://colors-api.azurewebsites.net/",
+    "backendId": null,
+    "path": "",
+    "protocols": [
+      "https"
+    ],
+    "mcpProperties": null,
+    "a2aProperties": null,
+    "isAgent": false,
+    "agent": null,
+    "jsonRpcProperties": null,
+    "authenticationSettings": {
+      "oAuth2": null,
+      "openid": null,
+      "oAuth2AuthenticationSettings": [],
+      "openidAuthenticationSettings": []
     },
-    "description": "Colors API this one doesn\u0027t work, new for demo",
-    "isCurrent": true,
+    "subscriptionKeyParameterNames": {
+      "header": "Ocp-Apim-Subscription-Key",
+      "query": "subscription-key",
+      "bearer": null
+    },
+    "termsOfServiceUrl": "https://github.com/markharrison/ColorsAPI/blob/master/LICENSE",
+    "contact": {
+      "name": "Mark Harrison",
+      "url": "https://github.com/markharrison/ColorsAPI",
+      "email": "mark.colorsapi@harrison.ws"
+    },
     "license": {
       "name": "Use under MIT License",
       "url": "https://github.com/markharrison/ColorsAPI/blob/master/LICENSE"
     },
-    "displayName": "Mark Harrison Colors API",
-    "protocols": [
-      "https"
-    ],
-    "serviceUrl": "https://colors-api.azurewebsites.net/",
-    "subscriptionKeyParameterNames": {
-      "header": "Ocp-Apim-Subscription-Key",
-      "query": "subscription-key"
-    },
-    "subscriptionRequired": true,
-    "termsOfServiceUrl": "https://github.com/markharrison/ColorsAPI/blob/master/LICENSE"
+    "isCurrent": true,
+    "effectivePath": null
   }
 }

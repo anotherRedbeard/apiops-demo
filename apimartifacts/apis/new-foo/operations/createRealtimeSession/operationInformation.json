@@ -1,0 +1,247 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/new-foo/operations/createRealtimeSession",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "createRealtimeSession",
+  "properties": {
+    "displayName": "Create an ephemeral API token for use in client-side applications with the Realtime API.",
+    "method": "POST",
+    "urlTemplate": "/realtime/sessions",
+    "templateParameters": [],
+    "description": "Create an ephemeral API token for use in client-side applications with the Realtime API.",
+    "request": {
+      "description": "Create an ephemeral API key with the given session configuration.",
+      "queryParameters": [
+        {
+          "name": "api-version",
+          "description": "The explicit Azure AI Foundry Models API version to use for this request.\n`v1` if not otherwise specified.",
+          "type": "string",
+          "values": [
+            "v1",
+            "preview"
+          ],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "AzureAIFoundryModelsApiVersion"
+        }
+      ],
+      "headers": [],
+      "representations": [
+        {
+          "contentType": "application/json",
+          "examples": {
+            "default": {
+              "value": {
+                "client_secret": {
+                  "value": "string",
+                  "expires_at": 0
+                },
+                "modalities": [
+                  "text",
+                  "audio"
+                ],
+                "instructions": "string",
+                "voice": {},
+                "input_audio_format": "string",
+                "output_audio_format": "string",
+                "input_audio_transcription": {
+                  "model": "string"
+                },
+                "speed": 1,
+                "tracing": "auto",
+                "turn_detection": {
+                  "type": "string",
+                  "threshold": 0,
+                  "prefix_padding_ms": 0,
+                  "silence_duration_ms": 0
+                },
+                "tools": [
+                  {
+                    "type": "function",
+                    "name": "string",
+                    "description": "string",
+                    "parameters": {}
+                  }
+                ],
+                "tool_choice": "string",
+                "temperature": 0,
+                "max_response_output_tokens": {},
+                "truncation": {},
+                "prompt": {
+                  "id": "string",
+                  "version": {},
+                  "variables": {}
+                },
+                "type": {}
+              }
+            }
+          },
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "OpenAI.RealtimeSessionCreateRequest",
+          "generatedSample": "{\r\n  \"client_secret\": {\r\n    \"value\": \"string\",\r\n    \"expires_at\": 0\r\n  },\r\n  \"modalities\": [\r\n    \"text\",\r\n    \"audio\"\r\n  ],\r\n  \"instructions\": \"string\",\r\n  \"voice\": {},\r\n  \"input_audio_format\": \"string\",\r\n  \"output_audio_format\": \"string\",\r\n  \"input_audio_transcription\": {\r\n    \"model\": \"string\"\r\n  },\r\n  \"speed\": 1,\r\n  \"tracing\": \"auto\",\r\n  \"turn_detection\": {\r\n    \"type\": \"string\",\r\n    \"threshold\": 0,\r\n    \"prefix_padding_ms\": 0,\r\n    \"silence_duration_ms\": 0\r\n  },\r\n  \"tools\": [\r\n    {\r\n      \"type\": \"function\",\r\n      \"name\": \"string\",\r\n      \"description\": \"string\",\r\n      \"parameters\": {}\r\n    }\r\n  ],\r\n  \"tool_choice\": \"string\",\r\n  \"temperature\": 0,\r\n  \"max_response_output_tokens\": {},\r\n  \"truncation\": {},\r\n  \"prompt\": {\r\n    \"id\": \"string\",\r\n    \"version\": {},\r\n    \"variables\": {}\r\n  },\r\n  \"type\": {}\r\n}",
+          "sample": "{\r\n  \"client_secret\": {\r\n    \"value\": \"string\",\r\n    \"expires_at\": 0\r\n  },\r\n  \"modalities\": [\r\n    \"text\",\r\n    \"audio\"\r\n  ],\r\n  \"instructions\": \"string\",\r\n  \"voice\": {},\r\n  \"input_audio_format\": \"string\",\r\n  \"output_audio_format\": \"string\",\r\n  \"input_audio_transcription\": {\r\n    \"model\": \"string\"\r\n  },\r\n  \"speed\": 1,\r\n  \"tracing\": \"auto\",\r\n  \"turn_detection\": {\r\n    \"type\": \"string\",\r\n    \"threshold\": 0,\r\n    \"prefix_padding_ms\": 0,\r\n    \"silence_duration_ms\": 0\r\n  },\r\n  \"tools\": [\r\n    {\r\n      \"type\": \"function\",\r\n      \"name\": \"string\",\r\n      \"description\": \"string\",\r\n      \"parameters\": {}\r\n    }\r\n  ],\r\n  \"tool_choice\": \"string\",\r\n  \"temperature\": 0,\r\n  \"max_response_output_tokens\": {},\r\n  \"truncation\": {},\r\n  \"prompt\": {\r\n    \"id\": \"string\",\r\n    \"version\": {},\r\n    \"variables\": {}\r\n  },\r\n  \"type\": {}\r\n}"
+        }
+      ]
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "The request has succeeded.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "id": "string",
+                  "object": "string",
+                  "expires_at": 0,
+                  "include": [
+                    "item.input_audio_transcription.logprobs"
+                  ],
+                  "model": "string",
+                  "output_modalities": [
+                    "text"
+                  ],
+                  "instructions": "string",
+                  "audio": {
+                    "input": {
+                      "format": {
+                        "type": {}
+                      },
+                      "transcription": {
+                        "model": "string",
+                        "language": "string",
+                        "prompt": "string"
+                      },
+                      "noise_reduction": {
+                        "type": "near_field"
+                      },
+                      "turn_detection": {
+                        "type": "string",
+                        "threshold": 0,
+                        "prefix_padding_ms": 0,
+                        "silence_duration_ms": 0
+                      }
+                    },
+                    "output": {
+                      "format": {
+                        "type": {}
+                      },
+                      "voice": {},
+                      "speed": 0
+                    }
+                  },
+                  "tracing": "auto",
+                  "turn_detection": {
+                    "type": "string",
+                    "threshold": 0,
+                    "prefix_padding_ms": 0,
+                    "silence_duration_ms": 0
+                  },
+                  "tools": [
+                    {
+                      "type": "function",
+                      "name": "string",
+                      "description": "string",
+                      "parameters": {}
+                    }
+                  ],
+                  "tool_choice": "string",
+                  "max_output_tokens": {},
+                  "type": {}
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "OpenAI.RealtimeSessionCreateResponse",
+            "generatedSample": "{\r\n  \"id\": \"string\",\r\n  \"object\": \"string\",\r\n  \"expires_at\": 0,\r\n  \"include\": [\r\n    \"item.input_audio_transcription.logprobs\"\r\n  ],\r\n  \"model\": \"string\",\r\n  \"output_modalities\": [\r\n    \"text\"\r\n  ],\r\n  \"instructions\": \"string\",\r\n  \"audio\": {\r\n    \"input\": {\r\n      \"format\": {\r\n        \"type\": {}\r\n      },\r\n      \"transcription\": {\r\n        \"model\": \"string\",\r\n        \"language\": \"string\",\r\n        \"prompt\": \"string\"\r\n      },\r\n      \"noise_reduction\": {\r\n        \"type\": \"near_field\"\r\n      },\r\n      \"turn_detection\": {\r\n        \"type\": \"string\",\r\n        \"threshold\": 0,\r\n        \"prefix_padding_ms\": 0,\r\n        \"silence_duration_ms\": 0\r\n      }\r\n    },\r\n    \"output\": {\r\n      \"format\": {\r\n        \"type\": {}\r\n      },\r\n      \"voice\": {},\r\n      \"speed\": 0\r\n    }\r\n  },\r\n  \"tracing\": \"auto\",\r\n  \"turn_detection\": {\r\n    \"type\": \"string\",\r\n    \"threshold\": 0,\r\n    \"prefix_padding_ms\": 0,\r\n    \"silence_duration_ms\": 0\r\n  },\r\n  \"tools\": [\r\n    {\r\n      \"type\": \"function\",\r\n      \"name\": \"string\",\r\n      \"description\": \"string\",\r\n      \"parameters\": {}\r\n    }\r\n  ],\r\n  \"tool_choice\": \"string\",\r\n  \"max_output_tokens\": {},\r\n  \"type\": {}\r\n}",
+            "sample": "{\r\n  \"id\": \"string\",\r\n  \"object\": \"string\",\r\n  \"expires_at\": 0,\r\n  \"include\": [\r\n    \"item.input_audio_transcription.logprobs\"\r\n  ],\r\n  \"model\": \"string\",\r\n  \"output_modalities\": [\r\n    \"text\"\r\n  ],\r\n  \"instructions\": \"string\",\r\n  \"audio\": {\r\n    \"input\": {\r\n      \"format\": {\r\n        \"type\": {}\r\n      },\r\n      \"transcription\": {\r\n        \"model\": \"string\",\r\n        \"language\": \"string\",\r\n        \"prompt\": \"string\"\r\n      },\r\n      \"noise_reduction\": {\r\n        \"type\": \"near_field\"\r\n      },\r\n      \"turn_detection\": {\r\n        \"type\": \"string\",\r\n        \"threshold\": 0,\r\n        \"prefix_padding_ms\": 0,\r\n        \"silence_duration_ms\": 0\r\n      }\r\n    },\r\n    \"output\": {\r\n      \"format\": {\r\n        \"type\": {}\r\n      },\r\n      \"voice\": {},\r\n      \"speed\": 0\r\n    }\r\n  },\r\n  \"tracing\": \"auto\",\r\n  \"turn_detection\": {\r\n    \"type\": \"string\",\r\n    \"threshold\": 0,\r\n    \"prefix_padding_ms\": 0,\r\n    \"silence_duration_ms\": 0\r\n  },\r\n  \"tools\": [\r\n    {\r\n      \"type\": \"function\",\r\n      \"name\": \"string\",\r\n      \"description\": \"string\",\r\n      \"parameters\": {}\r\n    }\r\n  ],\r\n  \"tool_choice\": \"string\",\r\n  \"max_output_tokens\": {},\r\n  \"type\": {}\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "RealtimeSessionsPost200apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 400,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "RealtimeSessionsPost400apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 500,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "RealtimeSessionsPost500apim-request-idResponseHeader"
+          }
+        ]
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

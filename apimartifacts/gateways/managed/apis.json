@@ -1,0 +1,35 @@
+[
+  {
+    "name": "basic-calculator"
+  },
+  {
+    "name": "basic-calculator-v1"
+  },
+  {
+    "name": "color-api"
+  },
+  {
+    "name": "echo-api"
+  },
+  {
+    "name": "mark-harrison-colors-api"
+  },
+  {
+    "name": "new-foo"
+  },
+  {
+    "name": "red-anyonecancode-web"
+  },
+  {
+    "name": "starwars-v1"
+  },
+  {
+    "name": "swagger-petstore"
+  },
+  {
+    "name": "test"
+  },
+  {
+    "name": "testopenai"
+  }
+]

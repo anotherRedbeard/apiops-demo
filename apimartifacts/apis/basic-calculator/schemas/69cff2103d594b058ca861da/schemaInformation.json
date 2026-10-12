@@ -1,0 +1,28 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/basic-calculator/schemas/69cff2103d594b058ca861da",
+  "type": "Microsoft.ApiManagement/service/apis/schemas",
+  "name": "69cff2103d594b058ca861da",
+  "properties": {
+    "contentType": "application/vnd.oai.openapi.components+json",
+    "document": {
+      "components": {
+        "schemas": {
+          "AddGetRequest": {
+            "enum": [
+              "51"
+            ],
+            "type": "string",
+            "x-apim-inline": true
+          },
+          "AddGetRequest-1": {
+            "enum": [
+              "49"
+            ],
+            "type": "string",
+            "x-apim-inline": true
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/new-foo/operations/submitToolOutputsToRun",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "submitToolOutputsToRun",
+  "properties": {
+    "displayName": "submitToolOutputsToRun",
+    "method": "POST",
+    "urlTemplate": "/threads/{thread_id}/runs/{run_id}/submit_tool_outputs",
+    "templateParameters": [
+      {
+        "name": "thread_id",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69cff21b3d594b058ca8620e",
+        "typeName": "Threads-thread_id-Runs-run_id-Submit_tool_outputsPostRequest"
+      },
+      {
+        "name": "run_id",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69cff21b3d594b058ca8620e",
+        "typeName": "Threads-thread_id-Runs-run_id-Submit_tool_outputsPostRequest-1"
+      }
+    ],
+    "description": "submitToolOutputsToRun",
+    "request": {
+      "queryParameters": [
+        {
+          "name": "api-version",
+          "description": "The explicit Azure AI Foundry Models API version to use for this request.\n`v1` if not otherwise specified.",
+          "type": "string",
+          "values": [
+            "v1",
+            "preview"
+          ],
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "AzureAIFoundryModelsApiVersion"
+        }
+      ],
+      "headers": [],
+      "representations": [
+        {
+          "contentType": "application/json",
+          "examples": {
+            "default": {
+              "value": {
+                "tool_outputs": [
+                  {
+                    "tool_call_id": "string",
+                    "output": "string"
+                  }
+                ],
+                "stream": {}
+              }
+            }
+          },
+          "schemaId": "69cff21b3d594b058ca8620e",
+          "typeName": "OpenAI.SubmitToolOutputsRunRequest",
+          "generatedSample": "{\r\n  \"tool_outputs\": [\r\n    {\r\n      \"tool_call_id\": \"string\",\r\n      \"output\": \"string\"\r\n    }\r\n  ],\r\n  \"stream\": {}\r\n}",
+          "sample": "{\r\n  \"tool_outputs\": [\r\n    {\r\n      \"tool_call_id\": \"string\",\r\n      \"output\": \"string\"\r\n    }\r\n  ],\r\n  \"stream\": {}\r\n}"
+        }
+      ]
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "The request has succeeded.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "id": "string",
+                  "object": "thread.run",
+                  "created_at": 0,
+                  "thread_id": "string",
+                  "assistant_id": "string",
+                  "status": "queued",
+                  "required_action": {
+                    "type": "submit_tool_outputs",
+                    "submit_tool_outputs": {
+                      "tool_calls": [
+                        {
+                          "id": "string",
+                          "type": "function",
+                          "function": {
+                            "name": "string",
+                            "arguments": "string"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "last_error": {
+                    "code": "server_error",
+                    "message": "string"
+                  },
+                  "expires_at": 0,
+                  "started_at": 0,
+                  "cancelled_at": 0,
+                  "failed_at": 0,
+                  "completed_at": 0,
+                  "incomplete_details": {
+                    "reason": "max_completion_tokens"
+                  },
+                  "model": "string",
+                  "instructions": "string",
+                  "tools": [
+                    {
+                      "type": {}
+                    }
+                  ],
+                  "metadata": {},
+                  "usage": {
+                    "completion_tokens": 0,
+                    "prompt_tokens": 0,
+                    "total_tokens": 0
+                  },
+                  "temperature": {},
+                  "top_p": {},
+                  "max_prompt_tokens": {},
+                  "max_completion_tokens": {},
+                  "truncation_strategy": {
+                    "type": "auto",
+                    "last_messages": {}
+                  },
+                  "tool_choice": {},
+                  "parallel_tool_calls": true,
+                  "response_format": {}
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "OpenAI.RunObject",
+            "generatedSample": "{\r\n  \"id\": \"string\",\r\n  \"object\": \"thread.run\",\r\n  \"created_at\": 0,\r\n  \"thread_id\": \"string\",\r\n  \"assistant_id\": \"string\",\r\n  \"status\": \"queued\",\r\n  \"required_action\": {\r\n    \"type\": \"submit_tool_outputs\",\r\n    \"submit_tool_outputs\": {\r\n      \"tool_calls\": [\r\n        {\r\n          \"id\": \"string\",\r\n          \"type\": \"function\",\r\n          \"function\": {\r\n            \"name\": \"string\",\r\n            \"arguments\": \"string\"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  },\r\n  \"last_error\": {\r\n    \"code\": \"server_error\",\r\n    \"message\": \"string\"\r\n  },\r\n  \"expires_at\": 0,\r\n  \"started_at\": 0,\r\n  \"cancelled_at\": 0,\r\n  \"failed_at\": 0,\r\n  \"completed_at\": 0,\r\n  \"incomplete_details\": {\r\n    \"reason\": \"max_completion_tokens\"\r\n  },\r\n  \"model\": \"string\",\r\n  \"instructions\": \"string\",\r\n  \"tools\": [\r\n    {\r\n      \"type\": {}\r\n    }\r\n  ],\r\n  \"metadata\": {},\r\n  \"usage\": {\r\n    \"completion_tokens\": 0,\r\n    \"prompt_tokens\": 0,\r\n    \"total_tokens\": 0\r\n  },\r\n  \"temperature\": {},\r\n  \"top_p\": {},\r\n  \"max_prompt_tokens\": {},\r\n  \"max_completion_tokens\": {},\r\n  \"truncation_strategy\": {\r\n    \"type\": \"auto\",\r\n    \"last_messages\": {}\r\n  },\r\n  \"tool_choice\": {},\r\n  \"parallel_tool_calls\": true,\r\n  \"response_format\": {}\r\n}",
+            "sample": "{\r\n  \"id\": \"string\",\r\n  \"object\": \"thread.run\",\r\n  \"created_at\": 0,\r\n  \"thread_id\": \"string\",\r\n  \"assistant_id\": \"string\",\r\n  \"status\": \"queued\",\r\n  \"required_action\": {\r\n    \"type\": \"submit_tool_outputs\",\r\n    \"submit_tool_outputs\": {\r\n      \"tool_calls\": [\r\n        {\r\n          \"id\": \"string\",\r\n          \"type\": \"function\",\r\n          \"function\": {\r\n            \"name\": \"string\",\r\n            \"arguments\": \"string\"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  },\r\n  \"last_error\": {\r\n    \"code\": \"server_error\",\r\n    \"message\": \"string\"\r\n  },\r\n  \"expires_at\": 0,\r\n  \"started_at\": 0,\r\n  \"cancelled_at\": 0,\r\n  \"failed_at\": 0,\r\n  \"completed_at\": 0,\r\n  \"incomplete_details\": {\r\n    \"reason\": \"max_completion_tokens\"\r\n  },\r\n  \"model\": \"string\",\r\n  \"instructions\": \"string\",\r\n  \"tools\": [\r\n    {\r\n      \"type\": {}\r\n    }\r\n  ],\r\n  \"metadata\": {},\r\n  \"usage\": {\r\n    \"completion_tokens\": 0,\r\n    \"prompt_tokens\": 0,\r\n    \"total_tokens\": 0\r\n  },\r\n  \"temperature\": {},\r\n  \"top_p\": {},\r\n  \"max_prompt_tokens\": {},\r\n  \"max_completion_tokens\": {},\r\n  \"truncation_strategy\": {\r\n    \"type\": \"auto\",\r\n    \"last_messages\": {}\r\n  },\r\n  \"tool_choice\": {},\r\n  \"parallel_tool_calls\": true,\r\n  \"response_format\": {}\r\n}"
+          }
+        ],
+        "headers": []
+      },
+      {
+        "statusCode": 400,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Threads-thread_id-Runs-run_id-Submit_tool_outputsPost400apim-request-idResponseHeader"
+          }
+        ]
+      },
+      {
+        "statusCode": 500,
+        "description": "An unexpected error response.",
+        "representations": [
+          {
+            "contentType": "application/json",
+            "examples": {
+              "default": {
+                "value": {
+                  "error": {
+                    "code": "string",
+                    "message": "string",
+                    "param": "string",
+                    "type": "error",
+                    "inner_error": {}
+                  }
+                }
+              }
+            },
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "AzureErrorResponse",
+            "generatedSample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}",
+            "sample": "{\r\n  \"error\": {\r\n    \"code\": \"string\",\r\n    \"message\": \"string\",\r\n    \"param\": \"string\",\r\n    \"type\": \"error\",\r\n    \"inner_error\": {}\r\n  }\r\n}"
+          }
+        ],
+        "headers": [
+          {
+            "name": "apim-request-id",
+            "description": "A request ID used for troubleshooting purposes.",
+            "type": "string",
+            "values": [],
+            "schemaId": "69cff21b3d594b058ca8620e",
+            "typeName": "Threads-thread_id-Runs-run_id-Submit_tool_outputsPost500apim-request-idResponseHeader"
+          }
+        ]
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

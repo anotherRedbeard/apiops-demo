@@ -1,11 +1,15 @@
 {
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/loggers/red-scus-apim-ai-dev",
+  "type": "Microsoft.ApiManagement/service/loggers",
+  "name": "red-scus-apim-ai-dev",
   "properties": {
     "loggerType": "applicationInsights",
+    "description": "App insights logger info",
     "credentials": {
       "instrumentationKey": "{{Logger-Credentials--639121f85ddd1701d02ea240}}"
     },
-    "description": "App insights logger info",
     "isBuffered": true,
-    "resourceId": "/subscriptions/{#subscriptionId#}/resourceGroups/{#resourceGroupName#}/providers/microsoft.insights/components/red-scus-apim-appinsights-dev"
+    "resourceId": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/microsoft.insights/components/red-scus-apim-appinsights-dev",
+    "maxMessageSizeInBytes": null
   }
 }

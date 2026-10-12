@@ -1,0 +1,80 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/swagger-petstore/operations/updateUser",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "updateUser",
+  "properties": {
+    "displayName": "Updated user",
+    "method": "PUT",
+    "urlTemplate": "/user/{username}",
+    "templateParameters": [
+      {
+        "name": "username",
+        "description": "name that need to be updated",
+        "type": "string",
+        "required": true,
+        "values": [],
+        "schemaId": "69d026fc3d594b058ca86463",
+        "typeName": "User-username-PutRequest"
+      }
+    ],
+    "description": "This can only be done by the logged in user.",
+    "request": {
+      "description": "Updated user object",
+      "queryParameters": [],
+      "headers": [],
+      "representations": [
+        {
+          "contentType": "application/json",
+          "examples": {
+            "default": {
+              "value": {
+                "id": 0,
+                "username": "string",
+                "firstName": "string",
+                "lastName": "string",
+                "email": "string",
+                "password": "string",
+                "phone": "string",
+                "userStatus": 0
+              }
+            }
+          },
+          "schemaId": "69d026fc3d594b058ca86463",
+          "typeName": "User",
+          "generatedSample": "{\r\n  \"id\": 0,\r\n  \"username\": \"string\",\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"password\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"userStatus\": 0\r\n}",
+          "sample": "{\r\n  \"id\": 0,\r\n  \"username\": \"string\",\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"password\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"userStatus\": 0\r\n}"
+        }
+      ]
+    },
+    "responses": [
+      {
+        "statusCode": 400,
+        "description": "Invalid user supplied",
+        "representations": [
+          {
+            "contentType": "application/json"
+          },
+          {
+            "contentType": "application/xml"
+          }
+        ],
+        "headers": []
+      },
+      {
+        "statusCode": 404,
+        "description": "User not found",
+        "representations": [
+          {
+            "contentType": "application/json"
+          },
+          {
+            "contentType": "application/xml"
+          }
+        ],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

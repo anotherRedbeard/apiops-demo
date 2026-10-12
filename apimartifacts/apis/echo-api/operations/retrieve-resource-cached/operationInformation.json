@@ -1,0 +1,49 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/echo-api/operations/retrieve-resource-cached",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "retrieve-resource-cached",
+  "properties": {
+    "displayName": "Retrieve resource (cached)",
+    "method": "GET",
+    "urlTemplate": "/resource-cached?param1={param1}",
+    "templateParameters": [
+      {
+        "name": "param1",
+        "description": "A sample parameter that is required and has a default value of \"sample\".",
+        "type": "string",
+        "defaultValue": "sample",
+        "required": true,
+        "values": [
+          "sample"
+        ],
+        "schemaId": "69cff2173d594b058ca86203",
+        "typeName": "Resource-cachedGetRequest"
+      }
+    ],
+    "description": "A demonstration of a GET call with caching enabled on the same \"echo\" backend as above. Cache TTL is set to 1 hour. When you make the first request the headers you supplied will be cached. Subsequent calls will return the same headers as the first time even if you change them in your request.",
+    "request": {
+      "queryParameters": [
+        {
+          "name": "param2",
+          "description": "Another sample parameter, set to not required.",
+          "type": "string",
+          "values": [],
+          "schemaId": "69cff2173d594b058ca86203",
+          "typeName": "Resource-cachedGetRequest-1"
+        }
+      ],
+      "headers": [],
+      "representations": []
+    },
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "",
+        "representations": [],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}

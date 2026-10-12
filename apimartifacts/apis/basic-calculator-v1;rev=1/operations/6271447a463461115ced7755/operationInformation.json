@@ -1,0 +1,45 @@
+{
+  "id": "/subscriptions/0272c02b-5a38-4b6b-86e6-dcc4ff2ff0e8/resourceGroups/red-scus-apiopsdemo-rg-dev/providers/Microsoft.ApiManagement/service/red-apim-dev/apis/basic-calculator-v1;rev=1/operations/6271447a463461115ced7755",
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "6271447a463461115ced7755",
+  "properties": {
+    "displayName": "Add two integers",
+    "method": "GET",
+    "urlTemplate": "/add?a={a}&b={b}",
+    "templateParameters": [
+      {
+        "name": "a",
+        "description": "First operand. Default value is <code>51</code>.",
+        "type": "string",
+        "required": true,
+        "values": [
+          "51"
+        ],
+        "schemaId": "69cff21a3d594b058ca8620b",
+        "typeName": "AddGetRequest"
+      },
+      {
+        "name": "b",
+        "description": "Second operand. Default value is <code>49</code>.",
+        "type": "string",
+        "required": true,
+        "values": [
+          "49"
+        ],
+        "schemaId": "69cff21a3d594b058ca8620b",
+        "typeName": "AddGetRequest-1"
+      }
+    ],
+    "description": "Produces a sum of two numbers.",
+    "responses": [
+      {
+        "statusCode": 200,
+        "description": "",
+        "representations": [],
+        "headers": []
+      }
+    ],
+    "policies": null,
+    "effectivePath": null
+  }
+}
