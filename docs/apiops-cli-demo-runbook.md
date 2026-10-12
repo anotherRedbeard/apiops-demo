@@ -161,8 +161,18 @@ uses the normal override file to publish the managed subscription keys loaded
 from Key Vault. The temporary post-publish APIM REST workaround has been
 removed.
 
-A new full-artifact dry-run must confirm that the managed subscriptions are
-planned rather than skipped before a live publish.
+A safeguarded full-artifact GitHub Actions dry-run with APIOps CLI 1.0.5
+confirmed:
+
+```text
+150 creates/updates
+169 patches
+0 deletes
+0 skipped subscriptions
+```
+
+Both hexadecimal subscription resources were planned as native `PUT`
+operations. Both real publish steps remained skipped.
 
 ### Live-demo safety and fallback
 
@@ -587,8 +597,9 @@ publishes the subscription and its primary and secondary keys through its
 normal publish operation.
 
 The temporary post-publish `az rest` workaround used with version 1.0.4 is no
-longer present. Before a live publish, run a full-artifact dry-run and confirm
-that the managed subscriptions are planned rather than skipped.
+longer present. Full-artifact dry-run `38279598436` confirmed that both
+hexadecimal subscriptions are planned as native `PUT` operations with no
+skipped subscriptions. Both real publish steps remained skipped.
 
 ### 6. Merge package dependencies
 
@@ -668,12 +679,8 @@ The migrated override tokens use the reusable names:
 
 ### Remaining migration validation
 
-1. Commit and push the APIOps CLI 1.0.5 upgrade and removal of the temporary
-   subscription-key REST workaround.
-2. Run a safeguarded full-artifact GitHub Actions dry-run.
-3. Confirm the managed subscriptions are planned rather than skipped.
-4. Perform a controlled publish and verify the managed subscription keys.
-5. Recreate the branch from `demo-part2-start` to verify the reset procedure.
+1. Perform a controlled publish and verify the managed subscription keys.
+2. Recreate the branch from `demo-part2-start` to verify the reset procedure.
 
 Automatic publishing from a push to `main` is opt-in. Unless the repository
 variable `ENABLE_AUTOMATIC_PUBLISH` is set to `true`, push-triggered publisher

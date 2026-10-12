@@ -212,9 +212,18 @@ adds native support for publishing those subscriptions. The repository now
 pins version 1.0.5 and passes the managed subscription keys from Key Vault
 through the normal override file instead of using a separate REST update.
 
-Run a full-artifact dry-run after the upgrade and confirm the managed
-subscriptions are planned rather than skipped before performing a live
-publish.
+A safeguarded full-artifact GitHub Actions dry-run with APIOps CLI 1.0.5
+confirmed:
+
+```text
+150 creates/updates
+169 patches
+0 deletes
+0 skipped subscriptions
+```
+
+Both hexadecimal subscription resources were planned as native `PUT`
+operations. Both real publish steps remained skipped.
 
 ## Switch from Toolkit to CLI workflows
 
